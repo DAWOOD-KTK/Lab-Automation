@@ -45,14 +45,20 @@
         <li class="nav-item">
           <a class="nav-link text-dark <?= (basename($_SERVER['PHP_SELF'])=="tables.php")? "active": "";?>" href="tables.php">
             <!-- <i class="material-symbols-rounded opacity-5">table_view</i> -->
-            <span class="nav-link-text ms-1">Tables</span>
+            <span class="nav-link-text ms-1">all pruducts</span>
           </a>
         </li>
        
         <li class="nav-item">
           <a class="nav-link text-dark <?= (basename($_SERVER['PHP_SELF'])=="profile.php")? "active": "";?>" href="profile.php">
             <!-- <i class="material-symbols-rounded opacity-5">person</i> -->
-            <span class="nav-link-text ms-1">Profile</span>
+            <span class="nav-link-text ms-1">Users</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark <?= (basename($_SERVER['PHP_SELF'])=="profile.php")? "active": "";?>" href="profile.php">
+            <!-- <i class="material-symbols-rounded opacity-5">person</i> -->
+            <span class="nav-link-text ms-1">Users</span>
           </a>
         </li>
        
