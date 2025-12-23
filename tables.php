@@ -1,557 +1,1252 @@
-<?php 
-include "header.php";
-?>
+<!DOCTYPE html>
+<html lang="en">
 
-  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-    <div class="container-fluid py-2">
-      <div class="row">
-        <div class="col-12">
-          <div class="card my-4">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Authors table</h6>
-              </div>
-            </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
-                      <th class="text-secondary opacity-7"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="assets/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">John Michael</h6>
-                            <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Manager</p>
-                        <p class="text-xs text-secondary mb-0">Organization</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Online</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="assets/img/team-3.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user2">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                            <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Programator</p>
-                        <p class="text-xs text-secondary mb-0">Developer</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="assets/img/team-4.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user3">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Laurent Perrier</h6>
-                            <p class="text-xs text-secondary mb-0">laurent@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Executive</p>
-                        <p class="text-xs text-secondary mb-0">Projects</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Online</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="assets/img/team-3.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user4">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Michael Levi</h6>
-                            <p class="text-xs text-secondary mb-0">michael@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Programator</p>
-                        <p class="text-xs text-secondary mb-0">Developer</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Online</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="assets/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user5">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Richard Gran</h6>
-                            <p class="text-xs text-secondary mb-0">richard@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Manager</p>
-                        <p class="text-xs text-secondary mb-0">Executive</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">04/10/21</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="assets/img/team-4.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user6">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Miriam Eric</h6>
-                            <p class="text-xs text-secondary mb-0">miriam@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Programator</p>
-                        <p class="text-xs text-secondary mb-0">Developer</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="card my-4">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Projects table</h6>
-              </div>
-            </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center justify-content-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Project</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Budget</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Completion</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div>
-                            <img src="assets/img/small-logos/logo-asana.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
-                          </div>
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm">Asana</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">$2,500</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">working</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">60%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle">
-                        <button class="btn btn-link text-secondary mb-0">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div>
-                            <img src="assets/img/small-logos/github.svg" class="avatar avatar-sm rounded-circle me-2" alt="invision">
-                          </div>
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm">Github</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">$5,000</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">done</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">100%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle">
-                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div>
-                            <img src="assets/img/small-logos/logo-atlassian.svg" class="avatar avatar-sm rounded-circle me-2" alt="jira">
-                          </div>
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm">Atlassian</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">$3,400</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">canceled</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">30%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="30" style="width: 30%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle">
-                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div>
-                            <img src="assets/img/small-logos/bootstrap.svg" class="avatar avatar-sm rounded-circle me-2" alt="webdev">
-                          </div>
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm">Bootstrap</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">$14,000</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">working</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">80%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="80" style="width: 80%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle">
-                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div>
-                            <img src="assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm rounded-circle me-2" alt="slack">
-                          </div>
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm">Slack</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">$1,000</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">canceled</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">0%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0" style="width: 0%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle">
-                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div>
-                            <img src="assets/img/small-logos/devto.svg" class="avatar avatar-sm rounded-circle me-2" alt="xd">
-                          </div>
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm">Devto</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">$2,300</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">done</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">100%</span>
-                          <div>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle">
-                        <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer class="footer py-4  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-start">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                for a better web.
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-  </main>
-  <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="material-symbols-rounded py-2">settings</i>
-    </a>
-    <div class="card shadow-lg">
-      <div class="card-header pb-0 pt-3">
-        <div class="float-start">
-          <h5 class="mt-3 mb-0">Material UI Configurator</h5>
-          <p>See our dashboard options.</p>
-        </div>
-        <div class="float-end mt-4">
-          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-            <i class="material-symbols-rounded">clear</i>
-          </button>
-        </div>
-        <!-- End Toggle Button -->
-      </div>
-      <hr class="horizontal dark my-1">
-      <div class="card-body pt-sm-3 pt-0">
-        <!-- Sidebar Backgrounds -->
-        <div>
-          <h6 class="mb-0">Sidebar Colors</h6>
-        </div>
-        <a href="javascript:void(0)" class="switch-trigger background-color">
-          <div class="badge-colors my-2 text-start">
-            <span class="badge filter bg-gradient-primary" data-color="primary" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-dark active" data-color="dark" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
-          </div>
-        </a>
-        <!-- Sidenav Type -->
-        <div class="mt-3">
-          <h6 class="mb-0">Sidenav Type</h6>
-          <p class="text-sm">Choose between different sidenav types.</p>
-        </div>
-        <div class="d-flex">
-          <button class="btn bg-gradient-dark px-3 mb-2" data-class="bg-gradient-dark" onclick="sidebarType(this)">Dark</button>
-          <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
-          <button class="btn bg-gradient-dark px-3 mb-2  active ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
-        </div>
-        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        <!-- Navbar Fixed -->
-        <div class="mt-3 d-flex">
-          <h6 class="mb-0">Navbar Fixed</h6>
-          <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
-          </div>
-        </div>
-        <hr class="horizontal dark my-3">
-        <div class="mt-2 d-flex">
-          <h6 class="mb-0">Light / Dark</h6>
-          <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
-          </div>
-        </div>
-        <hr class="horizontal dark my-sm-4">
-        <a class="btn bg-gradient-info w-100" href="https://www.creative-tim.com/product/material-dashboard-pro">Free Download</a>
-        <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard">View documentation</a>
-        <div class="w-100 text-center">
-          <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/material-dashboard on GitHub">Star</a>
-          <h6 class="mt-3">Thank you for sharing!</h6>
-          <a href="https://twitter.com/intent/tweet?text=Check%20Material%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-            <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
-          </a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/material-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-            <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--   Core JS Files   -->
-  <script src="assets/js/core/popper.min.js"></script>
-  <script src="assets/js/core/bootstrap.min.js"></script>
-  <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="assets/js/material-dashboard.min.js?v=3.2.0"></script>
-</body>
+  
+<!-- Mirrored from bootstrapget.com/demos/cube-admin-template/tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Feb 2025 22:03:43 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Templates & Dashboards - Cube Admin Template</title>
 
+    <!-- Meta -->
+    <meta name="description" content="Marketplace for Bootstrap Admin Dashboards" />
+    <meta name="author" content="Bootstrap Gallery" />
+    <link rel="canonical" href="https://www.bootstrap.gallery/">
+    <meta property="og:url" content="https://www.bootstrap.gallery/">
+    <meta property="og:title" content="Admin Templates - Dashboard Templates | Bootstrap Gallery">
+    <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
+    <meta property="og:type" content="Website">
+    <meta property="og:site_name" content="Bootstrap Gallery">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" />
+
+    <!-- *************
+			************ CSS Files *************
+		************* -->
+    <link rel="stylesheet" href="assets/fonts/bootstrap/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="assets/css/main.min.css" />
+
+    <!-- *************
+			************ Vendor Css Files *************
+		************ -->
+
+    <!-- Scrollbar CSS -->
+    <link rel="stylesheet" href="assets/vendor/overlay-scroll/OverlayScrollbars.min.css" />
+  </head>
+
+  <body>
+
+    <!-- Page wrapper starts -->
+    <div class="page-wrapper">
+
+      <!-- Main container starts -->
+      <div class="main-container">
+
+        <!-- Sidebar wrapper starts -->
+        <nav id="sidebar" class="sidebar-wrapper">
+
+          <!-- App brand starts -->
+          <div class="app-brand p-3 my-2">
+            <a href="index.html">
+              <img src="assets/images/logo.svg" class="logo" alt="Bootstrap Gallery" />
+            </a>
+          </div>
+
+          <!-- App brand ends -->
+
+          <!-- Sidebar menu starts -->
+          <div class="sidebarMenuScroll">
+            <ul class="sidebar-menu">
+              <li>
+                <a href="index.html">
+                  <i class="bi bi-bar-chart-line"></i>
+                  <span class="menu-text">Dashboard</span>
+                </a>
+              </li>
+              <li>
+                <a href="orders.html">
+                  <i class="bi bi-shop-window"></i>
+                  <span class="menu-text">Orders</span>
+                </a>
+              </li>
+              <li>
+                <a href="expenses.html">
+                  <i class="bi bi-send"></i>
+                  <span class="menu-text">Expenses</span>
+                </a>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="bi bi-box"></i>
+                  <span class="menu-text">Widgets</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="general-widgets.html">General</a>
+                  </li>
+                  <li>
+                    <a href="graph-widgets.html">Graph Widgers</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="bi bi-stickies"></i>
+                  <span class="menu-text">Components</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="accordions.html">Accordions</a>
+                  </li>
+                  <li>
+                    <a href="alerts.html">Alerts</a>
+                  </li>
+                  <li>
+                    <a href="avatars.html">Avatars</a>
+                  </li>
+                  <li>
+                    <a href="buttons.html">Buttons</a>
+                  </li>
+                  <li>
+                    <a href="badges.html">Badges</a>
+                  </li>
+                  <li>
+                    <a href="cards.html">Cards</a>
+                  </li>
+                  <li>
+                    <a href="advanced-cards.html">Advanced Cards</a>
+                  </li>
+                  <li>
+                    <a href="carousel.html">Carousel</a>
+                  </li>
+                  <li>
+                    <a href="dropdowns.html">Dropdowns</a>
+                  </li>
+                  <li>
+                    <a href="icons.html">Icons</a>
+                  </li>
+                  <li>
+                    <a href="list-items.html">List Items</a>
+                  </li>
+                  <li>
+                    <a href="modals.html">Modals</a>
+                  </li>
+                  <li>
+                    <a href="offcanvas.html">Offcanvas</a>
+                  </li>
+                  <li>
+                    <a href="placeholders.html">Placeholders</a>
+                  </li>
+                  <li>
+                    <a href="progress.html">Progress Bars</a>
+                  </li>
+                  <li>
+                    <a href="popovers.html">Popovers</a>
+                  </li>
+                  <li>
+                    <a href="spinners.html">Spinners</a>
+                  </li>
+                  <li>
+                    <a href="tabs.html">Tabs</a>
+                  </li>
+                  <li>
+                    <a href="toasts.html">Toasts</a>
+                  </li>
+                  <li>
+                    <a href="tooltips.html">Tooltips</a>
+                  </li>
+                  <li>
+                    <a href="typography.html">Typography</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="bi bi-ui-checks-grid"></i>
+                  <span class="menu-text">Forms</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="form-inputs.html">Form Inputs</a>
+                  </li>
+                  <li>
+                    <a href="form-checkbox-radio.html">Checkbox &amp; Radio</a>
+                  </li>
+                  <li>
+                    <a href="form-file-input.html">File Input</a>
+                  </li>
+                  <li>
+                    <a href="form-validations.html">Validations</a>
+                  </li>
+                  <li>
+                    <a href="date-time-pickers.html">Date Time Pickers</a>
+                  </li>
+                  <li>
+                    <a href="input-tags.html">Input Tags</a>
+                  </li>
+                  <li>
+                    <a href="input-masks.html">Input Masks</a>
+                  </li>
+                  <li>
+                    <a href="editor.html">Editor</a>
+                  </li>
+                  <li>
+                    <a href="form-layouts.html">Form Layouts</a>
+                  </li>
+                  <li>
+                    <a href="form-tabs.html">Form Tabs</a>
+                  </li>
+                  <li>
+                    <a href="form-accordion.html">Form Accordion</a>
+                  </li>
+                  <li>
+                    <a href="form-wizard.html">Form Wizard</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="notifications.html">
+                  <i class="bi bi-globe"></i>
+                  <span class="menu-text">Notifications</span>
+                </a>
+              </li>
+              <li>
+                <a href="calendar.html">
+                  <i class="bi bi-calendar2"></i>
+                  <span class="menu-text">Calendar</span>
+                </a>
+              </li>
+              <li>
+                <a href="contacts.html">
+                  <i class="bi bi-wallet2"></i>
+                  <span class="menu-text">Contacts</span>
+                </a>
+              </li>
+              <li>
+                <a href="reviews.html">
+                  <i class="bi bi-mouse3"></i>
+                  <span class="menu-text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="support.html">
+                  <i class="bi bi-headphones"></i>
+                  <span class="menu-text">Support</span>
+                </a>
+              </li>
+              <li>
+                <a href="default-layout.html">
+                  <i class="bi bi-layout-sidebar"></i>
+                  <span class="menu-text">Default Layout</span>
+                </a>
+              </li>
+              <li class="active current-page">
+                <a href="tables.html">
+                  <i class="bi bi-border-all"></i>
+                  <span class="menu-text">Tables</span>
+                </a>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="bi bi-pie-chart"></i>
+                  <span class="menu-text">Graphs</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="apex.html">Apex</a>
+                  </li>
+                  <li>
+                    <a href="morris.html">Morris</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="bi bi-window-sidebar"></i>
+                  <span class="menu-text">Invoices</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="create-invoice.html">Create Invoice</a>
+                  </li>
+                  <li>
+                    <a href="view-invoice.html">View Invoice</a>
+                  </li>
+                  <li>
+                    <a href="invoice-list.html">Invoice List</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="maps.html">
+                  <i class="bi bi-pin-map"></i>
+                  <span class="menu-text">Maps</span>
+                </a>
+              </li>
+              <li>
+                <a href="profile.html">
+                  <i class="bi bi-filter-circle"></i>
+                  <span class="menu-text">User Profile</span>
+                </a>
+              </li>
+              <li>
+                <a href="help.html">
+                  <i class="bi bi-chat"></i>
+                  <span class="menu-text">Help</span>
+                </a>
+              </li>
+              <li>
+                <a href="contact.html">
+                  <i class="bi bi-phone-vibrate"></i>
+                  <span class="menu-text">Contact Us</span>
+                </a>
+              </li>
+              <li>
+                <a href="settings.html">
+                  <i class="bi bi-gear"></i>
+                  <span class="menu-text">Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="maintenance.html">
+                  <i class="bi bi-exclamation-octagon"></i>
+                  <span class="menu-text">Maintenance</span>
+                </a>
+              </li>
+              <li>
+                <a href="page-not-found.html">
+                  <i class="bi bi-exclamation-diamond"></i>
+                  <span class="menu-text">404</span>
+                </a>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="bi bi-upc-scan"></i>
+                  <span class="menu-text">Login/Signup</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="login.html">Login</a>
+                  </li>
+                  <li>
+                    <a href="signup.html">Signup</a>
+                  </li>
+                  <li>
+                    <a href="forgot-password.html">Forgot Password</a>
+                  </li>
+                  <li>
+                    <a href="reset-password.html">Reset Password</a>
+                  </li>
+                  <li>
+                    <a href="lock-screen.html">Lock Screen</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="bi bi-code-square"></i>
+                  <span class="menu-text">Nested Menu</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="#!">Nested 1</a>
+                  </li>
+                  <li>
+                    <a href="#!">
+                      Nested 2
+                      <i class="bi bi-caret-right-fill"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li>
+                        <a href="#!">Nested 2.1</a>
+                      </li>
+                      <li>
+                        <a href="#!">Nested 2.2
+                          <i class="bi bi-caret-right-fill"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                          <li>
+                            <a href="#!">Nested 2.2.1</a>
+                          </li>
+                          <li>
+                            <a href="#!">Nested 2.2.2</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- Sidebar menu ends -->
+
+        </nav>
+        <!-- Sidebar wrapper ends -->
+
+        <!-- App container starts -->
+        <div class="app-container">
+
+          <!-- App header starts -->
+          <div class="app-header d-flex align-items-center">
+
+            <!-- Toggle buttons starts -->
+            <div class="d-flex">
+              <button class="toggle-sidebar">
+                <i class="bi bi-list lh-1"></i>
+              </button>
+              <button class="pin-sidebar">
+                <i class="bi bi-list lh-1"></i>
+              </button>
+            </div>
+            <!-- Toggle buttons ends -->
+
+            <!-- App brand sm starts -->
+            <div class="app-brand-sm d-lg-none d-flex">
+
+              <!-- Logo sm starts -->
+              <a href="index.html">
+                <img src="assets/images/logo-sm.svg" class="logo" alt="Bootstrap Gallery">
+              </a>
+              <!-- Logo sm end -->
+
+            </div>
+            <!-- App brand sm ends -->
+
+            <!-- Page title starts -->
+            <h5 class="m-0 ms-2 fw-semibold">Tables</h5>
+            <!-- Page title ends -->
+
+            <!-- App header actions starts -->
+            <div class="header-actions">
+
+              <!-- Search container start -->
+              <div class="search-container d-xl-block d-none me-3">
+                <input type="text" class="form-control" id="searchData" placeholder="Search" />
+                <i class="bi bi-search"></i>
+              </div>
+              <!-- Search container ends -->
+
+              <!-- Header action bar starts -->
+              <div class="bg-white p-2 rounded-4 d-flex align-items-center">
+
+                <!-- Header actions start -->
+                <div class="d-sm-flex d-none">
+                  <div class="dropdown">
+                    <a class="dropdown-toggle d-flex p-3 position-relative" href="#!" role="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-bag fs-4 lh-1"></i>
+                      <span class="count-label">6</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-sm">
+                      <h5 class="fw-semibold px-3 py-2 text-primary">Orders</h5>
+                      <div class="scroll250">
+                        <div class="mx-3 d-flex gap-2 flex-column">
+                          <div class="bg-danger-subtle border border-danger px-3 py-2 rounded-1">
+                            <p class="m-0 text-danger">New product purchased</p>
+                            <p class="small m-0">Just now</p>
+                          </div>
+                          <div class="bg-success-subtle border border-success px-3 py-2 rounded-1">
+                            <p class="m-0 text-success">Order received.</p>
+                            <p class="small m-0">Today, 07:45pm</p>
+                          </div>
+
+                          <div class="bg-info-subtle border border-info px-3 py-2 rounded-1">
+                            <p class="m-0 text-info">New item ordered.</p>
+                            <p class="small m-0">Today, 07:45pm</p>
+                          </div>
+                          <div class="bg-warning-subtle border border-warning px-3 py-2 rounded-1">
+                            <p class="m-0 text-warning">New ticket</p>
+                            <p class="small m-0">Today, 09:30pm</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-grid m-3">
+                        <a href="javascript:void(0)" class="btn btn-primary">View all</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle d-flex p-3 position-relative" href="#!" role="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-receipt fs-4 lh-1"></i>
+                      <span class="count-label bg-danger">9</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-sm">
+                      <h5 class="fw-semibold px-3 py-2 text-primary">Invoices</h5>
+                      <div class="scroll250">
+                        <div class="dropdown-item">
+                          <div class="d-flex align-items-center py-2">
+                            <img src="assets/images/user1.png" class="img-3x me-3 rounded-5" alt="Admin Theme" />
+                            <div class="m-0">
+                              <h4 class="mb-2 text-primary">$450.00</h4>
+                              <h6 class="mb-1 fw-semibold">MSD Solutions</h6>
+                              <p class="m-0 text-secondary">
+                                Invoice #99885<span class="badge bg-info ms-2">Paid</span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="dropdown-item">
+                          <div class="d-flex align-items-center py-2">
+                            <img src="assets/images/user2.png" class="img-3x me-3 rounded-5" alt="Admin Theme" />
+                            <div class="m-0">
+                              <h4 class="mb-2 text-primary">$290.00</h4>
+                              <h6 class="mb-1 fw-semibold">VK Inc</h6>
+                              <p class="m-0 text-secondary">
+                                Invoice #99887<span class="badge bg-info ms-2">Paid</span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="dropdown-item">
+                          <div class="d-flex align-items-center py-2">
+                            <img src="assets/images/user3.png" class="img-3x me-3 rounded-5" alt="Admin Theme" />
+                            <div class="m-0">
+                              <h4 class="mb-2 text-primary">$330.00</h4>
+                              <h6 class="mb-1 fw-semibold">Sky Labs</h6>
+                              <p class="m-0 text-secondary">
+                                Invoice #99888<span class="badge bg-info ms-2">Paid</span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="dropdown-item">
+                          <div class="d-flex align-items-center py-2">
+                            <img src="assets/images/user4.png" class="img-3x me-3 rounded-5" alt="Admin Theme" />
+                            <div class="m-0">
+                              <h4 class="mb-2 text-primary">$380.00</h4>
+                              <h6 class="mb-1 fw-semibold">Good Works Inc</h6>
+                              <p class="m-0 text-secondary">
+                                Invoice #99889<span class="badge bg-info ms-2">Paid</span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-grid m-3">
+                        <a href="javascript:void(0)" class="btn btn-primary">View all</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Header actions end -->
+
+                <!-- User settings start -->
+                <div class="dropdown ms-2">
+                  <a id="userSettings" class="dropdown-toggle user-settings" href="#!" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="me-2 text-truncate d-lg-block d-none">Sally Esparza</span>
+                    <div class="icon-box md rounded-4 fw-bold bg-primary-subtle text-primary">
+                      SE
+                    </div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end shadow-lg">
+                    <a class="dropdown-item d-flex align-items-center" href="profile.html"><i
+                        class="bi bi-person fs-4 me-2"></i>My Profile</a>
+                    <a class="dropdown-item d-flex align-items-center" href="settings.html"><i
+                        class="bi bi-gear fs-4 me-2"></i>Account Settings</a>
+                    <div class="mx-3 my-2 d-grid">
+                      <a href="login.html" class="btn btn-warning">Logout</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- User settings end -->
+
+              </div>
+              <!-- Header action bar ends -->
+
+            </div>
+            <!-- App header actions ends -->
+
+          </div>
+          <!-- App header ends -->
+
+          <!-- App body starts -->
+          <div class="app-body">
+
+            <!-- Row starts -->
+            <div class="row gx-4">
+              <div class="col-sm-12">
+                <div class="card mb-3">
+                  <div class="card-header">
+                    <h5 class="card-title">Default</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-outer">
+                      <div class="table-responsive">
+                        <table class="table align-middle table-hover m-0 truncate">
+                          <thead>
+                            <tr>
+                              <th scope="col">Employee</th>
+                              <th scope="col">Position</th>
+                              <th scope="col">Address</th>
+                              <th scope="col">Age</th>
+                              <th scope="col">Start date</th>
+                              <th scope="col">Progress</th>
+                              <th scope="col">Salary</th>
+                              <th scope="col">Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <img class="rounded-circle img-3x me-2" src="assets/images/user.png"
+                                  alt="Bootstrap Gallery">
+                              </td>
+                              <td>Developer</td>
+                              <td>3994 Grant View Drive, Muskego, 53150</td>
+                              <td>28</td>
+                              <td>28/10/2023</td>
+                              <td>
+                                <div class="progress small">
+                                  <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </td>
+                              <td>$92,000</td>
+                              <td>
+                                <a class="btn btn-info btn-sm" href="#"><i class="bi bi-pencil"></i>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <img class="rounded-circle img-3x me-2" src="assets/images/user2.png"
+                                  alt="Bootstrap Gallery">
+                              </td>
+                              <td>Sales</td>
+                              <td>
+                                913 Alpaca Way, Garden Grove, California, 92643
+                              </td>
+                              <td>32</td>
+                              <td>30/10/2023</td>
+                              <td>
+                                <div class="progress small">
+                                  <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </td>
+                              <td>$86,000</td>
+                              <td>
+                                <a class="btn btn-primary btn-icon btn-sm mb-1" href="#"><i class="bi bi-trash"></i>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <img class="rounded-circle img-3x me-2" src="assets/images/user3.png"
+                                  alt="Bootstrap Gallery">
+                              </td>
+                              <td>Developer</td>
+                              <td>
+                                2343 Burwell Heights Road, Nederland, Texas, 77627
+                              </td>
+                              <td>36</td>
+                              <td>16/11/2023</td>
+                              <td>
+                                <div class="progress small">
+                                  <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </td>
+                              <td>$78,000</td>
+                              <td>
+                                <a class="btn btn-info btn-sm" href="#"><i class="bi bi-pencil"></i>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <img class="rounded-circle img-3x me-2" src="assets/images/user4.png"
+                                  alt="Bootstrap Gallery">
+                              </td>
+                              <td>Designer</td>
+                              <td>
+                                2127 Boone Crockett Lane, Seattle, Washington, 98109
+                              </td>
+                              <td>45</td>
+                              <td>21/12/2023</td>
+                              <td>
+                                <div class="progress small">
+                                  <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </td>
+                              <td>$65,000</td>
+                              <td>
+                                <a class="btn btn-primary btn-icon btn-sm mb-1" href="#"><i class="bi bi-trash"></i>
+                                </a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="card mb-3">
+                  <div class="card-header">
+                    <h5 class="card-title">Responsive</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-outer">
+                      <div class="table-responsive">
+                        <table class="table truncate m-0">
+                          <thead>
+                            <tr>
+                              <th>Customer ID</th>
+                              <th>First Name</th>
+                              <th>Last Name</th>
+                              <th>Phone</th>
+                              <th>Email</th>
+                              <th>Items Bought</th>
+                              <th>Money Spent</th>
+                              <th>Last Login</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>#00001</td>
+                              <td><a href="#" class="text-primary">Alia</a></td>
+                              <td>Willams</td>
+                              <td>+143-148-60985</td>
+                              <td>info@example.com</td>
+                              <td>250</td>
+                              <td>$4500</td>
+                              <td>10/10/2023 4:30pm</td>
+                            </tr>
+                            <tr>
+                              <td>#00002</td>
+                              <td><a href="#" class="text-primary">Nathan</a></td>
+                              <td>James</td>
+                              <td>+278-119-88790</td>
+                              <td>info@example.com</td>
+                              <td>390</td>
+                              <td>$3500</td>
+                              <td>12/10/2023 2:37am</td>
+                            </tr>
+                            <tr>
+                              <td>#00003</td>
+                              <td><a href="#" class="text-primary">Kelly</a></td>
+                              <td>Thomas</td>
+                              <td>+125-117-88763</td>
+                              <td>info@example.com</td>
+                              <td>135</td>
+                              <td>$2400</td>
+                              <td>14/10/2023 7:50pm</td>
+                            </tr>
+                            <tr>
+                              <td>#00004</td>
+                              <td><a href="#" class="text-primary">Steve</a></td>
+                              <td>Smitth</td>
+                              <td>+334-676-66530</td>
+                              <td>info@example.com</td>
+                              <td>765</td>
+                              <td>$7890</td>
+                              <td>18/10/2023 9:30pm</td>
+                            </tr>
+                            <tr>
+                              <td>#00005</td>
+                              <td><a href="#" class="text-primary">Kevin</a></td>
+                              <td>Oliver</td>
+                              <td>+435-667-99808</td>
+                              <td>info@example.com</td>
+                              <td>763</td>
+                              <td>$5690</td>
+                              <td>21/10/2023 3:20pm</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="card mb-3">
+                  <div class="card-header">
+                    <h5 class="card-title">Table SM</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-outer">
+                      <div class="table-responsive">
+                        <table class="table table-sm truncate m-0">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Heading 1</th>
+                              <th>Heading 2</th>
+                              <th>Heading 3</th>
+                              <th>Heading 4</th>
+                              <th>Heading 5</th>
+                              <th>Heading 6</th>
+                              <th>Heading 7</th>
+                              <th>Heading 8</th>
+                              <th>Heading 9</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>001</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                            </tr>
+                            <tr>
+                              <td>002</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                            </tr>
+                            <tr>
+                              <td>003</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                            </tr>
+                            <tr>
+                              <td>004</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                            </tr>
+                            <tr>
+                              <td>005</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                              <td>Long text</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="card mb-3">
+                  <div class="card-header">
+                    <h5 class="card-title">Table Striped</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-outer">
+                      <div class="table-responsive">
+                        <table class="table table-striped truncate m-0">
+                          <thead>
+                            <tr>
+                              <th>Customer ID</th>
+                              <th>First Name</th>
+                              <th>Last Name</th>
+                              <th>Phone</th>
+                              <th>Email</th>
+                              <th>Items Bought</th>
+                              <th>Money Spent</th>
+                              <th>Last Login</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>#00001</td>
+                              <td><a href="#" class="text-primary">Alia</a></td>
+                              <td>Willams</td>
+                              <td>+143-148-60985</td>
+                              <td>info@example.com</td>
+                              <td>250</td>
+                              <td>$4500</td>
+                              <td>10/10/2023 4:30pm</td>
+                            </tr>
+                            <tr>
+                              <td>#00002</td>
+                              <td><a href="#" class="text-primary">Nathan</a></td>
+                              <td>James</td>
+                              <td>+278-119-88790</td>
+                              <td>info@example.com</td>
+                              <td>390</td>
+                              <td>$3500</td>
+                              <td>12/10/2023 2:37am</td>
+                            </tr>
+                            <tr>
+                              <td>#00003</td>
+                              <td><a href="#" class="text-primary">Kelly</a></td>
+                              <td>Thomas</td>
+                              <td>+125-117-88763</td>
+                              <td>info@example.com</td>
+                              <td>135</td>
+                              <td>$2400</td>
+                              <td>14/10/2023 7:50pm</td>
+                            </tr>
+                            <tr>
+                              <td>#00004</td>
+                              <td><a href="#" class="text-primary">Steve</a></td>
+                              <td>Smitth</td>
+                              <td>+334-676-66530</td>
+                              <td>info@example.com</td>
+                              <td>765</td>
+                              <td>$7890</td>
+                              <td>18/10/2023 9:30pm</td>
+                            </tr>
+                            <tr>
+                              <td>#00005</td>
+                              <td><a href="#" class="text-primary">Kevin</a></td>
+                              <td>Oliver</td>
+                              <td>+435-667-99808</td>
+                              <td>info@example.com</td>
+                              <td>763</td>
+                              <td>$5690</td>
+                              <td>21/10/2023 3:20pm</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="card mb-3">
+                  <div class="card-header">
+                    <h5 class="card-title">Table Bordered</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-outer">
+                      <div class="table-responsive">
+                        <table class="table truncate m-0">
+                          <thead>
+                            <tr>
+                              <th>Customer ID</th>
+                              <th>First Name</th>
+                              <th>Last Name</th>
+                              <th>Phone</th>
+                              <th>Email</th>
+                              <th>Items Bought</th>
+                              <th>Money Spent</th>
+                              <th>Last Login</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>#00001</td>
+                              <td>Alia</td>
+                              <td>Willams</td>
+                              <td>+143-148-60985</td>
+                              <td>info@example.com</td>
+                              <td>250</td>
+                              <td>$4500</td>
+                              <td>10/10/2023 4:30pm</td>
+                            </tr>
+                            <tr>
+                              <td>#00002</td>
+                              <td>Nathan</td>
+                              <td>James</td>
+                              <td>+278-119-88790</td>
+                              <td>info@example.com</td>
+                              <td>390</td>
+                              <td>$3500</td>
+                              <td>12/10/2023 2:37am</td>
+                            </tr>
+                            <tr>
+                              <td>#00003</td>
+                              <td>Kelly</td>
+                              <td>Thomas</td>
+                              <td>+125-117-88763</td>
+                              <td>info@example.com</td>
+                              <td>135</td>
+                              <td>$2400</td>
+                              <td>14/10/2023 7:50pm</td>
+                            </tr>
+                            <tr>
+                              <td>#00004</td>
+                              <td>Steve</td>
+                              <td>Smitth</td>
+                              <td>+334-676-66530</td>
+                              <td>info@example.com</td>
+                              <td>765</td>
+                              <td>$7890</td>
+                              <td>18/10/2023 9:30pm</td>
+                            </tr>
+                            <tr>
+                              <td>#00005</td>
+                              <td>Kevin</td>
+                              <td>Oliver</td>
+                              <td>+435-667-99808</td>
+                              <td>info@example.com</td>
+                              <td>763</td>
+                              <td>$5690</td>
+                              <td>21/10/2023 3:20pm</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="card mb-3">
+                  <div class="card-header">
+                    <h5 class="card-title">Table Danger</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-outer">
+                      <div class="table-responsive">
+                        <table class="table align-middle truncate m-0">
+                          <thead>
+                            <tr>
+                              <th>Country</th>
+                              <th>Languages</th>
+                              <th>Population</th>
+                              <th>Median Age</th>
+                              <th>Area (Km²)</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <img src="assets/images/flags/1x1/hk.svg" class="img-1xx me-2" alt="Hong Kong">Hong
+                                Kong
+                              </td>
+                              <td>Chinese (official), English</td>
+                              <td>7,39,000</td>
+                              <td>31.3</td>
+                              <td>1106</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <img src="assets/images/flags/1x1/au.svg" class="img-1xx me-2" alt="Australia">Australia
+                              </td>
+                              <td>English 79%, native and other languages</td>
+                              <td>23,630,169</td>
+                              <td>37.3</td>
+                              <td>7,739,983</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <img src="assets/images/flags/1x1/tz.svg" class="img-1xx me-2" alt="Tanzania">Tanzania
+                              </td>
+                              <td>
+                                Swahili (national), English, Arabic, Chaga,
+                                Makonde
+                              </td>
+                              <td>57,353,670</td>
+                              <td>39.1</td>
+                              <td>945,086</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <img src="assets/images/flags/1x1/ru.svg" class="img-1xx me-2" alt="Russia">Russia
+                              </td>
+                              <td>Russian, others</td>
+                              <td>142,467,651</td>
+                              <td>38.4</td>
+                              <td>17,076,310</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <img src="assets/images/flags/1x1/de.svg" class="img-1xx me-2" alt="Germany">Germany
+                              </td>
+                              <td>German, Danish, Low Rhenish, Romani</td>
+                              <td>82,081,261</td>
+                              <td>41.1</td>
+                              <td>357,386</td>
+                            </tr>
+                          </tbody>
+                          <tfoot>
+                            <tr>
+                              <td colspan="5" class="text-center">
+                                Data retrieved from BootstrapGallery.
+                              </td>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title">Table</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-outer">
+                      <div class="table-responsive">
+                        <table class="table truncate m-0">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Title</th>
+                              <th>Module</th>
+                              <th>Reporter</th>
+                              <th>Status</th>
+                              <th>Owner</th>
+                              <th>Severity</th>
+                              <th>Created</th>
+                              <th>Updated</th>
+                              <th>Due</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>App crashes</td>
+                              <td>Main App</td>
+                              <td>Lewis</td>
+                              <td>
+                                <span class="badge border border-primary text-primary">Open</span>
+                              </td>
+                              <td>Micheal</td>
+                              <td>
+                                <span class="badge border border-primary text-primary">High</span>
+                              </td>
+                              <td>Aug-10, 2023</td>
+                              <td>Sep-14, 2023</td>
+                              <td>Oct-20, 2023</td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>Saving file</td>
+                              <td>Form Screen</td>
+                              <td>James</td>
+                              <td>
+                                <span class="badge border border-primary text-primary">In Progress</span>
+                              </td>
+                              <td>Donald</td>
+                              <td>
+                                <span class="badge border border-primary text-primary">Low</span>
+                              </td>
+                              <td>Aug-10, 2023</td>
+                              <td>Sep-14, 2023</td>
+                              <td>Oct-20, 2023</td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>Login fail</td>
+                              <td>Main App</td>
+                              <td>Powell</td>
+                              <td>
+                                <span class="badge border border-primary text-primary">Open</span>
+                              </td>
+                              <td>Glory</td>
+                              <td>
+                                <span class="badge border border-primary text-primary">High</span>
+                              </td>
+                              <td>Aug-10, 2023</td>
+                              <td>Sep-14, 2023</td>
+                              <td>Oct-20, 2023</td>
+                            </tr>
+                            <tr>
+                              <td>4</td>
+                              <td>Saving file</td>
+                              <td>Form Screen</td>
+                              <td>James</td>
+                              <td>
+                                <span class="badge border border-primary text-primary">In Progress</span>
+                              </td>
+                              <td>Donald</td>
+                              <td>
+                                <span class="badge border border-primary text-primary">Low</span>
+                              </td>
+                              <td>Aug-10, 2023</td>
+                              <td>Sep-14, 2023</td>
+                              <td>Oct-20, 2023</td>
+                            </tr>
+                            <tr>
+                              <td>5</td>
+                              <td>Login fail</td>
+                              <td>Main App</td>
+                              <td>Powell</td>
+                              <td>
+                                <span class="badge border border-primary text-primary">In Progress</span>
+                              </td>
+                              <td>Glory</td>
+                              <td>
+                                <span class="badge border border-primary text-primary">High</span>
+                              </td>
+                              <td>Aug-10, 2023</td>
+                              <td>Sep-14, 2023</td>
+                              <td>Oct-20, 2023</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Row ends -->
+
+          </div>
+          <!-- App body ends -->
+
+          <!-- App footer starts -->
+          <div class="app-footer">
+            <span class="small">© Bootstrap Gallery 2024</span>
+          </div>
+          <!-- App footer ends -->
+
+        </div>
+        <!-- App container ends -->
+
+      </div>
+      <!-- Main container ends -->
+
+    </div>
+    <!-- Page wrapper ends -->
+
+    <!-- *************
+			************ JavaScript Files *************
+		************* -->
+    <!-- Required jQuery first, then Bootstrap Bundle JS -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+
+    <!-- *************
+			************ Vendor Js Files *************
+		************* -->
+
+    <!-- Overlay Scroll JS -->
+    <script src="assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js"></script>
+    <script src="assets/vendor/overlay-scroll/custom-scrollbar.js"></script>
+
+    <!-- Custom JS files -->
+    <script src="assets/js/custom.js"></script>
+  </body>
+
+
+<!-- Mirrored from bootstrapget.com/demos/cube-admin-template/tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Feb 2025 22:03:44 GMT -->
 </html>

@@ -1,369 +1,945 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-include "header.php";
-?>
-    <div class="container-fluid px-2 px-md-4">
-      <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
-        <span class="mask  bg-gradient-dark  opacity-6"></span>
-      </div>
-      <div class="card card-body mx-2 mx-md-2 mt-n6">
-        <div class="row gx-4 mb-2">
-          <div class="col-auto">
-            <div class="avatar avatar-xl position-relative">
-              <img src="../assets/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-            </div>
+  
+<!-- Mirrored from bootstrapget.com/demos/cube-admin-template/profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Feb 2025 22:03:53 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Templates & Dashboards - Cube Admin Template</title>
+
+    <!-- Meta -->
+    <meta name="description" content="Marketplace for Bootstrap Admin Dashboards" />
+    <meta name="author" content="Bootstrap Gallery" />
+    <link rel="canonical" href="https://www.bootstrap.gallery/">
+    <meta property="og:url" content="https://www.bootstrap.gallery/">
+    <meta property="og:title" content="Admin Templates - Dashboard Templates | Bootstrap Gallery">
+    <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
+    <meta property="og:type" content="Website">
+    <meta property="og:site_name" content="Bootstrap Gallery">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" />
+
+    <!-- *************
+			************ CSS Files *************
+		************* -->
+    <link rel="stylesheet" href="assets/fonts/bootstrap/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="assets/css/main.min.css" />
+
+    <!-- *************
+			************ Vendor Css Files *************
+		************ -->
+
+    <!-- Scrollbar CSS -->
+    <link rel="stylesheet" href="assets/vendor/overlay-scroll/OverlayScrollbars.min.css" />
+  </head>
+
+  <body>
+
+    <!-- Page wrapper starts -->
+    <div class="page-wrapper">
+
+      <!-- Main container starts -->
+      <div class="main-container">
+
+        <!-- Sidebar wrapper starts -->
+        <nav id="sidebar" class="sidebar-wrapper">
+
+          <!-- App brand starts -->
+          <div class="app-brand p-3 my-2">
+            <a href="index.html">
+              <img src="assets/images/logo.svg" class="logo" alt="Bootstrap Gallery" />
+            </a>
           </div>
-          <div class="col-auto my-auto">
-            <div class="h-100">
-              <h5 class="mb-1">
-                Richard Davis
-              </h5>
-              <p class="mb-0 font-weight-normal text-sm">
-                CEO / Co-Founder
-              </p>
-            </div>
+
+          <!-- App brand ends -->
+
+          <!-- Sidebar menu starts -->
+          <div class="sidebarMenuScroll">
+            <ul class="sidebar-menu">
+              <li>
+                <a href="index.html">
+                  <i class="bi bi-bar-chart-line"></i>
+                  <span class="menu-text">Dashboard</span>
+                </a>
+              </li>
+              <li>
+                <a href="orders.html">
+                  <i class="bi bi-shop-window"></i>
+                  <span class="menu-text">Orders</span>
+                </a>
+              </li>
+              <li>
+                <a href="expenses.html">
+                  <i class="bi bi-send"></i>
+                  <span class="menu-text">Expenses</span>
+                </a>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="bi bi-box"></i>
+                  <span class="menu-text">Widgets</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="general-widgets.html">General</a>
+                  </li>
+                  <li>
+                    <a href="graph-widgets.html">Graph Widgers</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="bi bi-stickies"></i>
+                  <span class="menu-text">Components</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="accordions.html">Accordions</a>
+                  </li>
+                  <li>
+                    <a href="alerts.html">Alerts</a>
+                  </li>
+                  <li>
+                    <a href="avatars.html">Avatars</a>
+                  </li>
+                  <li>
+                    <a href="buttons.html">Buttons</a>
+                  </li>
+                  <li>
+                    <a href="badges.html">Badges</a>
+                  </li>
+                  <li>
+                    <a href="cards.html">Cards</a>
+                  </li>
+                  <li>
+                    <a href="advanced-cards.html">Advanced Cards</a>
+                  </li>
+                  <li>
+                    <a href="carousel.html">Carousel</a>
+                  </li>
+                  <li>
+                    <a href="dropdowns.html">Dropdowns</a>
+                  </li>
+                  <li>
+                    <a href="icons.html">Icons</a>
+                  </li>
+                  <li>
+                    <a href="list-items.html">List Items</a>
+                  </li>
+                  <li>
+                    <a href="modals.html">Modals</a>
+                  </li>
+                  <li>
+                    <a href="offcanvas.html">Offcanvas</a>
+                  </li>
+                  <li>
+                    <a href="placeholders.html">Placeholders</a>
+                  </li>
+                  <li>
+                    <a href="progress.html">Progress Bars</a>
+                  </li>
+                  <li>
+                    <a href="popovers.html">Popovers</a>
+                  </li>
+                  <li>
+                    <a href="spinners.html">Spinners</a>
+                  </li>
+                  <li>
+                    <a href="tabs.html">Tabs</a>
+                  </li>
+                  <li>
+                    <a href="toasts.html">Toasts</a>
+                  </li>
+                  <li>
+                    <a href="tooltips.html">Tooltips</a>
+                  </li>
+                  <li>
+                    <a href="typography.html">Typography</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="bi bi-ui-checks-grid"></i>
+                  <span class="menu-text">Forms</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="form-inputs.html">Form Inputs</a>
+                  </li>
+                  <li>
+                    <a href="form-checkbox-radio.html">Checkbox &amp; Radio</a>
+                  </li>
+                  <li>
+                    <a href="form-file-input.html">File Input</a>
+                  </li>
+                  <li>
+                    <a href="form-validations.html">Validations</a>
+                  </li>
+                  <li>
+                    <a href="date-time-pickers.html">Date Time Pickers</a>
+                  </li>
+                  <li>
+                    <a href="input-tags.html">Input Tags</a>
+                  </li>
+                  <li>
+                    <a href="input-masks.html">Input Masks</a>
+                  </li>
+                  <li>
+                    <a href="editor.html">Editor</a>
+                  </li>
+                  <li>
+                    <a href="form-layouts.html">Form Layouts</a>
+                  </li>
+                  <li>
+                    <a href="form-tabs.html">Form Tabs</a>
+                  </li>
+                  <li>
+                    <a href="form-accordion.html">Form Accordion</a>
+                  </li>
+                  <li>
+                    <a href="form-wizard.html">Form Wizard</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="notifications.html">
+                  <i class="bi bi-globe"></i>
+                  <span class="menu-text">Notifications</span>
+                </a>
+              </li>
+              <li>
+                <a href="calendar.html">
+                  <i class="bi bi-calendar2"></i>
+                  <span class="menu-text">Calendar</span>
+                </a>
+              </li>
+              <li>
+                <a href="contacts.html">
+                  <i class="bi bi-wallet2"></i>
+                  <span class="menu-text">Contacts</span>
+                </a>
+              </li>
+              <li>
+                <a href="reviews.html">
+                  <i class="bi bi-mouse3"></i>
+                  <span class="menu-text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="support.html">
+                  <i class="bi bi-headphones"></i>
+                  <span class="menu-text">Support</span>
+                </a>
+              </li>
+              <li>
+                <a href="default-layout.html">
+                  <i class="bi bi-layout-sidebar"></i>
+                  <span class="menu-text">Default Layout</span>
+                </a>
+              </li>
+              <li>
+                <a href="tables.html">
+                  <i class="bi bi-border-all"></i>
+                  <span class="menu-text">Tables</span>
+                </a>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="bi bi-pie-chart"></i>
+                  <span class="menu-text">Graphs</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="apex.html">Apex</a>
+                  </li>
+                  <li>
+                    <a href="morris.html">Morris</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="bi bi-window-sidebar"></i>
+                  <span class="menu-text">Invoices</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="create-invoice.html">Create Invoice</a>
+                  </li>
+                  <li>
+                    <a href="view-invoice.html">View Invoice</a>
+                  </li>
+                  <li>
+                    <a href="invoice-list.html">Invoice List</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="maps.html">
+                  <i class="bi bi-pin-map"></i>
+                  <span class="menu-text">Maps</span>
+                </a>
+              </li>
+              <li class="active current-page">
+                <a href="profile.html">
+                  <i class="bi bi-filter-circle"></i>
+                  <span class="menu-text">User Profile</span>
+                </a>
+              </li>
+              <li>
+                <a href="help.html">
+                  <i class="bi bi-chat"></i>
+                  <span class="menu-text">Help</span>
+                </a>
+              </li>
+              <li>
+                <a href="contact.html">
+                  <i class="bi bi-phone-vibrate"></i>
+                  <span class="menu-text">Contact Us</span>
+                </a>
+              </li>
+              <li>
+                <a href="settings.html">
+                  <i class="bi bi-gear"></i>
+                  <span class="menu-text">Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="maintenance.html">
+                  <i class="bi bi-exclamation-octagon"></i>
+                  <span class="menu-text">Maintenance</span>
+                </a>
+              </li>
+              <li>
+                <a href="page-not-found.html">
+                  <i class="bi bi-exclamation-diamond"></i>
+                  <span class="menu-text">404</span>
+                </a>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="bi bi-upc-scan"></i>
+                  <span class="menu-text">Login/Signup</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="login.html">Login</a>
+                  </li>
+                  <li>
+                    <a href="signup.html">Signup</a>
+                  </li>
+                  <li>
+                    <a href="forgot-password.html">Forgot Password</a>
+                  </li>
+                  <li>
+                    <a href="reset-password.html">Reset Password</a>
+                  </li>
+                  <li>
+                    <a href="lock-screen.html">Lock Screen</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#!">
+                  <i class="bi bi-code-square"></i>
+                  <span class="menu-text">Nested Menu</span>
+                </a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="#!">Nested 1</a>
+                  </li>
+                  <li>
+                    <a href="#!">
+                      Nested 2
+                      <i class="bi bi-caret-right-fill"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li>
+                        <a href="#!">Nested 2.1</a>
+                      </li>
+                      <li>
+                        <a href="#!">Nested 2.2
+                          <i class="bi bi-caret-right-fill"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                          <li>
+                            <a href="#!">Nested 2.2.1</a>
+                          </li>
+                          <li>
+                            <a href="#!">Nested 2.2.2</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </div>
-          <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-            <div class="nav-wrapper position-relative end-0">
-              <ul class="nav nav-pills nav-fill p-1" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 active " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
-                    <i class="material-symbols-rounded text-lg position-relative">home</i>
-                    <span class="ms-1">App</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
-                    <i class="material-symbols-rounded text-lg position-relative">email</i>
-                    <span class="ms-1">Messages</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
-                    <i class="material-symbols-rounded text-lg position-relative">settings</i>
-                    <span class="ms-1">Settings</span>
-                  </a>
-                </li>
-              </ul>
+          <!-- Sidebar menu ends -->
+
+        </nav>
+        <!-- Sidebar wrapper ends -->
+
+        <!-- App container starts -->
+        <div class="app-container">
+
+          <!-- App header starts -->
+          <div class="app-header d-flex align-items-center">
+
+            <!-- Toggle buttons starts -->
+            <div class="d-flex">
+              <button class="toggle-sidebar">
+                <i class="bi bi-list lh-1"></i>
+              </button>
+              <button class="pin-sidebar">
+                <i class="bi bi-list lh-1"></i>
+              </button>
             </div>
+            <!-- Toggle buttons ends -->
+
+            <!-- App brand sm starts -->
+            <div class="app-brand-sm d-lg-none d-flex">
+
+              <!-- Logo sm starts -->
+              <a href="index.html">
+                <img src="assets/images/logo-sm.svg" class="logo" alt="Bootstrap Gallery">
+              </a>
+              <!-- Logo sm end -->
+
+            </div>
+            <!-- App brand sm ends -->
+
+            <!-- Page title starts -->
+            <h5 class="m-0 ms-2 fw-semibold">User Profile</h5>
+            <!-- Page title ends -->
+
+            <!-- App header actions starts -->
+            <div class="header-actions">
+
+              <!-- Search container start -->
+              <div class="search-container d-xl-block d-none me-3">
+                <input type="text" class="form-control" id="searchData" placeholder="Search" />
+                <i class="bi bi-search"></i>
+              </div>
+              <!-- Search container ends -->
+
+              <!-- Header action bar starts -->
+              <div class="bg-white p-2 rounded-4 d-flex align-items-center">
+
+                <!-- Header actions start -->
+                <div class="d-sm-flex d-none">
+                  <div class="dropdown">
+                    <a class="dropdown-toggle d-flex p-3 position-relative" href="#!" role="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-bag fs-4 lh-1"></i>
+                      <span class="count-label">6</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-sm">
+                      <h5 class="fw-semibold px-3 py-2 text-primary">Orders</h5>
+                      <div class="scroll250">
+                        <div class="mx-3 d-flex gap-2 flex-column">
+                          <div class="bg-danger-subtle border border-danger px-3 py-2 rounded-1">
+                            <p class="m-0 text-danger">New product purchased</p>
+                            <p class="small m-0">Just now</p>
+                          </div>
+                          <div class="bg-success-subtle border border-success px-3 py-2 rounded-1">
+                            <p class="m-0 text-success">Order received.</p>
+                            <p class="small m-0">Today, 07:45pm</p>
+                          </div>
+
+                          <div class="bg-info-subtle border border-info px-3 py-2 rounded-1">
+                            <p class="m-0 text-info">New item ordered.</p>
+                            <p class="small m-0">Today, 07:45pm</p>
+                          </div>
+                          <div class="bg-warning-subtle border border-warning px-3 py-2 rounded-1">
+                            <p class="m-0 text-warning">New ticket</p>
+                            <p class="small m-0">Today, 09:30pm</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-grid m-3">
+                        <a href="javascript:void(0)" class="btn btn-primary">View all</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle d-flex p-3 position-relative" href="#!" role="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-receipt fs-4 lh-1"></i>
+                      <span class="count-label bg-danger">9</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-sm">
+                      <h5 class="fw-semibold px-3 py-2 text-primary">Invoices</h5>
+                      <div class="scroll250">
+                        <div class="dropdown-item">
+                          <div class="d-flex align-items-center py-2">
+                            <img src="assets/images/user1.png" class="img-3x me-3 rounded-5" alt="Admin Theme" />
+                            <div class="m-0">
+                              <h4 class="mb-2 text-primary">$450.00</h4>
+                              <h6 class="mb-1 fw-semibold">MSD Solutions</h6>
+                              <p class="m-0 text-secondary">
+                                Invoice #99885<span class="badge bg-info ms-2">Paid</span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="dropdown-item">
+                          <div class="d-flex align-items-center py-2">
+                            <img src="assets/images/user2.png" class="img-3x me-3 rounded-5" alt="Admin Theme" />
+                            <div class="m-0">
+                              <h4 class="mb-2 text-primary">$290.00</h4>
+                              <h6 class="mb-1 fw-semibold">VK Inc</h6>
+                              <p class="m-0 text-secondary">
+                                Invoice #99887<span class="badge bg-info ms-2">Paid</span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="dropdown-item">
+                          <div class="d-flex align-items-center py-2">
+                            <img src="assets/images/user3.png" class="img-3x me-3 rounded-5" alt="Admin Theme" />
+                            <div class="m-0">
+                              <h4 class="mb-2 text-primary">$330.00</h4>
+                              <h6 class="mb-1 fw-semibold">Sky Labs</h6>
+                              <p class="m-0 text-secondary">
+                                Invoice #99888<span class="badge bg-info ms-2">Paid</span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="dropdown-item">
+                          <div class="d-flex align-items-center py-2">
+                            <img src="assets/images/user4.png" class="img-3x me-3 rounded-5" alt="Admin Theme" />
+                            <div class="m-0">
+                              <h4 class="mb-2 text-primary">$380.00</h4>
+                              <h6 class="mb-1 fw-semibold">Good Works Inc</h6>
+                              <p class="m-0 text-secondary">
+                                Invoice #99889<span class="badge bg-info ms-2">Paid</span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-grid m-3">
+                        <a href="javascript:void(0)" class="btn btn-primary">View all</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Header actions end -->
+
+                <!-- User settings start -->
+                <div class="dropdown ms-2">
+                  <a id="userSettings" class="dropdown-toggle user-settings" href="#!" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="me-2 text-truncate d-lg-block d-none">Sally Esparza</span>
+                    <div class="icon-box md rounded-4 fw-bold bg-primary-subtle text-primary">
+                      SE
+                    </div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end shadow-lg">
+                    <a class="dropdown-item d-flex align-items-center" href="profile.html"><i
+                        class="bi bi-person fs-4 me-2"></i>My Profile</a>
+                    <a class="dropdown-item d-flex align-items-center" href="settings.html"><i
+                        class="bi bi-gear fs-4 me-2"></i>Account Settings</a>
+                    <div class="mx-3 my-2 d-grid">
+                      <a href="login.html" class="btn btn-warning">Logout</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- User settings end -->
+
+              </div>
+              <!-- Header action bar ends -->
+
+            </div>
+            <!-- App header actions ends -->
+
           </div>
+          <!-- App header ends -->
+
+          <!-- App body starts -->
+          <div class="app-body">
+
+            <!-- Stats starts -->
+            <div class="p-4 bg-primary mb-4 rounded-4">
+              <div class="d-flex align-items-center flex-row flex-wrap">
+
+                <!-- User details starts -->
+                <img src="assets/images/user5.png" class="img-5x rounded-circle" alt="Admin Dashboard">
+                <div class="ms-3 text-white">
+                  <h5 class="mb-1">Clarence Wyatt</h5>
+                  <h6 class="m-0 fw-light">UX Designer</h6>
+                </div>
+                <!-- User details ends -->
+
+                <!-- User details starts -->
+                <div class="d-flex gap-3 text-white ms-3">
+                  <div class="px-3 d-flex align-items-center border-start">
+                    <i class="bi bi-envelope-open fs-2 lh-1 me-2"></i>
+                    <div>
+                      <h6 class="mb-1">Email</h6>
+                      <p class="m-0 fw-light small">info@sample.com</p>
+                    </div>
+                  </div>
+                  <div class="px-3 d-flex align-items-center border-start">
+                    <i class="bi bi-phone fs-2 lh-1 me-2"></i>
+                    <div>
+                      <h6 class="mb-1">Contact</h6>
+                      <p class="m-0 fw-light small">000 000 0000</p>
+                    </div>
+                  </div>
+                  <div class="px-3 d-flex align-items-center border-start">
+                    <i class="bi bi-pin-map fs-2 lh-1 me-2"></i>
+                    <div>
+                      <h6 class="mb-1">Location</h6>
+                      <p class="m-0 fw-light small">United States</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- User details ends -->
+
+                <div class="ms-auto d-flex gap-2">
+                  <button type="button" class="btn btn-dark">
+                    Follow
+                  </button>
+                </div>
+
+              </div>
+            </div>
+            <!-- Stats ends -->
+
+            <!-- Row starts -->
+            <div class="row gx-4">
+              <div class="col-xl-3 col-sm-6">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <h2 class="mb-2 d-flex align-items-center justify-content-between">
+                      <div class="p-3 border border-dark rounded-5 d-flex">
+                        <i class="bi bi-twitter-x fs-4 lh-1"></i>
+                      </div>
+                      <span>5690</span>
+                    </h2>
+                    <p class="m-0">
+                      Posts<span class="badge bg-primary-subtle float-end text-black">45%</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <h2 class="mb-2 d-flex align-items-center justify-content-between">
+                      <div class="p-3 border border-dark rounded-5 d-flex">
+                        <i class="bi bi-twitter-x fs-4 lh-1"></i>
+                      </div>
+                      <span>3390</span>
+                    </h2>
+                    <p class="m-0">
+                      Shares<span class="badge bg-primary-subtle float-end text-black">55%</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <h2 class="mb-2 d-flex align-items-center justify-content-between">
+                      <div class="p-3 border border-dark rounded-5 d-flex">
+                        <i class="bi bi-twitter-x fs-4 lh-1"></i>
+                      </div>
+                      <span>9990</span>
+                    </h2>
+                    <p class="m-0">
+                      Followers<span class="badge bg-primary-subtle float-end text-black">65%</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-sm-6">
+                <div class="card mb-4 bg-primary text-white">
+                  <div class="card-body">
+                    <h2 class="mb-2 d-flex align-items-center justify-content-between">
+                      <div class="p-3 border border-white rounded-5 d-flex">
+                        <i class="bi bi-twitter-x fs-4 lh-1"></i>
+                      </div>
+                      <span>2690</span>
+                    </h2>
+                    <p class="m-0">
+                      Following<span class="badge bg-white float-end text-black">75%</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Row ends -->
+
+            <!-- Row starts -->
+            <div class="row gx-4">
+              <div class="col-xl-4 col-sm-6 col-12">
+                <div class="card mb-4 card-height-350">
+                  <div class="card-header">
+                    <h5 class="card-title">Notifications</h5>
+                  </div>
+                  <div class="card-body">
+
+                    <!-- Notifications starts -->
+                    <div class="d-grid gap-2">
+                      <div class="d-flex align-items-center p-2 border rounded-3">
+                        <img src="assets/images/user.png" class="img-3xx rounded-circle me-2" alt="Web Dashboards">
+                        <div class="d-flex flex-column">
+                          <p class="mb-1">Gextor mentioned you in design finish.</p>
+                          <p class="m-0 small opacity-50">
+                            <span>1 min ago</span>
+                            <span class="px-2">|</span>
+                            <span>Design</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="d-flex align-items-center p-2 border rounded-3">
+                        <img src="assets/images/user2.png" class="img-3xx rounded-circle me-2" alt="Web Dashboards">
+                        <div class="d-flex flex-column">
+                          <p class="mb-1">Tio mentioned you in design finish.</p>
+                          <p class="m-0 small opacity-50">
+                            <span>1 min ago</span>
+                            <span class="px-2">|</span>
+                            <span>Design</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="d-flex align-items-center p-2 border rounded-3">
+                        <img src="assets/images/user4.png" class="img-3xx rounded-circle me-2" alt="Web Dashboards">
+                        <div class="d-flex flex-column">
+                          <p class="mb-1">Mia sent friend request.</p>
+                          <p class="m-0 small opacity-50">
+                            <span>1 min ago</span>
+                            <span class="px-2">|</span>
+                            <span>Design</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Notifications ends -->
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-sm-6 col-12">
+                <div class="card mb-4 card-height-350">
+                  <div class="card-header">
+                    <h5 class="card-title">Followers</h5>
+                  </div>
+                  <div class="card-body">
+
+                    <!-- Notifications starts -->
+                    <div class="d-grid gap-2">
+                      <div class="d-flex align-items-center p-2 border rounded-3">
+                        <img src="assets/images/user3.png" class="img-3xx rounded-circle me-2" alt="Web Dashboards">
+                        <div class="d-flex flex-column">
+                          <p class="mb-1">Merle Hester</p>
+                          <p class="m-0 small opacity-50">
+                            @FreeDashboards
+                          </p>
+                        </div>
+                        <button type="button" class="btn btn-dark ms-auto">
+                          Follow
+                        </button>
+                      </div>
+                      <div class="d-flex align-items-center p-2 border rounded-3">
+                        <img src="assets/images/user5.png" class="img-3xx rounded-circle me-2" alt="Web Dashboards">
+                        <div class="d-flex flex-column">
+                          <p class="mb-1">Karyn Whitney</p>
+                          <p class="m-0 small opacity-50">
+                            @FreeDashboards
+                          </p>
+                        </div>
+                        <button type="button" class="btn btn-dark ms-auto">
+                          Follow
+                        </button>
+                      </div>
+                      <div class="d-flex align-items-center p-2 border rounded-3">
+                        <img src="assets/images/user1.png" class="img-3xx rounded-circle me-2" alt="Web Dashboards">
+                        <div class="d-flex flex-column">
+                          <p class="mb-1">Willie Campbell</p>
+                          <p class="m-0 small opacity-50">
+                            @FreeDashboards
+                          </p>
+                        </div>
+                        <button type="button" class="btn btn-dark ms-auto">
+                          Follow
+                        </button>
+                      </div>
+                    </div>
+                    <!-- Notifications ends -->
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-sm-12 col-12">
+                <div class="card mb-4 card-height-350">
+                  <div class="card-header">
+                    <h5 class="card-title">Trainings</h5>
+                  </div>
+                  <div class="card-body">
+
+                    <div id="trainings"></div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Row ends -->
+
+            <!-- Row starts -->
+            <div class="row gx-4">
+              <div class="col-xl-8 col-sm-12 col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title">Activity</h5>
+                  </div>
+                  <div class="card-body">
+
+                    <!-- Post start -->
+                    <div class="d-flex mb-3 border p-3 rounded-2">
+                      <img src="assets/images/user1.png" class="rounded-circle me-3 img-4x" alt="Admin Dashboards">
+                      <div class="flex-grow-1">
+                        <p class="float-end badge bg-primary">7 hrs ago</p>
+                        <h5 class="m-0">Matt Hooper</h5>
+                        <p class="mb-3 small text-secondary">Web Developer</p>
+                        <p>
+                          A dashboard, in website administration, is typically the index page of the control panel for a
+                          website's content management system. Bootstrap Gallery Admin Dashboards are fully responsive
+                          built on Bootstrap 5 framework.
+                        </p>
+                        <div class="row gx-2">
+                          <div class="col-12">
+                            <h6 class="mb-3">Best Admin Dashboards</h6>
+                          </div>
+                          <div class="col-4">
+                            <img src="assets/images/thumbs/img3.jpg" alt="Bootstrap Gallery"
+                              class="img-fluid rounded-3">
+                          </div>
+                          <div class="col-4">
+                            <img src="assets/images/thumbs/img7.jpg" alt="Bootstrap Gallery"
+                              class="img-fluid rounded-3">
+                          </div>
+                          <div class="col-4">
+                            <img src="assets/images/thumbs/img9.jpg" alt="Bootstrap Gallery"
+                              class="img-fluid rounded-3">
+                          </div>
+                        </div>
+                        <button class="btn btn-info btn-sm mt-2">
+                          <i class="bi bi-hand-thumbs-up-fill"></i> 950 Likes
+                        </button>
+                      </div>
+                    </div>
+                    <!-- Post end -->
+
+                    <!-- Post start -->
+                    <div class="d-flex border p-3 rounded-2">
+                      <img src="assets/images/user5.png" class="rounded-circle me-3 img-4x" alt="Admin Dashboards">
+                      <div class="flex-grow-1">
+                        <p class="float-end badge bg-primary">15 hrs ago</p>
+                        <h5 class="m-0">Vicki Ayala</h5>
+                        <p class="mb-3 small text-secondary">UX Designer</p>
+                        <p>
+                          A dashboard, in website administration, is typically the index page of the control panel for a
+                          website's content management system. Bootstrap Gallery Admin Dashboards are fully responsive
+                          built on Bootstrap 5 framework.
+                        </p>
+                        <div class="row gx-2">
+                          <div class="col-12">
+                            <h6 class="mb-3">Best Admin Panels</h6>
+                          </div>
+                          <div class="col-4">
+                            <img src="assets/images/thumbs/img2.jpg" alt="Bootstrap Gallery"
+                              class="img-fluid rounded-3">
+                          </div>
+                          <div class="col-4">
+                            <img src="assets/images/thumbs/img6.jpg" alt="Bootstrap Gallery"
+                              class="img-fluid rounded-3">
+                          </div>
+                          <div class="col-4">
+                            <img src="assets/images/thumbs/img10.jpg" alt="Bootstrap Gallery"
+                              class="img-fluid rounded-3">
+                          </div>
+                        </div>
+                        <button class="btn btn-info btn-sm mt-2">
+                          <i class="bi bi-hand-thumbs-up-fill"></i> Like
+                        </button>
+                      </div>
+                    </div>
+                    <!-- Post end -->
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-sm-12 col-12">
+                <div class="card">
+                  <div class="card-body pt-5">
+
+                    <!-- Row starts -->
+                    <div class="d-flex">
+                      <img src="assets/images/upgrade.svg" class="img-7x" alt="Web Dashboards">
+                      <div class="ms-3">
+                        <h5 class="mb-2">Upgrade your plan.</h5>
+                        <h6 class="mb-3 fw-light">70% discount for 1st year subscription.</h6>
+                        <button class="btn btn-success bg-gradient">Upgrade</button>
+                      </div>
+                    </div>
+                    <!-- Row ends -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Row ends -->
+
+          </div>
+          <!-- App body ends -->
+
+          <!-- App footer starts -->
+          <div class="app-footer">
+            <span class="small">© Bootstrap Gallery 2024</span>
+          </div>
+          <!-- App footer ends -->
+
         </div>
-        <div class="row">
-          <div class="row">
-            <div class="col-12 col-xl-4">
-              <div class="card card-plain h-100">
-                <div class="card-header pb-0 p-3">
-                  <h6 class="mb-0">Platform Settings</h6>
-                </div>
-                <div class="card-body p-3">
-                  <h6 class="text-uppercase text-body text-xs font-weight-bolder">Account</h6>
-                  <ul class="list-group">
-                    <li class="list-group-item border-0 px-0">
-                      <div class="form-check form-switch ps-0">
-                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked>
-                        <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Email me when someone follows me</label>
-                      </div>
-                    </li>
-                    <li class="list-group-item border-0 px-0">
-                      <div class="form-check form-switch ps-0">
-                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault1">
-                        <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault1">Email me when someone answers on my post</label>
-                      </div>
-                    </li>
-                    <li class="list-group-item border-0 px-0">
-                      <div class="form-check form-switch ps-0">
-                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault2" checked>
-                        <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault2">Email me when someone mentions me</label>
-                      </div>
-                    </li>
-                  </ul>
-                  <h6 class="text-uppercase text-body text-xs font-weight-bolder mt-4">Application</h6>
-                  <ul class="list-group">
-                    <li class="list-group-item border-0 px-0">
-                      <div class="form-check form-switch ps-0">
-                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault3">
-                        <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault3">New launches and projects</label>
-                      </div>
-                    </li>
-                    <li class="list-group-item border-0 px-0">
-                      <div class="form-check form-switch ps-0">
-                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault4" checked>
-                        <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault4">Monthly product updates</label>
-                      </div>
-                    </li>
-                    <li class="list-group-item border-0 px-0 pb-0">
-                      <div class="form-check form-switch ps-0">
-                        <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault5">
-                        <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault5">Subscribe to newsletter</label>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-xl-4">
-              <div class="card card-plain h-100">
-                <div class="card-header pb-0 p-3">
-                  <div class="row">
-                    <div class="col-md-8 d-flex align-items-center">
-                      <h6 class="mb-0">Profile Information</h6>
-                    </div>
-                    <div class="col-md-4 text-end">
-                      <a href="javascript:;">
-                        <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-body p-3">
-                  <p class="text-sm">
-                    Hi, I’m Alec Thompson, Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).
-                  </p>
-                  <hr class="horizontal gray-light my-4">
-                  <ul class="list-group">
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; Alec M. Thompson</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; (44) 123 1234 123</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; alecthompson@mail.com</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong> &nbsp; USA</li>
-                    <li class="list-group-item border-0 ps-0 pb-0">
-                      <strong class="text-dark text-sm">Social:</strong> &nbsp;
-                      <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                        <i class="fab fa-facebook fa-lg"></i>
-                      </a>
-                      <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                        <i class="fab fa-twitter fa-lg"></i>
-                      </a>
-                      <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                        <i class="fab fa-instagram fa-lg"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-xl-4">
-              <div class="card card-plain h-100">
-                <div class="card-header pb-0 p-3">
-                  <h6 class="mb-0">Conversations</h6>
-                </div>
-                <div class="card-body p-3">
-                  <ul class="list-group">
-                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2 pt-0">
-                      <div class="avatar me-3">
-                        <img src="../assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
-                      </div>
-                      <div class="d-flex align-items-start flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">Sophie B.</h6>
-                        <p class="mb-0 text-xs">Hi! I need more information..</p>
-                      </div>
-                      <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto" href="javascript:;">Reply</a>
-                    </li>
-                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                      <div class="avatar me-3">
-                        <img src="../assets/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
-                      </div>
-                      <div class="d-flex align-items-start flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">Anne Marie</h6>
-                        <p class="mb-0 text-xs">Awesome work, can you..</p>
-                      </div>
-                      <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto" href="javascript:;">Reply</a>
-                    </li>
-                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                      <div class="avatar me-3">
-                        <img src="../assets/img/ivana-square.jpg" alt="kal" class="border-radius-lg shadow">
-                      </div>
-                      <div class="d-flex align-items-start flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">Ivanna</h6>
-                        <p class="mb-0 text-xs">About files I can..</p>
-                      </div>
-                      <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto" href="javascript:;">Reply</a>
-                    </li>
-                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                      <div class="avatar me-3">
-                        <img src="../assets/img/team-4.jpg" alt="kal" class="border-radius-lg shadow">
-                      </div>
-                      <div class="d-flex align-items-start flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">Peterson</h6>
-                        <p class="mb-0 text-xs">Have a great afternoon..</p>
-                      </div>
-                      <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto" href="javascript:;">Reply</a>
-                    </li>
-                    <li class="list-group-item border-0 d-flex align-items-center px-0">
-                      <div class="avatar me-3">
-                        <img src="../assets/img/team-3.jpg" alt="kal" class="border-radius-lg shadow">
-                      </div>
-                      <div class="d-flex align-items-start flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">Nick Daniel</h6>
-                        <p class="mb-0 text-xs">Hi! I need more information..</p>
-                      </div>
-                      <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto" href="javascript:;">Reply</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 mt-4">
-              <div class="mb-5 ps-3">
-                <h6 class="mb-1">Projects</h6>
-                <p class="text-sm">Architects design houses</p>
-              </div>
-              <div class="row">
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                  <div class="card card-blog card-plain">
-                    <div class="card-header p-0 m-2">
-                      <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
-                      </a>
-                    </div>
-                    <div class="card-body p-3">
-                      <p class="mb-0 text-sm">Project #2</p>
-                      <a href="javascript:;">
-                        <h5>
-                          Modern
-                        </h5>
-                      </a>
-                      <p class="mb-4 text-sm">
-                        As Uber works through a huge amount of internal management turmoil.
-                      </p>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                            <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                            <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                            <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                            <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                  <div class="card card-blog card-plain">
-                    <div class="card-header p-0 m-2">
-                      <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-2.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
-                      </a>
-                    </div>
-                    <div class="card-body p-3">
-                      <p class="mb-0 text-sm">Project #1</p>
-                      <a href="javascript:;">
-                        <h5>
-                          Scandinavian
-                        </h5>
-                      </a>
-                      <p class="mb-4 text-sm">
-                        Music is something that every person has his or her own specific opinion about.
-                      </p>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                            <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                            <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                            <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                            <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                  <div class="card card-blog card-plain">
-                    <div class="card-header p-0 m-2">
-                      <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
-                      </a>
-                    </div>
-                    <div class="card-body p-3">
-                      <p class="mb-0 text-sm">Project #3</p>
-                      <a href="javascript:;">
-                        <h5>
-                          Minimalist
-                        </h5>
-                      </a>
-                      <p class="mb-4 text-sm">
-                        Different people have different taste, and various types of music. Music is life.
-                      </p>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                            <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                            <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                            <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                            <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                  <div class="card card-blog card-plain">
-                    <div class="card-header p-0 m-2">
-                      <a class="d-block shadow-xl border-radius-xl">
-                        <img src="https://images.unsplash.com/photo-1606744824163-985d376605aa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
-                      </a>
-                    </div>
-                    <div class="card-body p-3">
-                      <p class="mb-0 text-sm">Project #4</p>
-                      <a href="javascript:;">
-                        <h5>
-                          Gothic
-                        </h5>
-                      </a>
-                      <p class="mb-4 text-sm">
-                        Why would anyone pick blue over pink? Pink is obviously a better color.
-                      </p>
-                      <div class="d-flex align-items-center justify-content-between">
-                        <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                            <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                            <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                            <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                            <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- App container ends -->
+
       </div>
+      <!-- Main container ends -->
+
     </div>
-    
-    <?php
+    <!-- Page wrapper ends -->
 
-include "footer.php";
-?>
+    <!-- *************
+			************ JavaScript Files *************
+		************* -->
+    <!-- Required jQuery first, then Bootstrap Bundle JS -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+
+    <!-- *************
+			************ Vendor Js Files *************
+		************* -->
+
+    <!-- Overlay Scroll JS -->
+    <script src="assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js"></script>
+    <script src="assets/vendor/overlay-scroll/custom-scrollbar.js"></script>
+
+    <!-- Apex Charts -->
+    <script src="assets/vendor/apex/apexcharts.min.js"></script>
+    <script src="assets/vendor/apex/custom/profile/trainings.js"></script>
+
+    <!-- Custom JS files -->
+    <script src="assets/js/custom.js"></script>
+  </body>
+
+
+<!-- Mirrored from bootstrapget.com/demos/cube-admin-template/profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Feb 2025 22:03:54 GMT -->
+</html>
