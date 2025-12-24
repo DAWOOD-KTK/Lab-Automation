@@ -1,6 +1,6 @@
     <!-- App footer starts -->
           <div class="app-footer">
-            <span class="small">© Bootstrap Gallery 2024</span>
+           
           </div>
           <!-- App footer ends -->
 

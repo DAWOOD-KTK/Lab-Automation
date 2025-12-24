@@ -19,6 +19,7 @@
     <meta property="og:site_name" content="Bootstrap Gallery">
     <link rel="shortcut icon" href="assets/images/favicon.svg" />
    <link rel="stylesheet" href="assets/vendor/calendar/css/custom.css" />
+   <link rel="stylesheet" href="assets/css/main.min.css">
 
 <!-- 👇 YAHAN STYLE LAGAO -->
 <style>
