@@ -6,6 +6,26 @@ $name = mysqli_real_escape_string($conn, $_POST["name"]);
 $email = mysqli_real_escape_string($conn, $_POST["email"]);
 $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
 $roll = mysqli_real_escape_string($conn, $_POST["user"]);
+$email = mysqli_real_escape_string($conn, $_POST['email']);
+//email validation
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "<script>
+    alert('Invalid email address');
+    window.location.href='../add-user.php';
+    </script>";
+    exit();
+}
+
+//unique email validation
+$check = mysqli_query($conn, "SELECT * FROM UserStaafe WHERE email='$email'");
+if(mysqli_num_rows($check) > 0){
+    echo "<script>
+        alert('Email already exists!');
+        window.location.href='../add-user.php';
+    </script>";
+    exit();
+}
+
 
 
 
