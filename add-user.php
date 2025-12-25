@@ -30,16 +30,26 @@ include 'header.php';
             <hr>
         </div>
         <div class="card-body ">
-            <form action="backend/cuser.php" method="post">
-                <input type="text" name="name" class="form-control mb-3"  placeholder="enter your name ">
-                <input type="email" name="email" class="form-control mb-3" placeholder="enter your email ">
-                <input type="password" name="password" class="form-control mb-3" placeholder="make your password">
-                <input id="img" type="file" name="image" class="form-control mb-3" >
-        </div>
+           <form action="backend/cuser.php" method="post" enctype="multipart/form-data">
+    <input type="text" name="name" class="form-control mb-3" placeholder="Enter your name" required>
+    <input type="email" name="email" class="form-control mb-3" placeholder="Enter your email" required>
+    <input type="password" name="password" class="form-control mb-3" placeholder="Make your password" required>
+    
+    <select class="form-select mb-3" name="user" required>
+        <option value="">Select User</option>
+        <option value="admin">Admin</option>
+        <option value="subAdmin">Sub Admin</option>
+        <option value="manigar">Manigar</option>
+        <option value="user">User</option>
+    </select>
 
-        <div class="card-footer text-center">
-            <button id="btn" type="submit" class="btn btn-primary w-100 m-0  p-2" >Submite</button>
-            </form>
+    <input id="img" type="file" name="image" class="form-control mb-3" required>
+
+    <div class="card-footer text-center">
+        <button id="btn" type="submit" class="btn btn-primary w-100 m-0 p-2">Submit</button>
+    </div>
+</form>
+
         </div>
 
       </div>

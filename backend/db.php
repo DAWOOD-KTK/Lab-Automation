@@ -2,7 +2,7 @@
 $host = "localhost";
 $user="root";
 $pasword= "";
-$databass ="Lab-automation";
+$databass ="Lab_automation";
 
 $conn = mysqli_connect($host,$user,$pasword,$databass);
 
