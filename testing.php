@@ -75,16 +75,7 @@ include 'header.php';
                 </div>
               </div>
             </div>
-             <!-- <div class="col-lg-4 col-sm-6 col-12">
-                <div class="card mb-4">
-                  <div class="card-body">
-                    <div class="m-0">
-                      <label class="form-label" for="abc">Input Field</label>
-                      <input type="text" class="form-control" id="abc" placeholder="Enter text">
-                    </div>
-                  </div>
-               </div>
-            </div> -->
+           
             <div class="row gx-5 ms-5">
               <div class="col-9  ms-4">
                 <div class="card mb-4">
