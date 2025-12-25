@@ -69,7 +69,7 @@ include 'header.php';
                 </div>
                  <div class="card-footer text-center">
             
-                <button id="btn" type="submit" class="btn btn-primary testinheading w-100 m-0 p-2">Submit</button>
+                <button id="btn" type="submit" name="submit" class="btn btn-primary testinheading w-100 m-0 p-2">Submit</button>
                </div>
             </div>
         </div>
