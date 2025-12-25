@@ -11,13 +11,13 @@ include 'header.php';
                 <div class="card mb-4 testinheading ">
                   <div class="card-body text-center">
                     <div class="m-0">
-            <h1 ><b>Add Testing Record</b></h1>
-              </div>
+                    <h1 ><b>Add Testing Record</b></h1>
+                    </div>
                   </div>
             
-          </div>
-        </div>
-      </div>
+                  </div>
+                </div>
+            </div>
             <div class="row gx-1 ms-5 ">
             
               <div class="col-sm-4 col-12  ms-5">
