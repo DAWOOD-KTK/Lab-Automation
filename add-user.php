@@ -39,7 +39,7 @@ include 'header.php';
         <option value="">Select User</option>
         <option value="admin">Admin</option>
         <option value="subAdmin">Sub Admin</option>
-        <option value="manigar">Manigar</option>
+        <option value="manigar">Manager</option>
         <option value="user">User</option>
     </select>
 

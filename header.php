@@ -51,7 +51,20 @@
   color: Skyblue;
 }
 .shadow{
-  box-shadow:5px 10px 20px #5a32a3 
+  box-shadow:5px 10px 20px #5a32a3 ;
+}
+.testinheading{
+   background-color: #6240a1ff!important;
+    color:white!important;
+  /* color: #5a32a3 !important; */
+
+}
+.testinheading:hover{
+  background-color: #4f2d8fff !important;
+  color:white!important;
+  letter-spacing:1px!important;
+  color:white!important;
+  transition : 0.1s ease-in-out;
 }
 </style>
 </head>
@@ -135,27 +148,11 @@
                 </ul>
               </li>
               <li>
-                <a href="!#">
+                <a href="testing.php">
                  <i class="bi bi-clipboard-data"></i>
                   <span class="menu-text">Testing </span>
                 </a>
-                <ul class="treeview-menu">
-                  <li>
-                    <a href="add-testing-record.php">Add Testing Record</a>
-                  </li>
-                  <li>
-                    <a href="testing-list.php">Testing List</a>
-                  </li>
-                  <li>
-                    <a href="graph-widgets.php">Update Testing Status</a>
-                    <ul class="treeview-menu">
-                     <li> <a href="pending.php">Pending</a></li>
-                     <li> <a href="pass.php">Pass</a></li>
-                     <li> <a href="fail.php">Fail</a></li>
-                      
-                    </ul>
-                  </li>
-                </ul>
+               
               </li>
               
               <li>

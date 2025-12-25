@@ -1,11 +1,31 @@
 <?php
 
 include "db.php";
+// if(isset($_POST["submit"])){
+$name = mysqli_real_escape_string($conn, $_POST["name"]);
+$email = mysqli_real_escape_string($conn, $_POST["email"]);
+$password = password_hash($_POST["password"], PASSWORD_BCRYPT);
+$roll = mysqli_real_escape_string($conn, $_POST["user"]);
+$email = mysqli_real_escape_string($conn, $_POST['email']);
+//email validation
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "<script>
+    alert('Invalid email address');
+    window.location.href='../add-user.php';
+    </script>";
+    exit();
+}
 
-$name =$_POST["name"] ;
-$email =$_POST["email"] ;
-$password =$_POST["password"] ;
-$roll =$_POST["user"] ;
+//unique email validation
+$check = mysqli_query($conn, "SELECT * FROM UserStaafe WHERE email='$email'");
+if(mysqli_num_rows($check) > 0){
+    echo "<script>
+        alert('Email already exists!');
+        window.location.href='../add-user.php';
+    </script>";
+    exit();
+}
+
 
 
 
@@ -13,7 +33,7 @@ $imagename =$_FILES["image"]["name"] ;
 $tmp_image =$_FILES["image"]["tmp_name"] ;
 $type_image =$_FILES["image"]["type"] ;
 $image_size =$_FILES["image"]["size"] ;
-$folder ="../images/" . $imagename;
+$folder ="../assets/images/" . $imagename;
 $max = 1024*1024*5 ;
 
     if ($type_image == "image/png" || $type_image == "image/jpg" || $type_image == "image/jpeg" ) {
@@ -46,6 +66,7 @@ $max = 1024*1024*5 ;
         window.location.href='../add-user.php'
         </script>";
     }
+// }
     
 
 ?>
