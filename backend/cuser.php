@@ -1,7 +1,7 @@
 <?php
 
 include "db.php";
-if(isset($_POST["submit"])){
+// if(isset($_POST["submit"])){
 $name =$_POST["name"] ;
 $email =$_POST["email"] ;
 $password =$_POST["password"] ;
@@ -46,7 +46,7 @@ $max = 1024*1024*5 ;
         window.location.href='../add-user.php'
         </script>";
     }
-}
+// }
     
 
 ?>
