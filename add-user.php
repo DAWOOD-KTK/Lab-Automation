@@ -26,7 +26,7 @@ include 'header.php';
     
     <div class="card col-md-8  mx-auto ">
         <div class="card-head">
-            <h1 class="title bg-primary rounded text-center text-white p-1 m-1 " >CREATE USER</h1>
+            <h1 class="title bg-primary rounded text-center text-white p-1 m-1 testinheading " >CREATE USER</h1>
             <hr>
         </div>
         <div class="card-body ">
@@ -46,7 +46,7 @@ include 'header.php';
     <input id="img" type="file" name="image" class="form-control mb-3" required>
 
     <div class="card-footer text-center">
-        <button id="btn" type="submit" class="btn btn-primary w-100 m-0 p-2">Submit</button>
+        <button id="btn" type="submit" class="btn btn-primary w-100 m-0 p-2 testinheading">Submit</button>
     </div>
 </form>
 
