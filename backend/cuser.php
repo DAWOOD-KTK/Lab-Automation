@@ -66,7 +66,7 @@ $max = 1024*1024*5 ;
         window.location.href='../add-user.php'
         </script>";
     }
-// }
+
     
 
 ?>
