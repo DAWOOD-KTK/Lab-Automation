@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+include "backend/getUsers.php";
 ?>
 <style>
     .title {
@@ -31,18 +32,28 @@ include 'header.php';
             
             <tr>
                 <th id="th">id</th>
+                <th id="th">image</th>
                 <th id="th">Name</th>
                 <th id="th">email</th>
                 <th id="th">Roll</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="">
-                <td>1</td>
-                <td>Dawood</td>
-                <td>dawood@gmail.com</td>
-                <td>Admin</td>
+            <?php 
+            if (mysqli_num_rows($res)>0) {
+
+                while($data = mysqli_fetch_assoc($res)){
+                
+            
+            ?>
+            <tr>
+                <td><?= $data["id"] ?></td>
+                <td><img src="<?= $data["image"] ?>"></td>
+                <td><?= $data["name"] ?></td>
+                <td><?= $data["email"] ?></td>
+                <td><?= $data["roll"] ?></td>
             </tr>
+            <?php }}?>
 
         </tbody>
     </table>
