@@ -40,7 +40,7 @@ $max = 1024*1024*5 ;
 
         if ($image_size < $max) {
     
-            $q = "INSERT INTO `UserStaafe`(`id`, `name`, `email`, `passwd`, `roll`, `image`) VALUES (Null,'$name','$email','$password','$roll','$folder')";
+            $q = "INSERT INTO `UserStaafe`(`id`, `name`, `email`, `passwd`, `roll`, `image`) VALUES (Null,'$name','$email','$password','$roll','$imagename')";
             $res = mysqli_query($conn,$q);
 
             if ($res) {
