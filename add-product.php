@@ -24,15 +24,7 @@ include 'header.php';
             </div>
         </div>
         <form action="backend/a_product.php" method="post">
-        <div class="col-sm-10 col-12  ms-5 ">
-            <div class="card mb-3 ms-5">
-                <div class="card-body">
-                    <div class="m-0">
-                        <input type="number" name="id" class="form-control" id="abc" placeholder="Enter Product ID =>(10 digits)">
-                    </div>
-                </div>
-            </div>
-        </div>
+       
        <div class="col-sm-10 col-12  ms-5 ">
             <div class="card mb-3 ms-5">
                 <div class="card-body">
