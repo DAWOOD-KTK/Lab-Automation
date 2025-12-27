@@ -26,12 +26,13 @@ include "backend/getUsers.php";
        
     
 </style>
+<div class="app-body">
 
 <h1 class="title text-center my-5 p-1" > 🧑🏾‍🔧 👩🏽‍🔧  Users</h1>
 
-   <a href="add-user.php" class="btn btn-primary mb-3 ms-5 "> create User</a>
 
 <div class="table-responsive mx-5 rounded">
+    <a href="add-user.php" class="btn btn-primary d-block mb-3  "> Create User</a>
     <table class="table  table-hover table-border " >
         <thead>
             
@@ -66,7 +67,7 @@ include "backend/getUsers.php";
         </tbody>
     </table>
 </div>
-
+</div>
 
 
 <?php
