@@ -17,6 +17,11 @@ include "backend/getUsers.php";
         color : white;
     }
     
+    #image{
+        height: 50px;
+        width:50px;
+        border-radius: 50%;
+    }
   
        
     
@@ -36,6 +41,7 @@ include "backend/getUsers.php";
                 <th id="th">Name</th>
                 <th id="th">email</th>
                 <th id="th">Roll</th>
+                <th id="th" colspan="2">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -48,10 +54,12 @@ include "backend/getUsers.php";
             ?>
             <tr>
                 <td><?= $data["id"] ?></td>
-                <td><img src="<?= $data["image"] ?>"></td>
+                <td><img src="assets/images/<?= $data["image"] ?>" id="image"></td>
                 <td><?= $data["name"] ?></td>
                 <td><?= $data["email"] ?></td>
                 <td><?= $data["roll"] ?></td>
+                <td><a href="backend/updateuser.php?id=<?= $data['id']?>" class="btn btn-warning" >Edit</a></td>
+                <td><a href="backend/deleteuser.php?id=<?= $data['id']?>" class="btn btn-danger" >DELETE</a></td>
             </tr>
             <?php }}?>
 
