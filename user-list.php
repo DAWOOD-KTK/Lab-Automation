@@ -58,8 +58,8 @@ include "backend/getUsers.php";
                 <td><?= $data["name"] ?></td>
                 <td><?= $data["email"] ?></td>
                 <td><?= $data["roll"] ?></td>
-                <td><a href="backend/updateuser.php?id=<?= $data['id']?>" class="btn btn-warning" >Edit</a></td>
-                <td><a href="backend/deleteuser.php?id=<?= $data['id']?>" class="btn btn-danger" >DELETE</a></td>
+                <td><a href="updateuser.php?id=<?= $data['id']?>" class="btn btn-warning" >EDIT USER</a></td>
+                <td><a href="backend/deleteuser.php?id=<?= $data['id']?>" class="btn btn-danger" >REMOVE USER</a></td>
             </tr>
             <?php }}?>
 
