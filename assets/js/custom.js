@@ -89,3 +89,4 @@ jQuery(function ($) {
     $(".card-loader").fadeOut(2000);
 
 });
+
