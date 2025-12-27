@@ -36,7 +36,7 @@ include 'header.php';
     <input type="password" name="password" class="form-control mb-3" placeholder="Make your password" required>
     
     <select class="form-select mb-3" name="user" required>
-        <option value="">Select User</option>
+        <option value="">Select User roll</option>
         <option value="admin">Admin</option>
         <option value="subAdmin">Sub Admin</option>
         <option value="manigar">Manager</option>
