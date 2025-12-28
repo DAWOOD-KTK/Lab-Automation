@@ -79,9 +79,10 @@ include 'header.php';
                       <label class="form-label" for="abc4">Result</label>
                       <select class="form-select" name="result_type" id="abc4" aria-label="Default select example" required>
                         <option selected="">Result Type</option>
-                        <option value="Pass">Pass</option>
-                        <option value="Failprod">Fail</option>
-                        <option value="Pennding">Pennding</option>
+                      <option value="Pass">Pass</option>
+                      <option value="Fail">Fail</option>
+                      <option value="Pending">Pending</option>
+
                       </select>
                     </div>
                   </div>

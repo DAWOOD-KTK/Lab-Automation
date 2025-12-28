@@ -61,7 +61,7 @@ $res = mysqli_query($conn,$query);
                 <th id="th">Product Type</th>
                 <th id="th">Product Name</th>
                 <th id="th">Is Active</th>
-                <th id="th" colspan="2">Actions</th>
+                <th id="th" colspan="3">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -81,7 +81,7 @@ $res = mysqli_query($conn,$query);
                 <td><?= $data["product_type"] ?></td>
                 <td><?= $data["product_name"] ?></td>
                 <td><?= $data["is_active"] ?></td>
-                <td colspan="2" class="text-center">
+                <td colspan="3" >
 <?php
 if($data['is_active'] == 1){
     // ACTIVE PRODUCT
