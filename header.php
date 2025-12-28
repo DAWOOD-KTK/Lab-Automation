@@ -140,7 +140,7 @@
                     <a href="add-product.php">Add Product</a>
                   </li>
                   <li>
-                    <a href="product-list.php">Product List</a>
+                    <a href="products-list.php">Product List</a>
                   </li>
                   <li>
                     <a href="update-product.php">Edit / Update Product</a>

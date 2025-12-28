@@ -80,7 +80,7 @@ include 'header.php';
                       <select class="form-select" name="result_type" id="abc4" aria-label="Default select example" required>
                         <option selected="">Result Type</option>
                         <option value="Pass">Pass</option>
-                        <option value="Fail">Fail</option>
+                        <option value="Failprod">Fail</option>
                         <option value="Pennding">Pennding</option>
                       </select>
                     </div>
