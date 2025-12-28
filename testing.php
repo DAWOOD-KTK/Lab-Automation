@@ -33,7 +33,7 @@ include 'header.php';
                       <select class="form-select" name="id" id="abc4" aria-label="Default select example" required>
                         <option value="<?= $data['id'] ?>" >Product Type</option>
                         <?php
-                        $query = mysqli_query($conn,"SELECT id,product_id, product_type FROM products");
+                        $query = mysqli_query($conn,"SELECT id,product_id, product_type FROM products WHERE is_active = 1");
                         
                         if(mysqli_num_rows($query ) >0){
                           while($data = mysqli_fetch_assoc($query)){

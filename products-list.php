@@ -60,6 +60,7 @@ $res = mysqli_query($conn,$query);
                 <th id="th">Manufacture No</th>
                 <th id="th">Product Type</th>
                 <th id="th">Product Name</th>
+                <th id="th">Is Active</th>
                 <th id="th" colspan="2">Actions</th>
             </tr>
         </thead>
@@ -79,8 +80,29 @@ $res = mysqli_query($conn,$query);
                 <td><?= $data["manufacturing_no"] ?></td>
                 <td><?= $data["product_type"] ?></td>
                 <td><?= $data["product_name"] ?></td>
-                <td><a href="updateuser.php?id=<?= $data['id']?>" class="btn btn-warning" >EDIT </a></td>
-                <td><a href="backend/deleteuser.php?id=<?= $data['id']?>" class="btn btn-danger" >REMOVE</a></td>
+                <td><?= $data["is_active"] ?></td>
+                <td colspan="2" class="text-center">
+<?php
+if($data['is_active'] == 1){
+    // ACTIVE PRODUCT
+    ?>
+    <a href="view-product.php?id=<?= $data['id']?>" class="btn btn-info btn-sm">View</a>
+    <a href="updateuser.php?id=<?= $data['id']?>" class="btn btn-warning btn-sm">Edit</a>
+    <a href="backend/deactivate-product.php?id=<?= $data['id']?>"
+       class="btn btn-danger btn-sm"
+       onclick="return confirm('Deactivate this product?')">Deactivate</a>
+    <?php
+}else{
+    // INACTIVE PRODUCT
+    ?>
+    <a href="view-product.php?id=<?= $data['id']?>" class="btn btn-info btn-sm">View</a>
+    <a href="backend/reactivate-product.php?id=<?= $data['id']?>" 
+       class="btn btn-success btn-sm">Reactivate</a>
+    <?php
+}
+?>
+</td>
+
             </tr>
             <?php }}?>
 

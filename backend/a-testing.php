@@ -46,13 +46,17 @@ if(isset($_POST["submit"])){
     $remarks = $_POST["remarks"] ?? "";
    $result = $_POST['result_type'];
 
-if($result == 'Pass') {
+if($result == 'Pass'){
     $send_to = 'CPRI';
-} elseif($result == 'Fail') {
+    $is_locked = 1;
+}elseif($result == 'Fail'){
     $send_to = 'Remanufacture';
-} else {
+    $is_locked = 0;
+}else{
     $send_to = 'Pending';
+    $is_locked = 0;
 }
+
 
     
     // echo $p_id;
