@@ -6,7 +6,7 @@ include "db.php";
 
 if(isset($_POST["submit"])){
 
-    $p_id = $_POST["product_uinque_id"] ?? "" ;
+    $p_id = $_POST["product_id"] ?? "" ;
     $p_code = $_POST["product_code"] ?? "";
     $rivision = $_POST["rivision"] ?? ""; 
     $m_number =!empty($_POST['manufacturing_no']) ? str_pad($_POST['manufacturing_no'], 4, '0', STR_PAD_LEFT) : "";
@@ -31,7 +31,7 @@ if(isset($_POST["submit"])){
     $p_id = $p_code . $rivision . $m_number ;
 
     $query = "INSERT INTO products 
-    ( product_uinque_id, product_code, rivision, manufacturing_no,product_type, product_name)
+    ( product_id, product_code, rivision, manufacturing_no,product_type, product_name)
     VALUES 
     ( '$p_id', '$p_code', '$rivision', '$m_number', '$p_type','$p_name')";
 

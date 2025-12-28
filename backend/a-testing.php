@@ -31,7 +31,7 @@ if(isset($_POST["submit"])){
      $testing_id = random_str(6) . $day . $month . $year;
      
 
-    $p_id = $_POST['product_id'] ?? "";
+    $p_id = $_POST['id'] ?? "";
 
     if(empty($p_id)){
     echo "<script>
@@ -42,10 +42,19 @@ if(isset($_POST["submit"])){
     }
 
     $t_type = $_POST["testing_type"] ?? "";
-    $r_type = $_POST["result_type"] ?? "";
     $test_by = $_POST["tested_by"] ?? "";
     $remarks = $_POST["remarks"] ?? "";
+   $result = $_POST['result_type'];
 
+if($result == 'Pass') {
+    $send_to = 'CPRI';
+} elseif($result == 'Fail') {
+    $send_to = 'Remanufacture';
+} else {
+    $send_to = 'Pending';
+}
+
+    
     // echo $p_id;
     // echo "<br>";
     // echo $t_type ;
@@ -59,10 +68,22 @@ if(isset($_POST["submit"])){
 // echo "<pre>";
 // print_r($_POST);
 // exit;
- 
+$product_query = mysqli_query($conn, "SELECT product_type FROM products WHERE id = '$p_id'");
+
+if(mysqli_num_rows($product_query) > 0){
+    $fetch_product = mysqli_fetch_assoc($product_query);
+    $product_type = $fetch_product["product_type"];
+}
+else{
+    die("Product Not Found");
+}
+
+// echo print_r($_POST);
+
+
 $query = "INSERT INTO testing_data 
-(testing_id, product_id, testing_type, result_type, tested_by, remarks)
-VALUES ('$testing_id', '$p_id', '$t_type', '$r_type', '$test_by', '$remarks')";
+(testing_id, product_type, testing_type, result_type, tested_by, remarks)
+VALUES ('$testing_id', ' $product_type', '$t_type', '$send_to', '$test_by', '$remarks')";
 
 $res = mysqli_query($conn,$query);
   if($res){

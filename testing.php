@@ -30,16 +30,16 @@ include 'header.php';
                   <div class="card-body">
                     <div class="m-0">
                       <label class="form-label" for="abc4">Product ID + Product</label>
-                      <select class="form-select" name="product_id" id="abc4" aria-label="Default select example" required>
-                        <option value="" >Product Type</option>
+                      <select class="form-select" name="id" id="abc4" aria-label="Default select example" required>
+                        <option value="<?= $data['id'] ?>" >Product Type</option>
                         <?php
-                        $query = mysqli_query($conn,"SELECT product_id,product_uinque_id, product_type FROM products");
+                        $query = mysqli_query($conn,"SELECT id,product_id, product_type FROM products");
                         
                         if(mysqli_num_rows($query ) >0){
                           while($data = mysqli_fetch_assoc($query)){
                             ?>
-                          <option value="<?= $data['product_id'] ?>">
-                           <?= $data['product_id'] ?>-> <?= $data['product_uinque_id'] ?>-><?= $data['product_type'] ?>
+                          <option value="<?= $data['id']?>">
+                           <?= $data['id']  ?>  <?= $data['product_id']  ?>  <?= $data['product_type']  ?>
                           </option>
                           <?php
                           }
@@ -81,7 +81,7 @@ include 'header.php';
                         <option selected="">Result Type</option>
                         <option value="Pass">Pass</option>
                         <option value="Fail">Fail</option>
-                        <option value="pennding">pennding</option>
+                        <option value="Pennding">Pennding</option>
                       </select>
                     </div>
                   </div>
