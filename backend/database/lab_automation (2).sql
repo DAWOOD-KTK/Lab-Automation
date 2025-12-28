@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2025 at 10:22 PM
+-- Generation Time: Dec 28, 2025 at 07:22 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -24,27 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Table structure for table `products`
 --
 
-CREATE TABLE `product` (
-  `id` int(200) NOT NULL,
-  `product_code` varchar(200) NOT NULL,
-  `rivision` varchar(200) NOT NULL,
-  `manufacturing_number` int(200) NOT NULL,
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL,
+  `product_id` varchar(12) NOT NULL,
+  `product_code` varchar(2) NOT NULL,
+  `rivision` varchar(11) NOT NULL,
+  `manufacturing_no` varchar(50) NOT NULL,
+  `product_type` varchar(11) NOT NULL,
   `product_name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `product`
+-- Dumping data for table `products`
 --
 
-INSERT INTO `product` (`id`, `product_code`, `rivision`, `manufacturing_number`, `product_name`) VALUES
-(1234567897, 'cd12', 'we12', 1234, 'swtichgear'),
-(1234567898, 'cd34', 'we23', 1235, 'capacitor'),
-(1234567899, 'fd23', 'we56', 1237, 'swtichgear'),
-(1234567900, 'cd12', 'we12', 1234, 'swtichgear'),
-(1234567901, 'cd12', 'we13', 1235, 'swtichgear');
+INSERT INTO `products` (`id`, `product_id`, `product_code`, `rivision`, `manufacturing_no`, `product_type`, `product_name`) VALUES
+(6, 'SGR10007', 'SG', 'R1', '0007', 'Switchgear', '11kV Indoor Switchgear Panel'),
+(8, 'RSR10004', 'RS', 'R1', '0004', 'Fuse', 'Kit-Kat Fuse'),
+(9, 'RSR20005', 'RS', 'R2', '0005', 'Resistor', 'High Power Resistor 100W');
 
 -- --------------------------------------------------------
 
@@ -54,7 +54,7 @@ INSERT INTO `product` (`id`, `product_code`, `rivision`, `manufacturing_number`,
 
 CREATE TABLE `testing_data` (
   `testing_id` varchar(12) NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `product_type` varchar(11) NOT NULL,
   `testing_type` varchar(200) DEFAULT NULL,
   `result_type` varchar(200) DEFAULT NULL,
   `tested_by` varchar(200) DEFAULT NULL,
@@ -66,8 +66,10 @@ CREATE TABLE `testing_data` (
 -- Dumping data for table `testing_data`
 --
 
-INSERT INTO `testing_data` (`testing_id`, `product_id`, `testing_type`, `result_type`, `tested_by`, `remarks`, `created_at`) VALUES
-('880IIZ261225', 1234567898, '3', '1', 'afsheen', 'sdcvsdgv', '2025-12-26 21:18:00');
+INSERT INTO `testing_data` (`testing_id`, `product_type`, `testing_type`, `result_type`, `tested_by`, `remarks`, `created_at`) VALUES
+('5BHJ8O281225', ' Resistor', 'Continuity Test', 'CPRI', 'noureen', 'hvcfyigvj', '2025-12-28 16:56:09'),
+('C24GSN281225', ' Fuse', 'Voltage Test', 'Remanufacture', 'dawood', 'uoyih', '2025-12-28 16:57:00'),
+('PY6FSO281225', ' Switchgear', 'Voltage Test', 'CPRI', 'afsheen', 'szvsfdgst', '2025-12-28 16:52:12');
 
 -- --------------------------------------------------------
 
@@ -89,24 +91,29 @@ CREATE TABLE `userstaafe` (
 --
 
 INSERT INTO `userstaafe` (`id`, `name`, `email`, `passwd`, `roll`, `image`) VALUES
-(1, 'DAWOOD', 'dawod2@gamil.com', 'dawood123', 'admin', '../images/1218911.jpg');
+(3, 'Rimsha', 'Rimsha123@gmail.com', '$2y$10$3bA8cs9BBFWBM1PGl9TTqevwl3ZSc5giGYkHU5UF.PvF5PELB.6dC', 'subAdmin', '3d-cartoon-style-character.jpg'),
+(4, 'Aqib Mehmood', 'Aqib_mehmood@gmail.com', '$2y$10$RZ9b0vVlJ4CHIw8tBrsBTusvQ9Qpg.fZkA1SspJ4DTJMVDZavKgfW', 'admin', '3d-cartoon-portrait-person-practicing-law-related-profession (1).jpg'),
+(5, 'nazia', 'nazia@gmail.com', '$2y$10$qGtbNmljObjvM3eR/paWau6EJi7pV.L1tp/goM56cUMzjmWQV5h/G', 'manigar', 'pp.png'),
+(6, 'Muhammad Aamir', 'Aamir@gmail.com', 'amir', 'admin', 'qwqwq.jpg'),
+(7, 'Zulfiqar Ali', 'zulfiqar@gmail.com', '$2y$10$.Erq9sKdTBgJ8Dqeu9cSMO4L8eiSwUyhkKpD5sO2xbFuLaZhObqjW', 'manigar', 'b1.jpg');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `product`
+-- Indexes for table `products`
 --
-ALTER TABLE `product`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uq_manufacturing_no` (`manufacturing_no`);
 
 --
 -- Indexes for table `testing_data`
 --
 ALTER TABLE `testing_data`
   ADD UNIQUE KEY `testing_id` (`testing_id`),
-  ADD KEY `product_id` (`product_id`);
+  ADD KEY `product_id` (`product_type`);
 
 --
 -- Indexes for table `userstaafe`
@@ -120,26 +127,16 @@ ALTER TABLE `userstaafe`
 --
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT for table `products`
 --
-ALTER TABLE `product`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1234567902;
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `userstaafe`
 --
 ALTER TABLE `userstaafe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `testing_data`
---
-ALTER TABLE `testing_data`
-  ADD CONSTRAINT `testing_data_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

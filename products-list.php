@@ -24,7 +24,7 @@ $res = mysqli_query($conn,$query);
         text-align:center;
         justify-content:center;
         flex-direction:
-        font-size:11px;
+       
     }
     
     #image{
@@ -79,8 +79,8 @@ $res = mysqli_query($conn,$query);
                 <td><?= $data["manufacturing_no"] ?></td>
                 <td><?= $data["product_type"] ?></td>
                 <td><?= $data["product_name"] ?></td>
-                <td><a href="updateuser.php?id=<?= $data['id']?>" class="btn btn-warning" >EDIT USER</a></td>
-                <td><a href="backend/deleteuser.php?id=<?= $data['id']?>" class="btn btn-danger" >REMOVE USER</a></td>
+                <td><a href="updateuser.php?id=<?= $data['id']?>" class="btn btn-warning" >EDIT </a></td>
+                <td><a href="backend/deleteuser.php?id=<?= $data['id']?>" class="btn btn-danger" >REMOVE</a></td>
             </tr>
             <?php }}?>
 
