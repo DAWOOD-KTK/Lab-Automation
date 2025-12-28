@@ -32,6 +32,18 @@ $res = mysqli_query($conn,$query);
         width:50px;
         border-radius: 50%;
     }
+    #td{
+        width: 10%;
+        /* background:skyblue; */
+    }
+    #td1{
+         width: 35%; 
+          /* background:blue; */
+    }
+    #id2{
+          width: 20%; 
+           /* background:black; */
+    }
   
        
     
@@ -61,7 +73,7 @@ $res = mysqli_query($conn,$query);
                 <th id="th">Product Type</th>
                 <th id="th">Product Name</th>
                 <th id="th">Is Active</th>
-                <th id="th" colspan="3">Actions</th>
+                <th id="th" colspan="6">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -73,15 +85,15 @@ $res = mysqli_query($conn,$query);
             
             ?>
             <tr>
-                <td><?= $data["id"] ?></td>
-                <td><?= $data["product_id"] ?></td>
-                <td><?= $data["product_code"] ?></td>
-                <td><?= $data["rivision"] ?></td>
-                <td><?= $data["manufacturing_no"] ?></td>
-                <td><?= $data["product_type"] ?></td>
-                <td><?= $data["product_name"] ?></td>
-                <td><?= $data["is_active"] ?></td>
-                <td colspan="3" >
+                <td id="td" class="text-center" ><?= $data["id"] ?></td>
+                <td ><?= $data["product_id"] ?></td>
+                <td id="td" class="text-center" ><?= $data["product_code"] ?></td>
+                <td id="td" class="text-center" ><?= $data["rivision"] ?></td>
+                <td id="td" class="text-center" ><?= $data["manufacturing_no"] ?></td>
+                <td ><?= $data["product_type"] ?></td>
+                <td id="id2"><?= $data["product_name"] ?></td>
+                <td id="td" class="text-center" ><?= $data["is_active"] ?></td>
+                <td id="td1"colspan="6" class="text-center" >
 <?php
 if($data['is_active'] == 1){
     // ACTIVE PRODUCT

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2025 at 08:53 PM
+-- Generation Time: Dec 28, 2025 at 10:25 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `product_id`, `product_code`, `rivision`, `manufacturing_no`, `product_type`, `product_name`, `is_active`) VALUES
 (6, 'SGR10007', 'SG', 'R1', '0007', 'Switchgear', '11kV Indoor Switchgear Panel', 0),
-(8, 'RSR10004', 'RS', 'R1', '0004', 'Fuse', 'Kit-Kat Fuse', 1),
+(8, 'RSR10004', 'RS', 'R1', '0004', 'Fuse', 'Kit-Kat Fuse', 0),
 (9, 'RSR20005', 'RS', 'R2', '0005', 'Resistor', 'High Power Resistor 100W', 1),
 (10, 'CPR20008', 'CP', 'R2', '0008', 'Capacitor', 'Three Phase Power Capacitor', 1);
 
@@ -65,6 +65,13 @@ CREATE TABLE `testing_data` (
   `send_to` enum('CPRI','Remanufacture','Pending') DEFAULT 'Pending',
   `is_locked` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `testing_data`
+--
+
+INSERT INTO `testing_data` (`testing_id`, `product_type`, `testing_type`, `result_type`, `tested_by`, `remarks`, `created_at`, `send_to`, `is_locked`) VALUES
+('4J2CXC281225', 'Resistor', 'Current Test', 'Pass', 'amir', 'kuch bhi', '2025-12-28 20:41:31', 'CPRI', 1);
 
 -- --------------------------------------------------------
 
