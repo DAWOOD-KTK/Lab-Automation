@@ -65,7 +65,7 @@ include 'header.php';
                 <div class="card mb-3">
                     <div class="card-body">
                         <div class="m-0">
-                        <input type="text" name="manufacturing_number" class="form-control" id="abc" placeholder="Enter Manufacturing Number => (like this 0015)" required>
+                        <input type="text" name="manufacturing_no" class="form-control" id="abc" placeholder="Enter Manufacturing Number => (like this 0015)" required>
                     </div>
                 </div>
             </div>
