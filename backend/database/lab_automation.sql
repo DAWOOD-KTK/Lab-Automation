@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2025 at 07:22 PM
+-- Generation Time: Dec 28, 2025 at 08:53 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,17 +34,19 @@ CREATE TABLE `products` (
   `rivision` varchar(11) NOT NULL,
   `manufacturing_no` varchar(50) NOT NULL,
   `product_type` varchar(11) NOT NULL,
-  `product_name` varchar(200) NOT NULL
+  `product_name` varchar(200) NOT NULL,
+  `is_active` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `product_id`, `product_code`, `rivision`, `manufacturing_no`, `product_type`, `product_name`) VALUES
-(6, 'SGR10007', 'SG', 'R1', '0007', 'Switchgear', '11kV Indoor Switchgear Panel'),
-(8, 'RSR10004', 'RS', 'R1', '0004', 'Fuse', 'Kit-Kat Fuse'),
-(9, 'RSR20005', 'RS', 'R2', '0005', 'Resistor', 'High Power Resistor 100W');
+INSERT INTO `products` (`id`, `product_id`, `product_code`, `rivision`, `manufacturing_no`, `product_type`, `product_name`, `is_active`) VALUES
+(6, 'SGR10007', 'SG', 'R1', '0007', 'Switchgear', '11kV Indoor Switchgear Panel', 0),
+(8, 'RSR10004', 'RS', 'R1', '0004', 'Fuse', 'Kit-Kat Fuse', 1),
+(9, 'RSR20005', 'RS', 'R2', '0005', 'Resistor', 'High Power Resistor 100W', 1),
+(10, 'CPR20008', 'CP', 'R2', '0008', 'Capacitor', 'Three Phase Power Capacitor', 1);
 
 -- --------------------------------------------------------
 
@@ -56,20 +58,13 @@ CREATE TABLE `testing_data` (
   `testing_id` varchar(12) NOT NULL,
   `product_type` varchar(11) NOT NULL,
   `testing_type` varchar(200) DEFAULT NULL,
-  `result_type` varchar(200) DEFAULT NULL,
+  `result_type` enum('Pass','Fail','Pending') NOT NULL,
   `tested_by` varchar(200) DEFAULT NULL,
   `remarks` varchar(200) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `send_to` enum('CPRI','Remanufacture','Pending') DEFAULT 'Pending',
+  `is_locked` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `testing_data`
---
-
-INSERT INTO `testing_data` (`testing_id`, `product_type`, `testing_type`, `result_type`, `tested_by`, `remarks`, `created_at`) VALUES
-('5BHJ8O281225', ' Resistor', 'Continuity Test', 'CPRI', 'noureen', 'hvcfyigvj', '2025-12-28 16:56:09'),
-('C24GSN281225', ' Fuse', 'Voltage Test', 'Remanufacture', 'dawood', 'uoyih', '2025-12-28 16:57:00'),
-('PY6FSO281225', ' Switchgear', 'Voltage Test', 'CPRI', 'afsheen', 'szvsfdgst', '2025-12-28 16:52:12');
 
 -- --------------------------------------------------------
 
@@ -130,7 +125,7 @@ ALTER TABLE `userstaafe`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `userstaafe`
