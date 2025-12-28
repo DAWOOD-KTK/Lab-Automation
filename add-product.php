@@ -1,75 +1,155 @@
 <?php
 include 'header.php';
 ?>
-<style>
+<!-- <style>
       body{
         overflow-y: scroll;
     }
-</style>
+</style> -->
 
 <div class="app-body">
 
 
   <div class="container ">
-  <div class="row gx-4 ">
+  <div class="row  justify-content-center">
     
         
-        <div class="col-sm-10 col-12  ms-5 ">
-            <div class="card mb-2 ms-5 mx-auto">
+        <div class="col-sm-10 col-12 ">
+            <div class="card mb-2 ">
                 <div class="card-head">
                     
                 <h1 class="title bg-primary rounded text-center text-white p-1 m-1 testinheading">Add Product</h1>
                    
-                </div>
             </div>
         </div>
-        <form action="backend/a_product.php" method="post">
-       
-       <div class="col-sm-10 col-12  ms-5 ">
-            <div class="card mb-3 ms-5">
-                <div class="card-body">
-                    <div class="m-0">
-                        <input type="text" name="product_code" class="form-control" id="abc" placeholder="Enter Product Code => (2 charactors 2 Numbers)">
-                    </div>
-                </div>
-            </div>
-        </div>
-       <div class="col-sm-10 col-12  ms-5 ">
-            <div class="card mb-3 ms-5">
-                <div class="card-body">
-                    <div class="m-0">
-                        <input type="text" name="rivision" class="form-control" id="abc" placeholder="Enter Rivision => (Charactors and Numbers)">
-                    </div>
-                </div>
-            </div>
-        </div>
-       <div class="col-sm-10 col-12  ms-5 ">
-            <div class="card mb-3 ms-5">
-                <div class="card-body">
-                    <div class="m-0">
-                        <input type="text" name="manufacturing_number" class="form-control" id="abc" placeholder="Enter Manufacturing Number => (4 digits)">
-                    </div>
-                </div>
-            </div>
-        </div>
-       <div class="col-sm-10 col-12  ms-5 ">
-            <div class="card mb-3 ms-5">
-                <div class="card-body">
-                    <div class="m-0">
-                        <input type="text" name="product_name" class="form-control" id="abc" placeholder="Enter Product Name">
-                    </div>
-                </div>
-                 <div class="card-footer text-center">
-            
-                <button id="btn" type="submit" name="submit" class="btn btn-primary testinheading w-100 m-0 p-2">Submit</button>
-               </div>
-            </div>
-        </div>
-      
+    </div>
+    <form action="backend/a_product.php" method="post">
+        <div class="row justify-content-center">
 
+        <div class="col-sm-10 col-12 ">
+             <div class="card mb-3 ">
+                 <div class="card-body">
+                     <div class="m-0">
+                    <select class="form-select" name="product_code" required>
+                     <option selected disabled>Product Code</option>
+                     <option value="SG">SG</option>
+                     <option value="FS">FS</option>
+                     <option value="RS">RS</option>
+                     <option value="CP">CP</option>
+                     </select>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         </div>
+        <div class="row justify-content-center">
+        
+         <div class="col-sm-10 col-12  ">
+             <div class="card mb-3 ">
+                 <div class="card-body">
+                     <div class="m-0">
+                         <select class="form-select" name="rivision" required>
+                     <option selected disabled>Rivision</option>
+                     <option value="R1">R1->Minor change</option>
+                     <option value="R2">R2->Improvement / update</option>
+                     <option value="RS">R3->Further modification</option>
+                     </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <div class="row justify-content-center">
+
+            <div class="col-sm-10 col-12  ">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="m-0">
+                        <input type="text" name="manufacturing_number" class="form-control" id="abc" placeholder="Enter Manufacturing Number => (like this 0015)" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+      <div class="row justify-content-center">
+  <div class="col-sm-10 col-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <select class="form-select" name="product_type" required>
+          <option selected disabled>Product Type</option>
+          <option value="Switchgear">Switchgear</option>
+          <option value="Fuse">Fuse</option>
+          <option value="Capacitor">Capacitor</option>
+          <option value="Resistor">Resistor</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="row justify-content-center">
+  <div class="col-sm-10 col-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <select class="form-select" name="product_name" required>
+          <option selected disabled>Enter Product Name</option>
+
+          <optgroup label="Switchgear">
+            <option value="11kV Indoor Switchgear Panel">11kV Indoor Switchgear Panel</option>
+            <option value="11kV Outdoor Switchgear Panel">11kV Outdoor Switchgear Panel</option>
+            <option value="33kV Indoor Switchgear Panel">33kV Indoor Switchgear Panel</option>
+            <option value="11kV Indoor Switchgear Panel">33kV Outdoor Switchgear Panel</option>
+            <option value="11kV Indoor Switchgear Panel">LT Switchgear Panel (415V)</option>
+          </optgroup>
+
+          <optgroup label="Fuses">
+            <option value="HRC Fuse 32A">>HRC Fuse 32A</option>
+            <option value="Drop-Out Fuse">Drop-Out Fuse</option>
+            <option value="Kit-Kat Fuse">Kit-Kat Fuse</option>
+            <option value="Cartridge Fuse 32A">Cartridge Fuse 32A</option>
+            <option value="Thermal Fuse">Thermal Fuse</option>
+          </optgroup>
+
+          <optgroup label="Capacitors">
+            <option>Power Capacitor 440V 25 kVAR</option>
+            <option>Three Phase Power Capacitor</option>
+            <option>Oil Filled Power Capacitor</option>
+            <option>APFC Panel</option>
+            <option>LT Capacitor Bank Panel</option>
+            <option>HT Capacitor Bank</option>
+          </optgroup>
+
+          <optgroup label="Resistors">
+            <option value="Wire Wound Resistor 100Ω">Wire Wound Resistor 100Ω</option>
+            <option value="Carbon Film Resistor 1kΩ">Carbon Film Resistor 1kΩ</option>
+            <option value="High Power Resistor 100W">High Power Resistor 100W</option>
+            <option value="Cement Resistor 5W">Cement Resistor 5W</option>
+            <option value="Precision Resistor 0.1%">Precision Resistor 0.1%</option>
+          </optgroup>
+
+        </select>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center">
+  <div class="col-sm-10 col-12">
+    <div class="card mb-3">
+      <div class="card-footer text-center">
+        <button type="submit"
+                name="submit"
+                class="btn btn-primary testinheading w-100 p-2">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    </form>
     </div>
    </div>
-</form>
  </div>
 <?php
 include 'footer.php';
