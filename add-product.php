@@ -10,88 +10,43 @@ include 'header.php';
 <div class="app-body">
 
 
-  <div class="container ">
-  <div class="row  justify-content-center">
+  
+    <div class="container-fluid">
     
-        
-        <div class="col-sm-10 col-12 ">
-            <div class="card mb-2 ">
-                <div class="card-head">
-                    
-                <h1 class="title bg-primary rounded text-center text-white p-1 m-1 testinheading">Add Product</h1>
-                   
-            </div>
+    <div class="card col-md-8  mx-auto ">
+        <div class="card-head">
+            <h1 class="title bg-primary rounded text-center text-white p-1 m-1 testinheading " >CREATE USER</h1>
+            <hr>
         </div>
-    </div>
+        <div class="card-body ">
     <form action="backend/a_product.php" method="post">
-        <div class="row justify-content-center">
-
-        <div class="col-sm-10 col-12 ">
-             <div class="card mb-3 ">
-                 <div class="card-body">
-                     <div class="m-0">
-                    <select class="form-select" name="product_code" required>
+       
+                    <select class="form-select mb-3" name="product_code" required>
                      <option selected disabled>Product Code</option>
                      <option value="SG">SG</option>
                      <option value="FS">FS</option>
                      <option value="RS">RS</option>
                      <option value="CP">CP</option>
                      </select>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         </div>
-        <div class="row justify-content-center">
-        
-         <div class="col-sm-10 col-12  ">
-             <div class="card mb-3 ">
-                 <div class="card-body">
-                     <div class="m-0">
-                         <select class="form-select" name="rivision" required>
+                 
+                         <select class="form-select mb-3" name="rivision" required>
                      <option selected disabled>Rivision</option>
                      <option value="R1">R1->Minor change</option>
                      <option value="R2">R2->Improvement / update</option>
                      <option value="RS">R3->Further modification</option>
                      </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        <div class="row justify-content-center">
-
-            <div class="col-sm-10 col-12  ">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="m-0">
-                        <input type="text" name="manufacturing_no" class="form-control" id="abc" placeholder="Enter Manufacturing Number => (like this 0015)" required>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-      <div class="row justify-content-center">
-  <div class="col-sm-10 col-12">
-    <div class="card mb-3">
-      <div class="card-body">
-        <select class="form-select" name="product_type" required>
+                     
+                        <input type="text" name="manufacturing_no" class="form-control mb-3" id="abc" placeholder="Enter Manufacturing Number => (like this 0015)" required>
+           
+        <select class="form-select mb-3" name="product_type" required>
           <option selected disabled>Product Type</option>
           <option value="Switchgear">Switchgear</option>
           <option value="Fuse">Fuse</option>
           <option value="Capacitor">Capacitor</option>
           <option value="Resistor">Resistor</option>
         </select>
-      </div>
-    </div>
-  </div>
-</div>
 
-        <div class="row justify-content-center">
-  <div class="col-sm-10 col-12">
-    <div class="card mb-3">
-      <div class="card-body">
-        <select class="form-select" name="product_name" required>
+        <select class="form-select mb-3" name="product_name" required>
           <option selected disabled>Enter Product Name</option>
 
           <optgroup label="Switchgear">
@@ -103,7 +58,7 @@ include 'header.php';
           </optgroup>
 
           <optgroup label="Fuses">
-            <option value="HRC Fuse 32A">>HRC Fuse 32A</option>
+            <option value="HRC Fuse 32A">HRC Fuse 32A</option>
             <option value="Drop-Out Fuse">Drop-Out Fuse</option>
             <option value="Kit-Kat Fuse">Kit-Kat Fuse</option>
             <option value="Cartridge Fuse 32A">Cartridge Fuse 32A</option>
@@ -128,24 +83,12 @@ include 'header.php';
           </optgroup>
 
         </select>
-      </div>
-    </div>
-  </div>
+     
   
-  <div class="row justify-content-center">
-  <div class="col-sm-10 col-12">
-    <div class="card mb-3">
-      <div class="card-footer text-center">
-        <button type="submit"
-                name="submit"
-                class="btn btn-primary testinheading w-100 p-2">
-          Submit
-        </button>
-      </div>
+ <div class="card-footer text-center">
+        <button id="btn" type="submit" name="submit" class="btn btn-primary w-100 m-0 p-2 testinheading">Submit</button>
     </div>
-  </div>
-</div>
-
+   
 
     </form>
     </div>

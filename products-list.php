@@ -61,7 +61,7 @@ $res = mysqli_query($conn,$query);
 
 <div class="table-responsive rounded">
     <a href="add-product.php" class="btn btn-primary d-block mb-3  "> Add Product</a>
-    <table class="table  table-hover table-border shadow-lg" >
+    <table class="table  table-hover table-border shadow-lg p-3" >
         <thead>
             
             <tr>
