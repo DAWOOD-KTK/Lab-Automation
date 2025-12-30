@@ -42,7 +42,7 @@ $data = mysqli_fetch_assoc($query);
             <hr>
         </div>
         <div class="card-body ">
-   <form action="backend/update.php" method="POST">
+   <form action="update.php" method="POST">
 
                     <input type="hidden" name="id" value="<?= $data['id'] ?>">
 
@@ -64,8 +64,10 @@ $data = mysqli_fetch_assoc($query);
                  </select>
 
         <select class="form-select mb-3" name="product_name" required>
-          <option selected disabled>Enter Product Name</option>
 
+          <option selected disabled>Enter Product Name</option>
+        
+          
           <optgroup label="Switchgear">
             <option value="11kV Indoor Switchgear Panel"<?= ($data['product_name']=='11kV Indoor Switchgear Panel')?'selected':'' ?>>
                 11kV Indoor Switchgear Panel
@@ -75,7 +77,7 @@ $data = mysqli_fetch_assoc($query);
             <option value="33kV Outdoor Switchgear Panel"<?= ($data['product_name']=='33kV Outdoor Switchgear Panel')?'selected':'' ?>>33kV Outdoor Switchgear Panel</option>
             <option value="LT Switchgear Panel (415V)"<?= ($data['product_name']=='LT Switchgear Panel (415V)')?'selected':'' ?>>LT Switchgear Panel (415V)</option>
           </optgroup>
-
+         
           <optgroup label="Fuses">
             <option value="HRC Fuse 32A"<?= ($data['product_name']=='HRC Fuse 32A')?'selected':'' ?>>HRC Fuse 32A</option>
             <option value="Drop-Out Fuse"<?= ($data['product_name']=='Drop-Out Fuse')?'selected':'' ?>>Drop-Out Fuse</option>

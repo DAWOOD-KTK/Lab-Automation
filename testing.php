@@ -6,7 +6,7 @@ include 'header.php';
 ?>
 <style>
   .bg{
-    background:black;
+    background:lightgrey;
   }
 </style>
 <!-- App body starts -->
@@ -14,7 +14,7 @@ include 'header.php';
     
     <!-- Row starts -->
     <div class="container-fluid ">
-      <div class="card col-md-10   mx-auto">
+      <div class="card col-md-10 mx-auto">
         <div class="card-head  ">
 
            <div class="row  ">
