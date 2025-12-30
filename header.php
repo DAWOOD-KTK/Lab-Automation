@@ -75,6 +75,9 @@ select{
   color: #4f2d8fff !important;
 
 }
+.font{
+  font-size: 10px;/
+}
 </style>
 </head>
 

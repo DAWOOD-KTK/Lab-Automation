@@ -42,7 +42,11 @@ $res = mysqli_query($conn,$query);
     }
     #id2{
           width: 20%; 
-           /* background:black; */
+          /* background:black; */
+        }
+        #wid{
+        width: 11%; 
+
     }
   
        
@@ -65,15 +69,15 @@ $res = mysqli_query($conn,$query);
         <thead>
             
             <tr>
-                <th id="th">ID</th>
-                <th id="th">Product ID</th>
-                <th id="th">Product Code</th>
-                <th id="th">Revision</th>
-                <th id="th">Manufacture No</th>
-                <th id="th">Product Type</th>
-                <th id="th">Product Name</th>
-                <th id="th">Is Active</th>
-                <th id="th" colspan="6">Actions</th>
+                <th id="th" >ID</th>
+                <th id="th"  class="font">Product ID</th>
+                <th id="th"  class="font">Product Code</th>
+                <th id="th" >Revision</th>
+                <th id="th" class="font">Manufacture No</th>
+                <th id="th"  class="font">Product Type</th>
+                <th id="th"  class="font">Product Name</th>
+                <th id="th"  >Is Active</th>
+                <th id="th"  colspan="6">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -87,9 +91,9 @@ $res = mysqli_query($conn,$query);
             <tr>
                 <td id="td" class="text-center" ><?= $data["id"] ?></td>
                 <td ><?= $data["product_id"] ?></td>
-                <td id="td" class="text-center" ><?= $data["product_code"] ?></td>
+                <td id="wid" class="text-center" ><?= $data["product_code"] ?></td>
                 <td id="td" class="text-center" ><?= $data["rivision"] ?></td>
-                <td id="td" class="text-center" ><?= $data["manufacturing_no"] ?></td>
+                <td id="wid" class="text-center" ><?= $data["manufacturing_no"] ?></td>
                 <td ><?= $data["product_type"] ?></td>
                 <td id="id2"><?= $data["product_name"] ?></td>
                 <td id="td" class="text-center" ><?= $data["is_active"] ?></td>
