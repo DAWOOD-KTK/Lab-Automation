@@ -156,9 +156,7 @@ select{
                   <li>
                     <a href="products-list.php">Product List</a>
                   </li>
-                  <li>
-                    <a href="update-product.php"> Update Product</a>
-                  </li>
+                 
                 </ul>
               </li>
               <li>
