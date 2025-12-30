@@ -41,10 +41,12 @@
     color: #ffffff !important;
 }
 .clr{
-  color: #5a32a3;
+  color: #5a32a3 !important;
   margin-left:-4px;
   
 }
+/*  */
+      
 .size{
   font-size:17px;
   margin-top:5px;
@@ -66,16 +68,13 @@
   color:white!important;
   transition : 0.3s ease-in;
 }
-/* @media screen(332px ) {
-  clr{
-     margin-left:-10px;
-  }
-  .size{
-  font-size:17px;
-  margin-top:5px;
-  color: black;
+label{
+color: #4f2d8fff !important;
 }
-} */
+select{
+  color: #4f2d8fff !important;
+
+}
 </style>
 </head>
 
@@ -129,7 +128,7 @@
               <li  class="treeview">
                 <a href="!#">
                  <i class="bi bi-person-badge"></i>
-                  <span class="menu-text">User / Admin</span>
+                  <span class="menu-text clr-nav">User / Admin</span>
                 </a>
                 <ul class="treeview-menu">
                   <li>
@@ -283,7 +282,7 @@
                 <div class="dropdown ms-2">
                   <a id="userSettings" class="dropdown-toggle user-settings" href="#!" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="me-2 text-truncate d-lg-block d-none">Admin Name Here</span>
+                    <span class="me-2 text-truncate clr d-lg-block d-none">Admin Name Here</span>
                     <div class="icon-box md rounded-4 fw-bold bg-primary-subtle text-primary">
                      <i
                         class="bi bi-person fs-4 me-2"></i>

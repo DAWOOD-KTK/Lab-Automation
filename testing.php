@@ -4,28 +4,38 @@
 include "backend/db.php";
 include 'header.php';
 ?>
-
+<style>
+  .bg{
+    background:black;
+  }
+</style>
 <!-- App body starts -->
      <div class="app-body">
     
     <!-- Row starts -->
+    <div class="container-fluid ">
+      <div class="card col-md-10   mx-auto">
+        <div class="card-head  ">
 
-          <div class="row gx-5 ms-5">
-              <div class="col-9  ms-4">
+           <div class="row  ">
+              <div class="col-9 col-sm-12 m-auto ">
                 <div class="card mb-4 testinheading ">
                   <div class="card-body text-center">
                     <div class="m-0">
                     <h1 ><b>Add Testing Record</b></h1>
                     </div>
-                  </div>
+                   </div>
             
                   </div>
                 </div>
             </div>
+        </div>
+        <!-- <div class="card-body m-auto bg"> -->
+
             <form action="backend/a-testing.php" id="testin_form" method="post">
-            <div class="row gx-1 ms-5 ">
+            <div class="row gx-1 ">
             
-              <div class="col-sm-4 col-12 ms-5">
+              <div class=" col-sm-6  m-auto">
                 <div class="card mb-4">
                   <div class="card-body">
                     <div class="m-0">
@@ -51,7 +61,7 @@ include 'header.php';
                 </div>
               </div>
             </div>
-            <div class="col-sm-4 col-12  ms-5">
+           <div class=" col-sm-6  m-auto">
               <div class="card mb-4">
                   
                 <div class="card-body">
@@ -70,9 +80,9 @@ include 'header.php';
               </div>
             </div>
           </div>
-          <div class="row gx-1 ms-5">
-           
-                <div class="col-sm-4 col-12 ms-5">
+          <div class="row gx-1 ">
+           <div class=" col-sm-6  m-auto">
+
                 <div class="card mb-4">
                   <div class="card-body">
                     <div class="m-0">
@@ -88,7 +98,9 @@ include 'header.php';
                   </div>
                 </div>
               </div>
-               <div class="col-sm-4 col-12  ms-5">
+               <!-- <div class="col-sm-4 col-12  ms-5"> -->
+           <div class=" col-sm-6  m-auto">
+
                 <div class="card mb-4">
                   <div class="card-body">
                     <div class="m-0">
@@ -100,12 +112,12 @@ include 'header.php';
               </div>
             </div>
            
-            <div class="row gx-5 ms-5">
-              <div class="col-9  ms-4">
+            <div class="row gx-5 ">
+              <div class="col-sm-12  m-auto">
                 <div class="card mb-4">
                   <div class="card-body">
-                    <div class="input-group">
-                      <span class="input-group-text">Remarks</span>
+                    <div class="input-group ">
+                      <span class="input-group-text clr">Remarks</span>
                       <textarea class="form-control" name="remarks" id="abc14" aria-label="With textarea"></textarea>
                     </div>
                   </div>
@@ -123,6 +135,9 @@ include 'header.php';
               </div>
             </div>
             </form>
+        </div>
+        </div>
+        </div>
         </div>
             <!-- Row ends -->
 <?php
