@@ -55,7 +55,7 @@ $data = mysqli_fetch_assoc($query);
                  </select>        
                      
                      
-                <select class="form-select mb-3" name="product_type" required>
+                <select class="form-select mb-3" name="product_type"disabled>
                  <option disabled>Product Type</option>
                  <option value="Switchgear" <?= ($data['product_type']=='Switchgear')?'selected':'' ?>>Switchgear</option>
                  <option value="Fuse" <?= ($data['product_type']=='Fuse')?'selected':'' ?>>Fuse</option>
@@ -63,7 +63,7 @@ $data = mysqli_fetch_assoc($query);
                  <option value="Resistor" <?= ($data['product_type']=='Resistor')?'selected':'' ?>>Resistor</option>
                  </select>
 
-        <select class="form-select mb-3" name="product_name" required>
+        <select class="form-select mb-3" name="product_name" disabled>
 
           <option selected disabled>Enter Product Name</option>
         
