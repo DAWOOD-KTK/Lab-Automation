@@ -15,7 +15,7 @@ $image_name = $_FILES['image']['name'];
 
 // getting dat from database
 
-$q ="SELECT * FROM `UserStaafe` WHERE id = $id";
+$q ="SELECT * FROM `userstaafe` WHERE id = $id";
 
 $res = mysqli_query($conn,$q);
 
@@ -39,7 +39,7 @@ if (!empty($image_name)) {
      if($type == "image/png" || $type == "image/jpg" || $type == "image/jpeg" ){
 
         if($size <= 5000000){
-           $q2 = "UPDATE `UserStaafe` SET `name`='$name',`email`='$email',`passwd`='$password',`roll`='$user',`image`='$image_name' WHERE id = $id";
+           $q2 = "UPDATE `userstaafe` SET `name`='$name',`email`='$email',`passwd`='$password',`roll`='$user',`image`='$image_name' WHERE id = $id";
             $res2 = mysqli_query($conn,$q2);
             if($res2){
                   move_uploaded_file($tmp_name,$folder);
@@ -76,7 +76,7 @@ if (!empty($image_name)) {
     
 }else{
 
-   $q2 = "UPDATE `UserStaafe` SET `name`='$name',`email`='$email',`passwd`='$password',`roll`='$user',`image`='$image_name' WHERE id =$id";
+   $q2 = "UPDATE `userstaafe` SET `name`='$name',`email`='$email',`passwd`='$password',`roll`='$user',`image`='$image_name' WHERE id =$id";
    $res2 =mysqli_query($conn,$q2);
 
     if($res2){

@@ -34,11 +34,11 @@
 
       <!-- Auth container starts -->
       <div class="auth-container">
-
+       
         <div class="d-flex justify-content-center">
-
+          
           <!-- Form starts -->
-          <form action="https://bootstrapget.com/demos/cube-admin-template/index.html">
+          <form action="backend/login.php" method="POST">
 
             <!-- Logo starts -->
             <a href="index.html" class="auth-logo mt-5 mb-3">
@@ -49,7 +49,7 @@
             <!-- Authbox starts -->
             <div class="auth-box">
 
-              <h4 class="mb-4">Welcome back,</h4>
+              <h3 class="title bg-primary rounded text-light text-center p-2 mb-4 mx-auto">LOGIN</h3>
 
               <div class="mb-3">
                 <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
@@ -57,7 +57,7 @@
                   <span class="input-group-text">
                     <i class="bi bi-envelope"></i>
                   </span>
-                  <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email">
                 </div>
               </div>
 
@@ -67,20 +67,15 @@
                   <span class="input-group-text">
                     <i class="bi bi-lock"></i>
                   </span>
-                  <input type="password" id="password" class="form-control" placeholder="Enter password">
+                  <input type="password" id="password" name="password" class="form-control" placeholder="Enter password">
                   <button class="btn btn-outline-secondary" type="button">
                     <i class="bi bi-eye"></i>
                   </button>
                 </div>
               </div>
-
-              <div class="d-flex justify-content-end mb-3">
-                <a href="forgot-password.html" class="text-decoration-underline">Forgot password?</a>
-              </div>
-
               <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary">Login</button>
-                <a href="signup.html" class="btn btn-outline-dark">Not registered? Signup</a>
+                <button type="submit" name="login" class="btn btn-primary">Login</button>
+                
               </div>
 
             </div>

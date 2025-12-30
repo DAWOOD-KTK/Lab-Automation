@@ -8,6 +8,7 @@ $email = mysqli_real_escape_string($conn, $_POST["email"]);
 $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
 $roll = mysqli_real_escape_string($conn, $_POST["user"]);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
+
 //email validation
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo "<script>
@@ -18,7 +19,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 //unique email validation
-$check = mysqli_query($conn, "SELECT * FROM UserStaafe WHERE email='$email'");
+$check = mysqli_query($conn, "SELECT * FROM userstaafe WHERE email='$email'");
 if(mysqli_num_rows($check) > 0){
     echo "<script>
         alert('Email already exists!');
@@ -34,18 +35,18 @@ $imagename =$_FILES["image"]["name"] ;
 $tmp_image =$_FILES["image"]["tmp_name"] ;
 $type_image =$_FILES["image"]["type"] ;
 $image_size =$_FILES["image"]["size"] ;
-$folder ="../assets/images/" . $imagename;
+$folder ="../assets/images./" . $imagename;
 $max = 1024*1024*5 ;
 
     if ($type_image == "image/png" || $type_image == "image/jpg" || $type_image == "image/jpeg" ) {
 
         if ($image_size < $max) {
+            move_uploaded_file($tmp_image,$folder);
     
-            $q = "INSERT INTO `UserStaafe`(`id`, `name`, `email`, `passwd`, `roll`, `image`) VALUES (Null,'$name','$email','$password','$roll','$imagename')";
+            $q = "INSERT INTO `userstaafe`(`id`, `name`, `email`, `passwd`, `roll`, `image`) VALUES (Null,'$name','$email','$password','$roll','$imagename')";
             $res = mysqli_query($conn,$q);
 
             if ($res) {
-                move_uploaded_file($tmp_image,$folder);
                 echo "<script>
                 alert('User added successfully');
                 window.location.href='../add-user.php';

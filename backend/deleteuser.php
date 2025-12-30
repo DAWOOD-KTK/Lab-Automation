@@ -3,7 +3,7 @@ include "db.php";
 
 $id = $_GET['id'];
 
-$q1 = "SELECT * FROM `UserStaafe` WHERE id = '$id'";
+$q1 = "SELECT * FROM `userstaafe` WHERE id = '$id'";
 $res = mysqli_query($conn,$q1);
 $data = mysqli_fetch_assoc($res);
 
@@ -13,7 +13,7 @@ if(file_exists($imgpath)){
     unlink($imgpath);
 }
 
-$q="DELETE FROM UserStaafe WHERE id = '$id'";
+$q="DELETE FROM userstaafe WHERE id = '$id'";
 $res1 = mysqli_query($conn,$q);
 if($res1){
     echo "<script>
