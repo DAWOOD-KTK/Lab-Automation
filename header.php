@@ -260,7 +260,8 @@
             <!-- App brand sm ends -->
 
             <!-- Page title starts -->
-            <h5 class="m-0 ms-2 fw-semibold">Dashboard</h5>
+             <p class="mx-3 size "><h1 class="clr ms-2"><b>L</b></h1></P><p class=" size"> ab</p> <p> <h1 class="clr ms-2"> <b>A</b></h1></P><p class=" size"> utomation</p>
+            <!-- <h5 class="m-0 ms-2 fw-semibold">Dashboard</h5> -->
             <!-- Page title ends -->
 
             <!-- App header actions starts -->
