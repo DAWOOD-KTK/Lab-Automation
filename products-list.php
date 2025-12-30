@@ -103,7 +103,7 @@ if($data['is_active'] == 1){
     // ACTIVE PRODUCT
     ?>
     <a href="view-product.php?id=<?= $data['id']?>" class="btn btn-info btn-sm">View</a>
-    <a href="updateuser.php?id=<?= $data['id']?>" class="btn btn-warning btn-sm">Edit</a>
+    <a href="edit.php?id=<?= $data['id']?>" class="btn btn-warning btn-sm">Update</a>
     <a href="backend/deactivate-product.php?id=<?= $data['id']?>"
        class="btn btn-danger btn-sm"
        onclick="return confirm('Deactivate this product?')">Deactivate</a>

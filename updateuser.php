@@ -7,6 +7,7 @@ $q ="SELECT * FROM `UserStaafe` WHERE id = $gid";
 $res = mysqli_query($conn,$q);
 
 $data=mysqli_fetch_assoc($res);
+echo print_r($data);
 
 ?>
 
