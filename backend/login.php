@@ -1,28 +1,33 @@
 <?php 
+session_start();
 include "db.php";
-if (isset($_POST['login'])) {
-    $email =myqsli_real_escape_string($conn, $_POST['email']);
-    $password =myqsli_real_escape_string($conn, $_POST['password']);
 
-    $q ="SELECT * FROM WHERE 'email' = {'$email'} AND 'passwd' = {'$password'} ";
+$email = mysqli_real_escape_string($conn, $_POST['email']);
+$password = $_POST['password'];
 
-    $res= mysqli_query($conn,$q) or die("query failed");
+//Select the user by email ONLY (Fixed column quotes)
+$q = "SELECT * FROM `userstaafe` WHERE `email` = '$email'";
+$res = mysqli_query($conn, $q);
 
-    if (mysqli_num_rows($res) > 0) {
-        while ($data = mysqli_fetch_assoc($res)) {
-            session_start();
-            $_SESSION['username'] = $data['name'];
-            $_SESSION['userID'] = $data['id'];
-            $_SESSION['UserRoll'] = $data['roll'];
-
-            header("location:../index.php ");
-        }
-        
-    }else{
-        echo "<div class='alert alert-danger'>USER NAME AND PASSWORD are not match</div>";
+if ($res && mysqli_num_rows($res) > 0) {
+    $data = mysqli_fetch_assoc($res);
+    
+    //  Verify the hashed password 
+    if (password_verify($password, $data['passwd'])) {
+        $_SESSION['user'] = $data;
+        header("Location: ../index.php");
+        exit();
+    } else {
+        // Password did not match
+        echo "<script>alert('Invalid password'); window.location.href='../login.php';</script>";
     }
-     
+} else {
+    // Email not found
+    echo "<script>alert('Email not found'); window.location.href='../login.php';</script>";
 }
+
+     
+
 
 
 ?>

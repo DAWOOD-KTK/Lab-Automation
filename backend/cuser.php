@@ -35,7 +35,7 @@ $imagename =$_FILES["image"]["name"] ;
 $tmp_image =$_FILES["image"]["tmp_name"] ;
 $type_image =$_FILES["image"]["type"] ;
 $image_size =$_FILES["image"]["size"] ;
-$folder ="../assets/images./" . $imagename;
+$folder ="../assets/images/" . $imagename;
 $max = 1024*1024*5 ;
 
     if ($type_image == "image/png" || $type_image == "image/jpg" || $type_image == "image/jpeg" ) {

@@ -38,7 +38,7 @@
         <div class="d-flex justify-content-center">
           
           <!-- Form starts -->
-          <form action="backend/login.php" method="POST">
+          <form action="backend/login.php" method="post" >
 
             <!-- Logo starts -->
             <a href="index.html" class="auth-logo mt-5 mb-3">

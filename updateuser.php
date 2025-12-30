@@ -3,7 +3,7 @@ include "backend/db.php";
 
 $gid = $_GET['id'];
 
-$q ="SELECT * FROM `UserStaafe` WHERE id = $gid";
+$q ="SELECT * FROM `userstaafe` WHERE id = $gid";
 $res = mysqli_query($conn,$q);
 
 $data=mysqli_fetch_assoc($res);
