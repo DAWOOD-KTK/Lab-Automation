@@ -1,7 +1,7 @@
 <?php
 include "db.php";
 
-$q=" SELECT * FROM `UserStaafe` ";
+$q=" SELECT * FROM `userstaafe` ";
 
 $res = mysqli_query($conn,$q);
 
