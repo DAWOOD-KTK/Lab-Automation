@@ -1,3 +1,10 @@
+<?php
+include "backend/logoutmsg.php";
+session_start();
+if (isset($_SESSION['user'])) {
+  header("Location: index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +14,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Admin Templates & Dashboards - Cube Admin Template</title>
-
+  <link rel="stylesheet" href="backend/logout.php">
     <!-- Meta -->
     <meta name="description" content="Marketplace for Bootstrap Admin Dashboards" />
     <meta name="author" content="Bootstrap Gallery" />
@@ -28,6 +35,7 @@
   </head>
 
   <body>
+ 
 
     <!-- Page wrapper starts -->
     <div class="page-wrapper">
@@ -45,10 +53,10 @@
               <img src="assets/images/logo.svg" alt="Bootstrap Gallery" />
             </a>
             <!-- Logo ends -->
+             
 
             <!-- Authbox starts -->
             <div class="auth-box">
-
               <h3 class="title bg-primary rounded text-light text-center p-2 mb-4 mx-auto">LOGIN</h3>
 
               <div class="mb-3">

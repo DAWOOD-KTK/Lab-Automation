@@ -1,3 +1,12 @@
+<?php 
+session_start();
+ if (!isset($_SESSION['user'])) {
+   header("Location: login.php");
+
+ }
+
+?> 
+
 <!DOCTYPE php>
 <php lang="en">
 
@@ -218,12 +227,7 @@ select{
                 </a>
               </li>
               
-              <li >
-                <a href="login.php">
-                  <i class="bi bi-upc-scan"></i>
-                  <span class="menu-text">Login</span>
-                </a>
-              </li>
+             
                 
              
           </div>
@@ -295,7 +299,7 @@ select{
                    
                   
                     <div class="mx-3 my-2 d-grid">
-                      <a href="login.php" class="btn btn-warning">Logout</a>
+                      <a href="backend/logout.php?logout=logout" class="btn btn-warning">Logout</a>
                     </div>
                   </div>
                 </div>
