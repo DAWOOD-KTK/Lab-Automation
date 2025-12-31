@@ -145,9 +145,11 @@ select{
                   <span class="menu-text clr-nav">User / Admin</span>
                 </a>
                 <ul class="treeview-menu">
+                  <?php if($_SESSION['user']['roll'] == 'admin'){?>
                   <li>
                     <a href="add-user.php">Add User</a>
                   </li>
+                  <?php }?>
                   <li>
                     <a href="user-list.php">User List</a>
                   </li>
@@ -159,15 +161,18 @@ select{
                   <span class="menu-text">Product</span>
                 </a>
                 <ul class="treeview-menu">
+                  <?php if($_SESSION['user']['roll'] == 'admin'){?>
                   <li>
                     <a href="add-product.php">Add Product</a>
                   </li>
+                  <?php }?>
                   <li>
                     <a href="products-list.php">Product List</a>
                   </li>
                  
                 </ul>
               </li>
+               <?php if($_SESSION['user']['roll'] == 'admin'){?>
               <li>
                 <a href="testing.php">
                  <i class="bi bi-clipboard-data"></i>
@@ -175,6 +180,7 @@ select{
                 </a>
                
               </li>
+              <?php }?>
               
               <li  class="treeview">
                 <a href="#!">
@@ -272,12 +278,13 @@ select{
 
             <!-- App header actions starts -->
             <div class="header-actions">
-
+              <?php if (basename($_SERVER['PHP_SELF']) == 'products-list.php') {?>
               <!-- Search container start -->
               <div class="search-container d-xl-block d-none me-3">
                 <input type="text" class="form-control" id="searchData" placeholder="Search" />
                 <i class="bi bi-search"></i>
               </div>
+              <?php }?>
               <!-- Search container ends -->
 
               <!-- Header action bar starts -->
@@ -289,10 +296,10 @@ select{
                 <div class="dropdown ms-2">
                   <a id="userSettings" class="dropdown-toggle user-settings" href="#!" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="me-2 text-truncate clr d-lg-block d-none">Admin Name Here</span>
+                    <span class="me-2 text-truncate clr d-lg-block d-none"><?php echo $_SESSION['user']['name']; ?></span>
                     <div class="icon-box md rounded-4 fw-bold bg-primary-subtle text-primary">
-                     <i
-                        class="bi bi-person fs-4 me-2"></i>
+                       <img style="width: 100%; height: 100%;border-radius: 50%;" src="assets/images/<?php echo $_SESSION['user']['image']; ?>" alt="user pic">
+                        
                     </div>
                   </a>
                   <div class="dropdown-menu dropdown-menu-end shadow-lg">
