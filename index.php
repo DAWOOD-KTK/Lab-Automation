@@ -20,7 +20,7 @@
                       </div>
                       <div class="d-flex flex-column">
                         <h2 class="lh-1">2200</h2>
-                        <p class="m-0 opacity-50">Sales</p>
+                        <p class="m-0 opacity-50">Active</p>
                       </div>
                     </div>
                     <div class="d-flex align-items-center justify-content-between mt-1">
@@ -45,7 +45,7 @@
                       </div>
                       <div class="d-flex flex-column">
                         <h2 class="lh-1">4400</h2>
-                        <p class="m-0 opacity-50">Orders</p>
+                        <p class="m-0 opacity-50">Pending</p>
                       </div>
                     </div>
                     <div class="d-flex align-items-center justify-content-between mt-1">
@@ -70,7 +70,7 @@
                       </div>
                       <div class="d-flex flex-column">
                         <h2 class="lh-1">6600</h2>
-                        <p class="m-0 opacity-50">Invoices</p>
+                        <p class="m-0 opacity-50">REjected</p>
                       </div>
                     </div>
                     <div class="d-flex align-items-center justify-content-between mt-1">
