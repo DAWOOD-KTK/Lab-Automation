@@ -17,6 +17,7 @@ $q="DELETE FROM userstaafe WHERE id = '$id'";
 $res1 = mysqli_query($conn,$q);
 if($res1){
     echo "<script>
+<<<<<<< HEAD
         alert('user remove successfuly..')
         window.location.href='../user-list.php'
     </script>";
@@ -27,8 +28,29 @@ if($res1){
         window.location.href='.//user-list.php'
     </script>";
     // header("location:index.php");
+=======
+        Swal.fire({
+            icon: 'success',
+            title: 'Deleted',
+            text: 'User successfully deleted'
+        }).then(() => {
+            window.location.href='../user-list.php';
+        });
+        </script>";
 }
-
+else {
+        $error = mysqli_error($conn);
+        echo "<script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Deletion Failed',
+            text: '".addslashes($error)."'
+        }).then(() => {
+            window.location.href='../user-list.php';
+        });
+        </script>";
+>>>>>>> refs/remotes/origin/main
+}
 
 
 
