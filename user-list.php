@@ -32,7 +32,9 @@ include "backend/getUsers.php";
 
 
 <div class="table-responsive mx-5 rounded">
+    <?php if($_SESSION['user']['roll'] == 'admin'){?>
     <a href="add-user.php" class="btn btn-primary d-block mb-3  "> Create User</a>
+    <?php }?>
     <table class="table  table-hover table-border " >
         <thead>
             
@@ -42,7 +44,9 @@ include "backend/getUsers.php";
                 <th id="th">Name</th>
                 <th id="th">email</th>
                 <th id="th">Roll</th>
+                <?php if($_SESSION['user']['roll'] == 'admin'){?>
                 <th id="th" colspan="2">Actions</th>
+                <?php }?>
             </tr>
         </thead>
         <tbody>
@@ -59,8 +63,10 @@ include "backend/getUsers.php";
                 <td><?= $data["name"] ?></td>
                 <td><?= $data["email"] ?></td>
                 <td><?= $data["roll"] ?></td>
-                <td><a href="updateuser.php?id=<?= $data['id']?>" class="btn btn-warning" >EDIT USER</a></td>
-                <td><a href="backend/deleteuser.php?id=<?= $data['id']?>" class="btn btn-danger" >REMOVE USER</a></td>
+                <?php if($_SESSION['user']['roll'] == 'admin'){?>
+                    <td><a href="updateuser.php?id=<?= $data['id']?>" class="btn btn-warning" >EDIT USER</a></td>
+                <td><a href="backend/deleteuser.php?id=<?= $data['id']?>" class="btn btn-danger" onclick="return confirm('do you wana remove this user?')" >REMOVE USER</a></td>
+                  <?php }?>
             </tr>
             <?php }}?>
 

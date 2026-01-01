@@ -64,7 +64,9 @@ $res = mysqli_query($conn,$query);
 
 
 <div class="table-responsive rounded">
+     <?php if($_SESSION['user']['roll'] == 'admin'){?>
     <a href="add-product.php" class="btn btn-primary d-block mb-3  "> Add Product</a>
+    <?php }?>
     <table class="table  table-hover table-border shadow-lg p-3" >
         <thead>
             
@@ -77,7 +79,9 @@ $res = mysqli_query($conn,$query);
                 <th id="th"  class="font">Product Type</th>
                 <th id="th"  class="font">Product Name</th>
                 <th id="th"  >Is Active</th>
+                <?php if($_SESSION['user']['roll'] == 'admin'){?>
                 <th id="th"  colspan="6">Actions</th>
+                <?php }?>
             </tr>
         </thead>
         <tbody>
@@ -97,27 +101,33 @@ $res = mysqli_query($conn,$query);
                 <td ><?= $data["product_type"] ?></td>
                 <td id="id2"><?= $data["product_name"] ?></td>
                 <td id="td" class="text-center" ><?= $data["is_active"] ?></td>
-                <td id="td1"colspan="6" class="text-center" >
+               <?php if($_SESSION['user']['roll'] == 'admin'){?>
+              <td id="td1"colspan="6" class="text-center" >
 <?php
 if($data['is_active'] == 1){
     // ACTIVE PRODUCT
     ?>
+   
     <a href="view-product.php?id=<?= $data['id']?>" class="btn btn-info btn-sm">View</a>
     <a href="edit.php?id=<?= $data['id']?>" class="btn btn-warning btn-sm">Update</a>
     <a href="backend/deactivate-product.php?id=<?= $data['id']?>"
        class="btn btn-danger btn-sm"
        onclick="return confirm('Deactivate this product?')">Deactivate</a>
+    
     <?php
 }else{
     // INACTIVE PRODUCT
     ?>
+   
     <a href="view-product.php?id=<?= $data['id']?>" class="btn btn-info btn-sm">View</a>
     <a href="backend/reactivate-product.php?id=<?= $data['id']?>" 
        class="btn btn-success btn-sm">Reactivate</a>
+      
     <?php
 }
 ?>
 </td>
+<?php }?>
 
             </tr>
             <?php }}?>

@@ -17,7 +17,7 @@ $q="DELETE FROM userstaafe WHERE id = '$id'";
 $res1 = mysqli_query($conn,$q);
 if($res1){
     echo "<script>
-        alert('Data Successfully Deleted')
+        alert('user remove successfuly..')
         window.location.href='../user-list.php'
     </script>";
     // header("location:index.php");
