@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 01, 2026 at 11:06 AM
+-- Host: 127.0.0.1
+-- Generation Time: Jan 01, 2026 at 08:28 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Lab_automation`
+-- Database: `lab_automation`
 --
 
 -- --------------------------------------------------------
@@ -43,10 +43,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `product_id`, `product_code`, `rivision`, `manufacturing_no`, `product_type`, `product_name`, `is_active`) VALUES
-(6, 'SGR10007', 'SG', 'R1', '0007', 'Switchgear', '11kV Indoor Switchgear Panel', 0),
-(8, 'RSR10004', 'RS', 'R1', '0004', 'Fuse', 'Kit-Kat Fuse', 0),
-(9, 'RSR20005', 'RS', 'R2', '0005', 'Resistor', 'High Power Resistor 100W', 1),
-(10, 'CPR20008', 'CP', 'R2', '0008', 'Capacitor', 'Three Phase Power Capacitor', 1);
+(12, 'FSR20001', 'FS', 'R2', '0001', 'Fuse', 'Drop-Out Fuse', 1),
+(16, 'CPR10002', 'CP', 'R1', '0002', 'Capacitor', 'Three Phase Power Capacitor', 0),
+(17, 'FSR10009', 'FS', 'R1', '0009', 'Fuse', 'Thermal Fuse', 0);
 
 -- --------------------------------------------------------
 
@@ -56,6 +55,7 @@ INSERT INTO `products` (`id`, `product_id`, `product_code`, `rivision`, `manufac
 
 CREATE TABLE `testing_data` (
   `testing_id` varchar(12) NOT NULL,
+  `product_id` int(11) NOT NULL,
   `product_type` varchar(11) NOT NULL,
   `testing_type` varchar(200) DEFAULT NULL,
   `result_type` enum('Pass','Fail','Pending') NOT NULL,
@@ -70,8 +70,10 @@ CREATE TABLE `testing_data` (
 -- Dumping data for table `testing_data`
 --
 
-INSERT INTO `testing_data` (`testing_id`, `product_type`, `testing_type`, `result_type`, `tested_by`, `remarks`, `created_at`, `send_to`, `is_locked`) VALUES
-('4J2CXC281225', 'Resistor', 'Current Test', 'Pass', 'amir', 'kuch bhi', '2025-12-28 20:41:31', 'CPRI', 1);
+INSERT INTO `testing_data` (`testing_id`, `product_id`, `product_type`, `testing_type`, `result_type`, `tested_by`, `remarks`, `created_at`, `send_to`, `is_locked`) VALUES
+('C32K94010126', 16, 'Capacitor', 'Current Test', 'Fail', 'amir', 'thek nahi', '2026-01-01 16:39:43', 'Remanufacture', 0),
+('E1OLBA010126', 12, 'Fuse', 'Voltage Test', 'Pass', 'dawood', 'correct', '2026-01-01 16:12:37', 'CPRI', 1),
+('F4TPVH010126', 17, 'Fuse', 'Insulation Resistance', 'Pending', 'noureen', 'abhi check nahi hua ', '2026-01-01 18:30:31', 'Pending', 0);
 
 -- --------------------------------------------------------
 
@@ -94,7 +96,9 @@ CREATE TABLE `userstaafe` (
 
 INSERT INTO `userstaafe` (`id`, `name`, `email`, `passwd`, `roll`, `image`) VALUES
 (2, 'DAWOOD', 'dawod2@gamil.com', '$2y$10$fOSfzZsw7OUlzOHlqxN7kOXSBt8pB.ZPy59siyN9JpaMxkHN89saO', 'admin', 'qwqwq.jpg'),
-(4, 'Ali', 'Alikhattak@gmail.com', '$2y$10$OcRK0d6WwdhPp2ITRgdyH.2wlaz5gzSsMhprtB2GvqRGEGxeY5x6e', 'user', 'ZMmAKg.png');
+(4, 'Ali', 'Alikhattak@gmail.com', '$2y$10$OcRK0d6WwdhPp2ITRgdyH.2wlaz5gzSsMhprtB2GvqRGEGxeY5x6e', 'user', 'ZMmAKg.png'),
+(5, 'Bint e Nasir', 'Nasir@gmail.com', '$2y$10$7xPIFtB8LOhQ9BduNSE48e05q4mJ3Yut7J2jbffCez.hGbLvY7CsO', 'admin', 'admin.jpg'),
+(6, 'Bint e Nasir', 'sheen@gmail.com', '$2y$10$jWb59jK.C64AGuzly1XDv.jFACYg16umamwfmIEntRHiiJ1cZ5CF2', 'admin', 'admin.jpg');
 
 --
 -- Indexes for dumped tables
@@ -112,7 +116,7 @@ ALTER TABLE `products`
 --
 ALTER TABLE `testing_data`
   ADD UNIQUE KEY `testing_id` (`testing_id`),
-  ADD KEY `product_id` (`product_type`);
+  ADD KEY `fk_product` (`product_id`);
 
 --
 -- Indexes for table `userstaafe`
@@ -129,13 +133,23 @@ ALTER TABLE `userstaafe`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `userstaafe`
 --
 ALTER TABLE `userstaafe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `testing_data`
+--
+ALTER TABLE `testing_data`
+  ADD CONSTRAINT `fk_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
