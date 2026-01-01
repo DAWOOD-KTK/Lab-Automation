@@ -12,8 +12,13 @@ $email = mysqli_real_escape_string($conn, $_POST['email']);
 //email validation
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo "<script>
-    alert('Invalid email address');
-    window.location.href='../add-user.php';
+    Swal.fire({
+        icon: 'error',
+        title: 'Invalid Email',
+        text: 'Please enter a valid email address'
+    }).then(() => {
+        window.location.href='../add-user.php';
+    });
     </script>";
     exit();
 }
@@ -22,8 +27,13 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $check = mysqli_query($conn, "SELECT * FROM userstaafe WHERE email='$email'");
 if(mysqli_num_rows($check) > 0){
     echo "<script>
-        alert('Email already exists!');
-        window.location.href='../add-user.php';
+        Swal.fire({
+            icon: 'error',
+            title: 'Duplicate Email',
+            text: 'This email already exists!'
+        }).then(() => {
+            window.location.href='../add-user.php';
+        });
     </script>";
     exit();
 }
@@ -48,25 +58,49 @@ $max = 1024*1024*5 ;
 
             if ($res) {
                 echo "<script>
-                alert('User added successfully');
+            Swal.fire({
+                icon: 'success',
+                title: 'User Added',
+                text: 'User added successfully!'
+            }).then(() => {
                 window.location.href='../add-user.php';
+            });
             </script>";
             }else{
-                echo "MySQL Error: " . mysqli_error($conn);
+                $error = mysqli_error($conn);
+            echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Database Error',
+                text: '".addslashes($error)."'
+            }).then(() => {
+                window.location.href='../add-user.php';
+            });
+            </script>";
             }
 
            
         }else{
             echo "<script>
-        alert('image size dose not supported');
-        window.location.href='../add-user.php'
+        Swal.fire({
+            icon: 'error',
+            title: 'Image Too Large',
+            text: 'Image size is greater than 5MB'
+        }).then(() => {
+            window.location.href='../add-user.php';
+        });
         </script>";
         }  
     }else{
        echo "<script>
-        alert('image type dose not supported');
-        window.location.href='../add-user.php'
-        </script>";
+    Swal.fire({
+        icon: 'error',
+        title: 'Invalid Image Type',
+        text: 'Only PNG, JPG, and JPEG files are supported'
+    }).then(() => {
+        window.location.href='../add-user.php';
+    });
+    </script>";
     }
 
     

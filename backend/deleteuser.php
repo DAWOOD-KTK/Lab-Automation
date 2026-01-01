@@ -17,18 +17,27 @@ $q="DELETE FROM userstaafe WHERE id = '$id'";
 $res1 = mysqli_query($conn,$q);
 if($res1){
     echo "<script>
-        alert('Data Successfully Deleted')
-        window.location.href='../user-list.php'
-    </script>";
-    // header("location:index.php");
-}else{
-    echo "<script>
-        alert('failed')
-        window.location.href='.//user-list.php'
-    </script>";
-    // header("location:index.php");
+        Swal.fire({
+            icon: 'success',
+            title: 'Deleted',
+            text: 'User successfully deleted'
+        }).then(() => {
+            window.location.href='../user-list.php';
+        });
+        </script>";
 }
-
+else {
+        $error = mysqli_error($conn);
+        echo "<script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Deletion Failed',
+            text: '".addslashes($error)."'
+        }).then(() => {
+            window.location.href='../user-list.php';
+        });
+        </script>";
+}
 
 
 

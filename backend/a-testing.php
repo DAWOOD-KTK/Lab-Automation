@@ -34,10 +34,15 @@ if(isset($_POST["submit"])){
     $p_id = $_POST['id'] ?? "";
 
     if(empty($p_id)){
-    echo "<script>
-        alert('Please select a product');
-        window.location.href='../testing.php';
-    </script>";
+    echo " <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'Product Missing',
+            text: 'Please select a product first'
+        }).then(() => {
+            window.location.href = '../testing.php';
+        });
+        </script>";
     exit;
     }
 
@@ -80,7 +85,15 @@ if(mysqli_num_rows($product_query) > 0){
     $product_type = $fetch_product["product_type"];
 }
 else{
-    die("Product Not Found");
+echo "  <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Invalid Product',
+            text: 'Product not found in database'
+        }).then(() => {
+            window.location.href = '../testing.php';
+        });
+        </script>";
 }
 
 // echo print_r($_POST);
@@ -99,23 +112,28 @@ if($res){  // agar insertion successful ho gaya
 
     mysqli_query($conn, "UPDATE products SET is_active = '$active' WHERE id = '$p_id'");
 
-    echo "<script>
-        alert('Testing Data Successfully inserted')
-        window.location.href='../testing.php';
-    </script>";
+    echo "     <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Testing Saved',
+            text: 'Testing data successfully inserted',
+            timer: 2000,
+            showConfirmButton: false
+        }).then(() => {
+            window.location.href = '../testing.php';
+        });
+        </script>";
 } else {
-    echo "Error: " . mysqli_error($conn);
+    echo "<script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Database Error',
+            text: "<?= mysqli_error($conn) ?>"
+        });
+        </script>";
 }
 
 
-// $res = mysqli_query($conn,$query);
-//   if($res){
-//         echo "<script>
-//         alert('Testing Data Successfully inserted')
-//           window.location.href='../testing.php';
-//         </script>";
-//     }else{
-//           echo "Error: " . mysqli_error($conn);
-//     }
+
 
 }

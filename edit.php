@@ -12,23 +12,6 @@ $id = $_GET["id"];
 $query = mysqli_query($conn, "SELECT * FROM products WHERE id = '$id'");
 $data = mysqli_fetch_assoc($query);
 
-// if(!$query){
-//     die("Query failed: " . mysqli_error($conn));
-// }
-
-// $data = mysqli_fetch_assoc($query);
-
-// if(!$data){
-//     die("Product not found");
-// }
-
- 
-// $query= "SELECT   * FROM  `products` WHERE id = $id";
-// $res = mysqli_query($conn,$query);
-// $data = mysqli_fetch_assoc($res);
-
-
-// echo print_r($data);
 
 
 ?>

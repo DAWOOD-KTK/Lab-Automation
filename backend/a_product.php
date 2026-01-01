@@ -22,9 +22,15 @@ if(isset($_POST["submit"])){
     //checking that fields should not be empty
 
     if(empty($p_code) || empty($rivision) || empty($m_number) || empty($p_type) || empty($p_name)) {
-    echo "<script>alert('Please fill all required fields');
-    window.location.href='../add-product.php';
-    </script>";
+    echo " <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'Missing Fields',
+            text: 'Please fill all required fields'
+        }).then(() => {
+            window.location.href = '../add-product.php';
+        });
+        </script>";
     exit;
     }
 
@@ -38,22 +44,31 @@ if(isset($_POST["submit"])){
     $res = mysqli_query($conn, $query);
 
     if($res){
-        echo "<script>alert('Product Successfully added')
-        window.location.href='../add-product.php';
-        </script>";
-    }else{
-         if (mysqli_errno($conn) == 1062) {
-        echo "<script>alert('Duplicate entry: manufacturing number already exists')
-         window.location.href='../add-product.php';
+        echo " <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Product successfully added',
+            timer: 2000,
+            showConfirmButton: false
+        }).then(() => {
+            window.location.href = '../add-product.php';
+        });
         </script>";
     } else {
-        echo "Error: " . mysqli_error($conn);
+           $error = mysqli_error($conn);
+        // echo "Error: " . mysqli_error($conn);
+        echo "<script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Insert Failed',
+        text: '".addslashes($error)."'
+    }).then(() => {
+        window.location.href = '../add-product.php';
+    });
+    </script>";
     }
-        // echo "<script>alert('Failed')
-        //   window.location.href='../add-product.php';
-        //   </script>";
-        // echo mysqli_error($conn);
-        //  echo "<pre>$query</pre>";  // debugging 
 }
 }
+
 // ?>
