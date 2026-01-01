@@ -70,7 +70,7 @@ $res = mysqli_query($conn,$query);
 </style>
 <div class="app-body">
 
-<h1 class="title text-center my-5 p-1" >   Approved By CPRI</h1>
+<h1 class="title text-center my-5 p-1" >Ready For CPRI</h1>
 
 
 

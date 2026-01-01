@@ -71,15 +71,7 @@ $res = mysqli_query($conn,$query);
 </style>
 <div class="app-body">
 
-<h1 class="title text-center my-5 p-1" >   Rejected Products By CPRI</h1>
-
-
-
-
-
-
-
-
+<h1 class="title text-center my-5 p-1" >Send to Remanufacture</h1>
 <div class="table-responsive rounded">
     <table class="table  table-hover table-border shadow-lg p-3" >
         <thead>
@@ -118,7 +110,7 @@ $res = mysqli_query($conn,$query);
                                 if($data['is_locked'] == 0){
                                     ?>
                                     <span class="badge bg-warning text-dark">Unlocked</span>
-                                    <a href="edit-testing.php?id=<?= $data['product_id']?>" class="btn btn-warning  btn-sm">Re-Test</a>
+                                    <a href="testing.php?id=<?= $data['product_id']?>" class="btn my-1 btn-warning  btn-sm">Re-Test</a>
                                        <?php
                                 } else {
                                     ?>

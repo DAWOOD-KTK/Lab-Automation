@@ -188,11 +188,12 @@ select{
               <li  class="treeview">
                 <a href="#!">
                 <i class="bi bi-patch-check"></i>
-                  <span class="menu-text">CPRI Status</span>
+                  <span class="menu-text">Testing Status</span>
                 </a>
                 <ul class="treeview-menu">
-                  <li> <a href="cpri-approved.php">CPRI Approved Products</a></li>
-                  <li> <a href="cpri-reject.php">CPRI Rejected Products</a></li>
+                  <li> <a href="send-to-cpri.php">ready for CPRI</a></li>
+                  <li> <a href="remanufacturing-products.php">Send To Remanufacture</a></li>
+                  <li> <a href="pending.php">Pennding For Test</a></li>
                       
                 </ul>
               </li>
