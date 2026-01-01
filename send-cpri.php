@@ -1,27 +1,25 @@
-<?php
-include 'header.php';
-?>
+
 <?php
 include 'header.php';
 include "backend/db.php";
 // table join query///
 $query = "SELECT 
     t.testing_id,
-    p.id,
+    p.id AS product_db_id,
     p.product_id,
     p.product_type,
     t.testing_type,
     t.tested_by,
     t.remarks,
     t.is_locked
-FROM 
-    testing_data t
-JOIN 
-    products p ON t.product_id = p.id
-ORDER BY 
-    t.testing_id DESC;
-
+FROM testing_data t
+JOIN products p ON t.product_id = p.id
+WHERE 
+    t.send_to = 'CPRI'
+    AND t.is_locked = 1
+ORDER BY t.testing_id DESC
 ";
+
 $res = mysqli_query($conn,$query);
 
 ?>
@@ -71,7 +69,7 @@ $res = mysqli_query($conn,$query);
 </style>
 <div class="app-body">
 
-<h1 class="title text-center my-5 p-1" > 🧑🏾‍🔧 👩🏽‍🔧  Send to CPRI</h1>
+<h1 class="title text-center my-5 p-1" >   Approved By CPRI</h1>
 
 
 
@@ -81,7 +79,6 @@ $res = mysqli_query($conn,$query);
 
 
 <div class="table-responsive rounded">
-    <a href="add-product.php" class="btn btn-primary d-block mb-3  "> Add Product</a>
     <table class="table  table-hover table-border shadow-lg p-3" >
         <thead>
             
@@ -90,9 +87,8 @@ $res = mysqli_query($conn,$query);
                 <th id="th"  class="font">Product ID</th>
                 <th id="th"  class="font">Product Unique ID</th>
                 <th id="th"  class="font">Product Type</th>
-                <th id="th" >Testing Type</th>
+                <th id="th" class="font">Testing Type</th>
                 <th id="th" class="font">Tested By</th>
-                <th id="th"  class="font">Testing Type</th>
                 <th id="th"  class="font">remarks</th>
                 <th id="th"  >is_locked</th>
             </tr>
@@ -106,16 +102,16 @@ $res = mysqli_query($conn,$query);
             
             ?>
             <tr>
-                <td id="td" class="text-center" ><?= $data["testing_id"] ?></td>
-                <td ><?= $data["id"] ?></td>
-                <td ><?= $data["product_id"] ?></td>
+                <td id="td" class="text-center " ><?= $data["testing_id"] ?></td>
+                <td class="text-center"><?= $data["product_db_id"] ?></td>
+                <td class="text-center"><?= $data["product_id"] ?></td>
                 <td id="wid" class="text-center" ><?= $data["product_type"] ?></td>
                 <td id="td" class="text-center" ><?= $data["testing_type"] ?></td>
-                <td ><?= $data["tested_by"] ?></td>
-                <td id="id2"><?= $data["remarks"] ?></td>
-                            <td>
+                <td class="text-center"><?= $data["tested_by"] ?></td>
+                <td id="id2" class="text-center"><?= $data["remarks"] ?></td>
+                            <td class="text-center">
                                 <?php 
-                                if($row['is_locked'] == 1){
+                                if($data['is_locked'] == 1){
                                     echo '<span class="badge bg-success">Locked</span>';
                                 } else {
                                     echo '<span class="badge bg-warning text-dark">Unlocked</span>';
@@ -137,8 +133,6 @@ $res = mysqli_query($conn,$query);
 
 
 <?php
-include 'footer.php';
-?>
-<?php
-include 'footer.php';
+// include 'footer.php';
+include "footer.php";
 ?>

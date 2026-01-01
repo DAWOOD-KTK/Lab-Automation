@@ -83,57 +83,46 @@ $product_query = mysqli_query($conn, "SELECT product_type FROM products WHERE id
 if(mysqli_num_rows($product_query) > 0){
     $fetch_product = mysqli_fetch_assoc($product_query);
     $product_type = $fetch_product["product_type"];
-}
-else{
-echo "  <script>
+} else {
+    echo "<script>
         Swal.fire({
             icon: 'error',
             title: 'Invalid Product',
             text: 'Product not found in database'
-        }).then(() => {
-            window.location.href = '../testing.php';
-        });
-        </script>";
+        }).then(() => { window.location.href = '../testing.php'; });
+    </script>";
+    exit();
 }
 
-// echo print_r($_POST);
-
-
 $query = "INSERT INTO testing_data 
-(testing_id, product_type, testing_type, result_type, send_to, is_locked, tested_by, remarks)
-VALUES ('$testing_id', '$product_type', '$t_type', '$result', '$send_to', '$is_locked', '$test_by', '$remarks')";
-$res = mysqli_query($conn,$query);
-if($res){  // agar insertion successful ho gaya
-    if($result == 'Pass'){
-        $active = 1;
-    } else {
-        $active = 0;
-    }
+(testing_id, product_id, product_type, testing_type, result_type, send_to, is_locked, tested_by, remarks)
+VALUES ('$testing_id', '$p_id', '$product_type', '$t_type', '$result', '$send_to', '$is_locked', '$test_by', '$remarks')";
 
+$res = mysqli_query($conn,$query);
+
+if($res){
+    $active = ($result == 'Pass') ? 1 : 0;
     mysqli_query($conn, "UPDATE products SET is_active = '$active' WHERE id = '$p_id'");
 
-    echo "     <script>
+    echo "<script>
         Swal.fire({
             icon: 'success',
             title: 'Testing Saved',
             text: 'Testing data successfully inserted',
             timer: 2000,
             showConfirmButton: false
-        }).then(() => {
-            window.location.href = '../testing.php';
-        });
-        </script>";
+        }).then(() => { window.location.href = '../testing.php'; });
+    </script>";
+    exit();
 } else {
+    $error = mysqli_error($conn);
     echo "<script>
         Swal.fire({
             icon: 'error',
             title: 'Database Error',
-            text: "<?= mysqli_error($conn) ?>"
-        });
-        </script>";
+            text: '".addslashes($error)."'
+        }).then(() => { window.location.href='../testing.php'; });
+    </script>";
+    exit();
 }
-
-
-
-
 }

@@ -30,6 +30,8 @@ session_start();
    <link rel="stylesheet" href="assets/vendor/calendar/css/custom.css" />
    <link rel="stylesheet" href="assets/css/main.min.css">
    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 <!-- 👇 YAHAN STYLE LAGAO -->
 <style>
@@ -185,11 +187,10 @@ select{
               <li  class="treeview">
                 <a href="#!">
                 <i class="bi bi-patch-check"></i>
-                  <span class="menu-text">CPRI Approval</span>
+                  <span class="menu-text">CPRI Status</span>
                 </a>
                 <ul class="treeview-menu">
-                  <li> <a href="send-cpri.php">Send to CPRI</a></li>
-                  <li> <a href="cpri-aproved-product.php">CPRI Approved Products</a></li>
+                  <li> <a href="send-cpri.php">CPRI Approved Products</a></li>
                   <li> <a href="cpri-reject.php">CPRI Rejected Products</a></li>
                       
                 </ul>
