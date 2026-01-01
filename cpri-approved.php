@@ -9,6 +9,7 @@ $query = "SELECT
     p.product_id,
     p.product_type,
     t.testing_type,
+    t.result_type,
     t.tested_by,
     t.remarks,
     t.is_locked
@@ -88,6 +89,7 @@ $res = mysqli_query($conn,$query);
                 <th id="th"  class="font">Product Unique ID</th>
                 <th id="th"  class="font">Product Type</th>
                 <th id="th" class="font">Testing Type</th>
+                <th id="th" class="font">Result Type</th>
                 <th id="th" class="font">Tested By</th>
                 <th id="th"  class="font">remarks</th>
                 <th id="th"  >is_locked</th>
@@ -107,6 +109,7 @@ $res = mysqli_query($conn,$query);
                 <td class="text-center"><?= $data["product_id"] ?></td>
                 <td id="wid" class="text-center" ><?= $data["product_type"] ?></td>
                 <td id="td" class="text-center" ><?= $data["testing_type"] ?></td>
+                <td id="td" class="text-center" ><?= $data["result_type"] ?></td>
                 <td class="text-center"><?= $data["tested_by"] ?></td>
                 <td id="id2" class="text-center"><?= $data["remarks"] ?></td>
                             <td class="text-center">

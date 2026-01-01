@@ -33,6 +33,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
+
 <!-- 👇 YAHAN STYLE LAGAO -->
 <style>
  
@@ -190,7 +191,7 @@ select{
                   <span class="menu-text">CPRI Status</span>
                 </a>
                 <ul class="treeview-menu">
-                  <li> <a href="send-cpri.php">CPRI Approved Products</a></li>
+                  <li> <a href="cpri-approved.php">CPRI Approved Products</a></li>
                   <li> <a href="cpri-reject.php">CPRI Rejected Products</a></li>
                       
                 </ul>
