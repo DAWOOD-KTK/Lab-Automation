@@ -180,6 +180,15 @@ select{
                
               </li>
               <?php }?>
+               <?php if($_SESSION['user']['roll'] == 'admin'){?>
+              <li>
+                <a href="testing-list.php">
+                 <i class="bi bi-clipboard-data"></i>
+                  <span class="menu-text">All Testing Record</span>
+                </a>
+               
+              </li>
+              <?php }?>
               
               <li  class="treeview">
                 <a href="#!">
