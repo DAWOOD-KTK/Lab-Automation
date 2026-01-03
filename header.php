@@ -7,7 +7,7 @@ session_start();
 
 ?> 
 
-<!DOCTYPE php>
+<!DOCTYPE html>
 <php lang="en">
 
   
@@ -29,8 +29,23 @@ session_start();
     <link rel="shortcut icon" href="assets/images/favicon.svg" />
    <link rel="stylesheet" href="assets/vendor/calendar/css/custom.css" />
    <link rel="stylesheet" href="assets/css/main.min.css">
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="assets/fonts/bootstrap/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="assets/css/main.min.css" />
+
+    <!-- *************
+			************ CSS Files *************
+		************* -->
+    <link rel="stylesheet" href="assets/fonts/bootstrap/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="assets/css/main.min.css" />
+
+    <!-- *************
+			************ Vendor Css Files *************
+		************ -->
+
+    <!-- Scrollbar CSS -->
+    <link rel="stylesheet" href="assets/vendor/overlay-scroll/OverlayScrollbars.min.css" />
+  </head>
 
 
 
@@ -93,26 +108,7 @@ select{
   font-size: 10px;/
 }
 </style>
-</head>
-
-<link rel="stylesheet" href="assets/fonts/bootstrap/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="assets/css/main.min.css" />
-
-    <!-- *************
-			************ CSS Files *************
-		************* -->
-    <link rel="stylesheet" href="assets/fonts/bootstrap/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="assets/css/main.min.css" />
-
-    <!-- *************
-			************ Vendor Css Files *************
-		************ -->
-
-    <!-- Scrollbar CSS -->
-    <link rel="stylesheet" href="assets/vendor/overlay-scroll/OverlayScrollbars.min.css" />
-  </head>
-
-  <body>
+<body>
 
     <!-- Page wrapper starts -->
     <div class="page-wrapper">
@@ -214,12 +210,7 @@ select{
               
            
               
-              <li>
-                <a href="reviews.php">
-                  <i class="bi bi-mouse3"></i>
-                  <span class="menu-text">Reviews</span>
-                </a>
-              </li>
+            
               <li >
                 <a href="#!">
                   <i class="bi bi-pie-chart"></i>
@@ -229,12 +220,7 @@ select{
               </li>
             
              
-              <li>
-                <a href="contact.php">
-                  <i class="bi bi-phone-vibrate"></i>
-                  <span class="menu-text">Contact Us</span>
-                </a>
-              </li>
+             
               
              
                 

@@ -1,6 +1,21 @@
 <?php
 include 'header.php';
 include "backend/db.php";
+
+if (isset($_SESSION['alert'])) { ?>
+<script>
+Swal.fire({
+    icon: '<?= $_SESSION['alert']['type']; ?>',
+    title: '<?= $_SESSION['alert']['title']; ?>',
+    text: '<?= $_SESSION['alert']['text']; ?>',
+    confirmButtonColor: '#6f42c1'
+});
+</script>
+<?php
+unset($_SESSION['alert']);
+}
+
+
 // include "backend/getUsers.php";
 
 $query =" SELECT * FROM products ";

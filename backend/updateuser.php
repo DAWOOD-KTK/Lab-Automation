@@ -1,4 +1,6 @@
+
 <?php
+echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
 
 include "db.php";
 // getting data from form

@@ -1,7 +1,8 @@
 <?php
+session_start(); // sirf backend page ke liye
 include "db.php";
 
-if(isset($_POST["submit"])){
+if(isset($_POST['submit'])){
 
     $p_code   = $_POST["product_code"] ?? "";
     $rivision = $_POST["rivision"] ?? ""; 
@@ -11,58 +12,55 @@ if(isset($_POST["submit"])){
     $p_type   = $_POST["product_type"] ?? "";
     $p_name   = $_POST["product_name"] ?? "";
 
+    // Check empty fields
     if(empty($p_code) || empty($rivision) || empty($m_number) || empty($p_type) || empty($p_name)) {
-        echo "<script>
-            Swal.fire({
-                icon: 'warning',
-                title: 'Missing Fields',
-                text: 'Please fill all required fields'
-            }).then(() => {
-                window.location.href = '../add-product.php';
-            });
-        </script>";
-        exit;
-    }
-
-    $p_id = $p_code . $rivision . $m_number;
-
-    $query = "INSERT INTO products 
-        (product_id, product_code, rivision, manufacturing_no, product_type, product_name)
-        VALUES 
-        ('$p_id', '$p_code', '$rivision', '$m_number', '$p_type', '$p_name')";
-
-    $res = mysqli_query($conn, $query);
-
-    if($res){
-        echo "<script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Success',
-                text: 'Product successfully added',
-                timer: 2000,
-                showConfirmButton: false
-            }).then(() => {
-                window.location.href = '../add-product.php';
-            });
-        </script>";
-        exit;
+        $alert = [
+            'type' => 'warning',
+            'title' => 'Missing Fields',
+            'text' => 'Please fill all required fields'
+        ];
+        $redirect = '../add-product.php';
     } else {
-        if(mysqli_errno($conn) == 1062){
-            $error = 'Manufacturing number already exists';
-        } else {
-            $error = 'Something went wrong. Please try again.';
-        }
+        $p_id = $p_code . $rivision . $m_number;
 
-        echo "<script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Insert Failed',
-                text: '".addslashes($error)."'
-            }).then(() => {
-                window.location.href = '../add-product.php';
-            });
-        </script>";
-        exit;
+        $query = "INSERT INTO products 
+            (product_id, product_code, rivision, manufacturing_no, product_type, product_name)
+            VALUES 
+            ('$p_id', '$p_code', '$rivision', '$m_number', '$p_type', '$p_name')";
+
+        $res = mysqli_query($conn, $query);
+
+        if($res){
+        $_SESSION['alert'] = [
+            'type' => 'success',
+            'title' => 'Success',
+            'text' => 'Product added successfully'
+        ];
+        $redirect = '../product-list.php';
+    } else {
+        $_SESSION['alert'] = [
+            'type' => 'error',
+            'title' => 'Insert Failed',
+            'text' => 'Something went wrong'
+        ];
+        $redirect = '../add-product.php';
     }
 }
 ?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+Swal.fire({
+    icon: '<?= $_SESSION['alert']['type'] ?>',
+    title: '<?= $_SESSION['alert']['title'] ?>',
+    text: '<?= $_SESSION['alert']['text'] ?>',
+    confirmButtonColor: '#6f42c1'
+}).then(() => {
+    window.location.href = '<?= $redirect ?>';
+});
+</script>
+<?php
+exit;
+}
+?>
+
+
