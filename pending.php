@@ -110,7 +110,7 @@ $res = mysqli_query($conn,$query);
                                 if($data['is_locked'] == 0){
                                     ?>
                                     <span class="badge bg-warning text-dark">Unlocked</span>
-                                    <a href="edit-testing.php?id=<?= $data['product_id']?>" class="btn btn-warning  btn-sm">Re-Test</a>
+                                    <a href="edit-pending.php?testing_id=<?= $data['testing_id']?>" class="btn btn-warning  btn-sm">Re-Test</a>
                                        <?php
                                 } else {
                                     ?>

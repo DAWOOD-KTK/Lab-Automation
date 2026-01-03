@@ -36,7 +36,7 @@ if(isset($_POST['submit'])){
                 title: 'Re-Test Updated',
                 text: 'Testing record updated successfully'
             }).then(() => {
-                window.location.href = '../remanufacturing-products.php';
+                window.location.href = '../pending.php';
             });
         </script>";
     } else {
