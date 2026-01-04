@@ -1,8 +1,32 @@
+<?php
+   include 'header.php';
+   include "backend/db.php";
+   $q = " SELECT COUNT(*) as active FROM `products` WHERE is_active = 1 ";
 
-          
+   $res = mysqli_query($conn,$q);
+   if (mysqli_num_rows($res) > 0) {
+    $row = mysqli_fetch_assoc($res);
+    $active = $row['active'];
+   }
+    
+   $q1 = " SELECT COUNT(*) as pending FROM `products` WHERE is_active = 0 ";
 
-          <?php
-          include 'header.php';
+   $res1 = mysqli_query($conn,$q1);
+   if (mysqli_num_rows($res1) > 0) {
+    $row1 = mysqli_fetch_assoc($res1);
+    $pending = $row1['pending'];
+   }
+    
+   $q2 = " SELECT COUNT(*) as aall FROM `products` ";
+
+   $res2 = mysqli_query($conn,$q2);
+   if (mysqli_num_rows($res2) > 0) {
+    $row2 = mysqli_fetch_assoc($res2);
+    $all = $row2['aall'];
+   }
+    
+  
+   
 
           ?>
 
@@ -19,19 +43,13 @@
                         <div id="radial1"></div>
                       </div>
                       <div class="d-flex flex-column">
-                        <h2 class="lh-1">2200</h2>
+                        <h2 class="lh-1"><?php  echo $active;?></h2>
                         <p class="m-0 opacity-50">Active</p>
                       </div>
                     </div>
                     <div class="d-flex align-items-center justify-content-between mt-1">
-                      <a class="text-primary" href="javascript:void(0);">
-                        <span>View All</span>
-                        <i class="bi bi-arrow-right ms-2"></i>
-                      </a>
-                      <div class="text-end">
-                        <p class="mb-0 text-primary">+20%</p>
-                        <span class="badge bg-primary-subtle text-primary small">this month</span>
-                      </div>
+                  
+                     
                     </div>
                   </div>
                 </div>
@@ -44,24 +62,18 @@
                         <div id="radial2"></div>
                       </div>
                       <div class="d-flex flex-column">
-                        <h2 class="lh-1">4400</h2>
+                        <h2 class="lh-1"><?php  echo $pending;?></h2>
                         <p class="m-0 opacity-50">Pending</p>
                       </div>
                     </div>
                     <div class="d-flex align-items-center justify-content-between mt-1">
-                      <a class="text-primary" href="javascript:void(0);">
-                        <span>View All</span>
-                        <i class="bi bi-arrow-right ms-2"></i>
-                      </a>
-                      <div class="text-end">
-                        <p class="mb-0 text-success">+30%</p>
-                        <span class="badge bg-success-subtle text-success small">this month</span>
-                      </div>
+                      
+                   
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-xxl-3 col-sm-6 col-12">
+              <!-- <div class="col-xxl-3 col-sm-6 col-12">
                 <div class="card mb-4">
                   <div class="card-body">
                     <div class="d-flex align-items-center">
@@ -85,8 +97,8 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-xxl-3 col-sm-6 col-12">
+              </div> -->
+              <div class="col-xxl-12 col-sm- col-12">
                 <div class="card mb-4 bg-primary">
                   <div class="card-body text-white">
                     <div class="d-flex align-items-center">
@@ -94,19 +106,13 @@
                         <div id="radial4"></div>
                       </div>
                       <div class="d-flex flex-column">
-                        <h2 class="m-0 lh-1">8800</h2>
-                        <p class="m-0 opacity-50">Payments</p>
+                        <h2 class="m-0 lh-1"><?php  echo $all;?></h2>
+                        <p class="m-0 opacity-50">All Products</p>
                       </div>
                     </div>
                     <div class="d-flex align-items-center justify-content-between mt-1">
-                      <a class="text-white" href="javascript:void(0);">
-                        <span>View All</span>
-                        <i class="bi bi-arrow-right ms-2"></i>
-                      </a>
-                      <div class="text-end">
-                        <p class="mb-0 text-warning">+90%</p>
-                        <span class="badge bg-danger text-white small">this month</span>
-                      </div>
+                     
+                    
                     </div>
                   </div>
                 </div>

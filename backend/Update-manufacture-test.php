@@ -14,17 +14,12 @@ if(isset($_POST['submit'])){
     $is_locked = ($r_type === 'Pass') ? 1 : 0;
     $send_to = ($r_type === 'Pass') ? 'CPRI' : 'Remanufacture';
 
-    $sql = "
-        UPDATE testing_data 
-        SET 
-            product_id = '$P_id',
-            testing_type = '$t_type',
-            tested_by = '$t_by',
-            result_type = '$r_type',
-            remarks = '$remarks',
-            is_locked = '$is_locked',
-            send_to = '$send_to'
-        WHERE testing_id = '$t_id'
+    $sql = " UPDATE testing_data SET  product_id = '$P_id' testing_type = '$t_type',
+ tested_by = '$t_by',
+result_type = '$r_type',
+remarks = '$remarks',
+is_locked = '$is_locked',
+end_to = '$send_to'WHERE testing_id = '$t_id'
     ";
 
     $res = mysqli_query($conn, $sql);
