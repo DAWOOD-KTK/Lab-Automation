@@ -60,17 +60,7 @@ if(isset($_POST['submit'])){
         ];
         $redirect = '../add-product.php';
     }
-    // else{
-    //         echo "<script>
-    //     Swal.fire({
-    //         icon: 'error',
-    //         title: 'Image Too Large',
-    //         text: 'Image size is greater than 5MB'
-    //     }).then(() => {
-    //         window.location.href='../add-user.php';
-    //     });
-    //     </script>";
-    //     }  
+    
     }else{
        echo "<script>
     Swal.fire({
