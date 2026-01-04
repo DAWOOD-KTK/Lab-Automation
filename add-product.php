@@ -10,7 +10,7 @@ include 'header.php';
                 <hr>
             </div>
             <div class="card-body">
-                <form action="backend/a_product.php" method="post">
+                <form action="backend/a_product.php" method="post" enctype="multipart/form-data">
                     <select class="form-select mb-3" name="product_code" required>
                         <option selected disabled>Product Code</option>
                         <option value="SG">SG</option>
@@ -68,6 +68,8 @@ include 'header.php';
                             <option value="Precision Resistor 0.1%">Precision Resistor 0.1%</option>
                         </optgroup>
                     </select>
+                    
+                    <input id="img" type="file" name="image" class="form-control mb-3" required>
 
                     <div class="card-footer text-center">
                         <button type="submit" name="submit" class="btn btn-primary w-100 m-0 p-2 testinheading">Submit</button>
