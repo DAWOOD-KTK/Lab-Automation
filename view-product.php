@@ -30,7 +30,7 @@ $data = mysqli_fetch_assoc($result);
                   <div class="card-body">
                     <div class="row">
                       <div class="col-sm-6">
-                        <img src="forntend/switchgear/05.jpg" class="img-fluid rounded-2" alt="Bootstrap Gallery" />
+                       <img src="assets/images/<?= $data['image'] ?: 'no-image.png' ?>" class="img-fluid rounded-2" alt="Product image" />
                       </div>
                       <div class="col-sm-6">
                         <div class="align-items-center">
@@ -45,7 +45,7 @@ $data = mysqli_fetch_assoc($result);
     // ACTIVE PRODUCT
     ?>
    
-    <a href="edit.php?id=<?= $data['id']?>" class="btn btn-warning btn-sm">Update</a>
+    <a href="edit-products.php?id=<?= $data['id']?>" class="btn btn-warning btn-sm">Update</a>
     <a href="backend/deactivate-product.php?id=<?= $data['id']?>"
     class="btn btn-danger btn-sm"
     onclick="return confirm('Deactivate this product?')">Deactivate</a>

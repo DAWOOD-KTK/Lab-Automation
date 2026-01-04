@@ -1,3 +1,14 @@
+
+<style>
+     #image{
+        height: 50px;
+        width:50px;
+        border-radius: 50%;
+    }
+  
+</style>
+
+
 <?php
 include 'header.php';
 include "backend/db.php";
@@ -61,7 +72,11 @@ $res = mysqli_query($conn,$query);
         }
         #wid{
         width: 11%; 
-
+        
+    }
+    #w5{
+    
+        width: 5%; 
     }
   
        
@@ -93,7 +108,8 @@ $res = mysqli_query($conn,$query);
                 <th id="th" class="font">Manufacture No</th>
                 <th id="th"  class="font">Product Type</th>
                 <th id="th"  class="font">Product Name</th>
-                <th id="th"  >Is Active</th>
+                <th id="th"  class="font">Image</th>
+                <th id="th" class="font" id="w5">Is Active</th>
                 <?php if($_SESSION['user']['roll'] == 'admin'){?>
                 <th id="th"  colspan="6">Actions</th>
                 <?php }?>
@@ -115,9 +131,10 @@ $res = mysqli_query($conn,$query);
                 <td id="wid" class="text-center" ><?= $data["manufacturing_no"] ?></td>
                 <td ><?= $data["product_type"] ?></td>
                 <td id="id2"><?= $data["product_name"] ?></td>
-                <td id="td" class="text-center" ><?= $data["is_active"] ?></td>
-               <?php if($_SESSION['user']['roll'] == 'admin'){?>
-              <td id="td1"colspan="6" class="text-center" >
+                <td><img src="assets/images/<?= $data["image"] ?>" id="image"></td>
+                <td id="td" class="text-center" id="w5"><?= $data["is_active"] ?></td>
+                <?php if($_SESSION['user']['roll'] == 'admin'){?>
+                <td id="td1"colspan="6" class="text-center" >
 <?php
 if($data['is_active'] == 1){
     // ACTIVE PRODUCT

@@ -25,7 +25,8 @@ $data = mysqli_fetch_assoc($query);
             <hr>
         </div>
         <div class="card-body ">
-   <form action="update.php" method="POST">
+   <form action="update-products.php" method="POST" enctype="multipart/form-data">
+
 
                     <input type="hidden" name="id" value="<?= $data['id'] ?>">
 
@@ -87,12 +88,17 @@ $data = mysqli_fetch_assoc($query);
           </optgroup>
 
         </select>
+            <label for="image">old_ Image</label>
+            
+           <img src="assets/images/<?= $data['image'] ?>"  alt="udating product Image" style="width:100px;height:100px; border:1px solid black;">
+            <br>
+            <label for="image">New_ Image</label>
+            <input type="file" name="image" id="image" class="form-control my-2"disabled >
      
   
- <div class="card-footer text-center">
+       <div class="card-footer text-center">
         <button id="btn" type="submit" name="submit" class="btn btn-primary w-100 m-0 p-2 testinheading">Update</button>
     </div>
-   
 
     </form>
     </div>
