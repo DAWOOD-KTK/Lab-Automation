@@ -2,6 +2,31 @@
 include 'header.php';
 ?>
 
+
+<?php
+if (isset($_SESSION['alert'])):
+?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+Swal.fire({
+    icon: '<?= $_SESSION['alert']['type'] ?>',
+    title: '<?= $_SESSION['alert']['title'] ?>',
+    text: '<?= $_SESSION['alert']['text'] ?>'
+ confirmButtonColor: '#6f42c1'
+
+
+});
+</script>
+<?php
+unset($_SESSION['alert']);
+endif;
+?>
+
+
+
+
+
+
 <style>
     body{
         overflow-y: scroll;

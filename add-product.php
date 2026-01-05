@@ -1,6 +1,27 @@
+
 <?php
+
 include 'header.php';
 ?>
+<?php
+if (isset($_SESSION['alert'])):
+?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+Swal.fire({
+    icon: '<?= $_SESSION['alert']['type'] ?>',
+    title: '<?= $_SESSION['alert']['title'] ?>',
+    text: '<?= $_SESSION['alert']['text'] ?>'
+    confirmButtonColor: '#6f42c1'
+}).then(() => {
+    window.location.href = 'users-list.php'; // ya 'add-user.php' ya 'users-list.php'
+});
+</script>
+<?php
+unset($_SESSION['alert']);
+endif;
+?>
+
 
 <div class="app-body">
     <div class="container-fluid">
@@ -79,5 +100,8 @@ include 'header.php';
         </div>
     </div>
 </div>
+
+
+
 
 <?php include 'footer.php'; ?>
