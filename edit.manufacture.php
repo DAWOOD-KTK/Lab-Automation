@@ -29,62 +29,47 @@ $row = mysqli_fetch_assoc($query);
       </div>
 
       <div class="row gx-1">
-        <form action="backend/a-testing.php" id="testin_form" method="post">
+        <form action="backend/Update-manufacture-test.php" id="testin_form" method="post">
 
           <!-- Product Select -->
           <div class="col-sm-10 m-auto mb-3">
-            <select class="form-select" name="id" id="product_select" required>
-              <option value="">Select Product</option>
-              <?php
-              $query = mysqli_query($conn,"SELECT id,product_id, product_type FROM products WHERE is_active = 0");
-              while($data = mysqli_fetch_assoc($query)){
-                  echo "<option value='{$data['id']}'>{$data['id']} - {$data['product_id']} - {$data['product_type']}</option>";
-              }
-              ?>
-            </select>
+          <input type="text" name="id" value="<?= $row['id'] ?? "" ?>" class="form-control" id="" >
+         
           </div>
 
           <!-- Testing Type -->
           <div class="col-sm-10 m-auto mb-3">
-            <select class="form-select" name="testing_type" id="testing_type" required>
-              <option value="">Testing Type</option>
-              <option value="Voltage Test">Voltage Test</option>
-              <option value="Current Test">Current Test</option>
-              <option value="Insulation Resistance">Insulation Resistance</option>
-              <option value="Continuity Test">Continuity Test</option>
-            </select>
+            <input type="text" class="form-control" value="<?= $row ['testing_type'] ?? "" ?>"  name="testing_type" id="generated_testing_id" placeholder="auto-generated" readonly>
+           
           </div>
-
+          
+                     
+          
           <!-- Testing Code -->
           <div class="col-sm-10 m-auto mb-3">
-            <select class="form-select" name="testing_code" id="testing_code" required>
-              <option value="">Testing Code</option>
-              <option value="VT">VT</option>
-              <option value="CT">CT</option>
-              <option value="IR">IR</option>
-              <option value="CNT">CNT</option>
-            </select>
+            <input type="text" class="form-control" value="<?= $row ['testing_code'] ?? "" ?>"  name="testing_code" id="generated_testing_id" placeholder="auto-generated" readonly>
+           
           </div>
 
           <!-- Generated Testing ID (readonly) -->
           <div class="col-sm-10 m-auto mb-3">
-            <input type="text" class="form-control"   name="testing_id" id="generated_testing_id" placeholder="Testing ID will be auto-generated" readonly>
+            <input type="text" class="form-control" value="<?= $row ['testing_id'] ?? "" ?>"  name="testing_id" id="generated_testing_id" placeholder="auto-generated" readonly>
           </div>
 
           
 
           <!-- Tested By -->
           <div class="col-sm-10 m-auto mb-3">
-            <input type="text" name="tested_by" class="form-control" placeholder="Tested By" required>
+            <input type="text" name="tested_by" value="<?= $row ['tested_by'] ?? "" ?> "class="form-control"required>
           </div>
 
    <!-- Result Type -->
 <div class="col-sm-10 m-auto mb-3">
     <select id="result_type" name="result_type" class="form-select" required>
         <option value="">Result Type</option>
-        <option value="Pass">Pass</option>
-        <option value="Fail">Fail</option>
-        <option value="Pending">Pending</option>
+        <option value="Pass"<?= ($row['result_type']=='Pass')?'selected':'' ?>>Pass</option>
+        <option value="Fail"<?= ($row['result_type']=='Fail')?'selected':'' ?>>Fail</option>
+        <option value="Pending"<?= ($row['result_type']=='Pending')?'selected':'' ?>>Pending</option>
     </select>
 </div>
 
