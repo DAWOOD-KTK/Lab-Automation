@@ -52,10 +52,7 @@ move_uploaded_file($tmp_image, "../assets/images/".$imagename);
 
 $p_id = $p_code.$rivision.$m_number;
 
-$res = mysqli_query($conn,"
-    INSERT INTO products
-    (product_id, product_code, rivision, manufacturing_no, product_type, product_name, image)
-    VALUES
+$res = mysqli_query($conn," INSERT INTO products (product_id, product_code, rivision, manufacturing_no, product_type, product_name, image) VALUES
     ('$p_id','$p_code','$rivision','$m_number','$p_type','$p_name','$imagename')
 ");
 
