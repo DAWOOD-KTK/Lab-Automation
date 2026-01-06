@@ -54,7 +54,7 @@ $max = 1024*1024*5 ;
            'title' => 'User Added',
            'text' => 'User added successfully!'
             ];
-            header("Location: ../add-user.php");
+            header("Location: http://localhost/Lab-Automation/add-user.php");
             exit;
             }else{
             $error = mysqli_error($conn);
@@ -63,7 +63,7 @@ $max = 1024*1024*5 ;
            'title' => 'Database Error',
            'text' => addslashes($error)
             ];
-            header("Location: ../add-user.php");
+            header("Location: http://localhost/Lab-Automation/add-user.php");
             exit;
             }
             }else{
@@ -81,7 +81,7 @@ $max = 1024*1024*5 ;
            'title' =>  'Invalid Image Type',
            'text' => 'Only PNG, JPG, and JPEG files are supported'
             ];
-            header("Location: ../add-user.php");
+            header("Location: http://localhost/Lab-Automation/add-user.php");
             exit;
            }
 // }
