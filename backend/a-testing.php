@@ -1,132 +1,84 @@
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
 <?php
 include "db.php";
-if(isset($_POST["submit"])){
 
-    //    if(empty($_POST['product_id'])){
-    //     echo "<script>
-    //         alert('Please select a product');
-    //         window.location.href='../testing.php';
-    //     </script>";
-    //     exit;
-    // }
-    
-    //   autogenerate testing idate
+header('Content-Type: application/json');
 
-    function random_str($length = 6) {
-    $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[random_int(0, $charactersLength - 1)];
-    }
-    return $randomString;
-}
-
-     // Current date
-     $day = date('d');   // 2-digit day
-     $month = date('m'); // 2-digit month
-     $year = date('y');  // last 2 digits of year
-
-// Combine random string + date → 12-character ID
-     $testing_id = random_str(6) . $day . $month . $year;
-     
-
-    $p_id = $_POST['id'] ?? "";
-
-    if(empty($p_id)){
-    echo " <script>
-        Swal.fire({
-            icon: 'warning',
-            title: 'Product Missing',
-            text: 'Please select a product first'
-        }).then(() => {
-            window.location.href = '../testing.php';
-        });
-        </script>";
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    echo json_encode(['status'=>'error','message'=>'Invalid request']);
     exit;
-    }
-
-    $t_type = $_POST["testing_type"] ?? "";
-    $test_by = $_POST["tested_by"] ?? "";
-    $remarks = $_POST["remarks"] ?? "";
-   $result = $_POST['result_type'];
-
-if($result == 'Pass'){
-    $send_to = 'CPRI';
-    $is_locked = 1;
-} elseif($result == 'Fail'){
-    $send_to = 'Remanufacture';
-    $is_locked = 0;
-} else {
-    $send_to = 'Pending';
-    $is_locked = 0;
 }
 
+$p_id         = $_POST['id'] ?? '';
+$t_type       = $_POST['testing_type'] ?? '';
+$testing_code = $_POST['testing_code'] ?? '';
+$test_by      = $_POST['tested_by'] ?? '';
+$remarks      = $_POST['remarks'] ?? '';
+$result       = $_POST['result_type'] ?? '';
 
-
-    
-    // echo $p_id;
-    // echo "<br>";
-    // echo $t_type ;
-    // echo "<br>";
-    // echo  $r_type;
-    // echo "<br>";
-    // echo "<br>";
-    // echo $test_by;
-    // echo "<br>";
-    // echo $remarks;
-// echo "<pre>";
-// print_r($_POST);
-// exit;
-$product_query = mysqli_query($conn, "SELECT product_type FROM products WHERE id = '$p_id'");
-
-if(mysqli_num_rows($product_query) > 0){
-    $fetch_product = mysqli_fetch_assoc($product_query);
-    $product_type = $fetch_product["product_type"];
-} else {
-    echo "<script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Invalid Product',
-            text: 'Product not found in database'
-        }).then(() => { window.location.href = '../testing.php'; });
-    </script>";
-    exit();
+if(!$p_id || !$testing_code || !$result){
+    echo json_encode(['status'=>'error','message'=>'Required fields missing']);
+    exit;
 }
 
-$query = "INSERT INTO testing_data 
-(testing_id, product_id, product_type, testing_type, result_type, send_to, is_locked, tested_by, remarks)
-VALUES ('$testing_id', '$p_id', '$product_type', '$t_type', '$result', '$send_to', '$is_locked', '$test_by', '$remarks')";
+/* Product snapshot */
+$product_query = mysqli_query($conn,
+    "SELECT product_type, product_code, rivision 
+     FROM products 
+     WHERE id='$p_id'"
+);
 
-$res = mysqli_query($conn,$query);
-
-if($res){
-    $active = ($result == 'Pass') ? 1 : 0;
-    mysqli_query($conn, "UPDATE products SET is_active = '$active' WHERE id = '$p_id'");
-
-    echo "<script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Testing Saved',
-            text: 'Testing data successfully inserted',
-            timer: 2000,
-            showConfirmButton: false
-        }).then(() => { window.location.href = '../testing.php'; });
-    </script>";
-    exit();
-} else {
-    $error = mysqli_error($conn);
-    echo "<script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Database Error',
-            text: '".addslashes($error)."'
-        }).then(() => { window.location.href='../testing.php'; });
-    </script>";
-    exit();
+if(!$product_query || mysqli_num_rows($product_query)==0){
+    echo json_encode(['status'=>'error','message'=>'Product not found']);
+    exit;
 }
+
+$p = mysqli_fetch_assoc($product_query);
+
+/* Status logic */
+if($result=='Pass'){
+    $send_to='CPRI'; $is_locked=1;
+}elseif($result=='Fail'){
+    $send_to='Remanufacture'; $is_locked=0;
+}else{
+    $send_to='Pending'; $is_locked=0;
 }
+
+/* Roll generation */
+$rq = mysqli_query($conn,
+    "SELECT MAX(testing_roll) AS last_roll
+     FROM testing_data
+     WHERE testing_code='$testing_code'"
+);
+$rr = mysqli_fetch_assoc($rq);
+$next = ($rr['last_roll'] ?? 0) + 1;
+$roll = str_pad($next,6,'0',STR_PAD_LEFT);
+
+/* Final Testing ID */
+$testing_id = $p['product_code'].$p['rivision'].$testing_code.$roll;
+
+/* Insert */
+$insert = mysqli_query($conn,"
+INSERT INTO testing_data
+(testing_id, product_id, product_code, revision, product_type,
+ testing_code, testing_roll, testing_type, result_type,
+ send_to, is_locked, tested_by, remarks)
+VALUES
+('$testing_id','$p_id','{$p['product_code']}','{$p['rivision']}','{$p['product_type']}',
+ '$testing_code','$roll','$t_type','$result',
+ '$send_to','$is_locked','$test_by','$remarks')
+");
+
+if(!$insert){
+    echo json_encode(['status'=>'error','message'=>mysqli_error($conn)]);
+    exit;
+}
+
+/* Update product */
+$active = ($result=='Pass') ? 1 : 0;
+mysqli_query($conn,"UPDATE products SET is_active='$active' WHERE id='$p_id'");
+
+echo json_encode([
+    'status'=>'success',
+    'message'=>'Testing saved successfully',
+    'testing_id'=>$testing_id
+]);

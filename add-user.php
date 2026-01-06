@@ -1,8 +1,6 @@
 <?php
 include 'header.php';
 ?>
-
-
 <?php
 if (isset($_SESSION['alert'])):
 ?>
@@ -11,17 +9,16 @@ if (isset($_SESSION['alert'])):
 Swal.fire({
     icon: '<?= $_SESSION['alert']['type'] ?>',
     title: '<?= $_SESSION['alert']['title'] ?>',
-    text: '<?= $_SESSION['alert']['text'] ?>'
- confirmButtonColor: '#6f42c1'
-
-
+    text: '<?= $_SESSION['alert']['text'] ?>',
+    confirmButtonColor: '#6f42c1'
+}).then(() => {
+    window.location.href =  'user-list.php';  // alert ke baad reload ya redirect
 });
 </script>
 <?php
 unset($_SESSION['alert']);
 endif;
 ?>
-
 
 
 

@@ -1,6 +1,3 @@
-
-
-
 <?php
 session_start(); 
 include "db.php";
@@ -16,8 +13,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         'type' => 'error',
         'title' => 'Invalid Email',
         'text' => 'Please enter a valid email address'
-    ];
-    header("Location: ../add-user.php");
+     ];
+    header( "Location: http://localhost/Lab-Automation/add-user.php");
     exit;
 }
 
@@ -29,7 +26,7 @@ if(mysqli_num_rows($check) > 0){
         'title' => 'Duplicate Email',
         'text' => 'This email already exists!'
     ];
-    header("Location: ../add-user.php");
+    header("Location: http://localhost/Lab-Automation/add-user.php");
     exit;
 }
 
@@ -40,7 +37,7 @@ $imagename =$_FILES["image"]["name"] ;
 $tmp_image =$_FILES["image"]["tmp_name"] ;
 $type_image =$_FILES["image"]["type"] ;
 $image_size =$_FILES["image"]["size"] ;
-$folder ="../assets/images/" . $imagename;
+// $folder ="../assets/images/" . $imagename;
 $max = 1024*1024*5 ;
 
     if ($type_image == "image/png" || $type_image == "image/jpg" || $type_image == "image/jpeg" ) {
@@ -48,19 +45,16 @@ $max = 1024*1024*5 ;
         if ($image_size < $max) {
             $imagename = time() . '_' . $imagename;
             $folder = "../assets/images/" . $imagename;
-
             move_uploaded_file($tmp_image,$folder);
-    
             $q = "INSERT INTO `userstaafe`(`id`, `name`, `email`, `passwd`, `roll`, `image`) VALUES (Null,'$name','$email','$password','$roll','$imagename')";
             $res = mysqli_query($conn,$q);
-
             if ($res) {
             $_SESSION['alert'] = [
            'type' => 'success',
            'title' => 'User Added',
            'text' => 'User added successfully!'
             ];
-            header("Location: ../add-user.php");
+            header("Location: http://localhost/Lab-Automation/add-user.php");
             exit;
             }else{
             $error = mysqli_error($conn);
@@ -69,30 +63,28 @@ $max = 1024*1024*5 ;
            'title' => 'Database Error',
            'text' => addslashes($error)
             ];
-            header("Location: ../add-user.php");
+            header("Location: http://localhost/Lab-Automation/add-user.php");
             exit;
             }
-
-           
-        }else{
+            }else{
             $_SESSION['alert'] = [
            'type' => 'error',
            'title' => 'Image Too Large',
            'text' => 'Image size is greater than 5MB'
             ];
-            header("Location: ../add-user.php");
+            header("Location: http://localhost/Lab-Automation/add-user.php");
             exit;
-        }  
-    }else{
-     $_SESSION['alert'] = [
+           }  
+           }else{
+           $_SESSION['alert'] = [
            'type' => 'error',
            'title' =>  'Invalid Image Type',
            'text' => 'Only PNG, JPG, and JPEG files are supported'
             ];
-            header("Location: ../add-user.php");
+            header("Location: http://localhost/Lab-Automation/add-user.php");
             exit;
-    }
-
+           }
+// }
     
 
 ?>

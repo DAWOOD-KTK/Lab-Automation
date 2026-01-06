@@ -72,15 +72,21 @@ $res = mysqli_query($conn,$query);
         <thead>
             
             <tr>
-                <th id="th" >Testing ID</th>
-                <th id="th"  class="font">Product ID</th>
-                <th id="th"  class="font">Product Unique ID</th>
-                <th id="th"  class="font">Product Type</th>
-                <th id="th" class="font">Testing Type</th>
-                <th id="th" class="font">Result Type</th>
-                <th id="th" >Tested By</th>
-                <th id="th" >Send To</th>
-                <th id="th"  >locked/unlocked</th>
+                <th id="th"class="font" >ID</th>
+                <th id="th" class="font">T ID</th>
+                <th id="th"  class="font">P ID</th>
+                <th id="th"  class="font">P Code </th>
+                <th id="th"  class="font">T Code </th>
+                <th id="th"  class="font">T Roll</th>
+                <th id="th"  class="font">revisio</th>
+                <th id="th"  class="font">P Type</th>
+                <th id="th" class="font">T Type</th>
+                <th id="th"  class="font">Result</th>
+                <th id="th" class="font">T By</th>
+                <th id="th" class="font">Remarks</th>
+                <th id="th" class="font">Send To</th>
+                <th id="th" class="font" >locked
+                <br>unlocked</th>
             </tr>
         </thead>
         <tbody>
@@ -92,8 +98,13 @@ $res = mysqli_query($conn,$query);
             
             ?>
             <tr>
+                <td class="text-center"><?= $data["id"] ?></td>
                 <td id="td" class="text-center " ><?= $data["testing_id"] ?></td>
-                <td class="text-center"><?= $data["product_id"] ?></td>
+                <td id="td" class="text-center " ><?= $data["product_id"] ?></td>
+                <td id="td" class="text-center " ><?= $data["product_code"] ?></td>
+                <td id="td" class="text-center " ><?= $data["testing_code"] ?></td>
+                <td id="td" class="text-center " ><?= $data["testing_roll"] ?></td>
+                <td id="td" class="text-center " ><?= $data["revision"] ?></td>
                 <td id="wid" class="text-center" ><?= $data["product_type"] ?></td>
                 <td id="td" class="text-center" ><?= $data["testing_type"] ?></td>
                 <td id="td" class="text-center" ><?= $data["result_type"] ?></td>

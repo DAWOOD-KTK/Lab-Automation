@@ -1,26 +1,25 @@
-
 <?php
-
 include 'header.php';
 ?>
-<?php
-if (isset($_SESSION['alert'])):
-?>
+<?php if (isset($_SESSION['alert'])): ?>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 Swal.fire({
     icon: '<?= $_SESSION['alert']['type'] ?>',
     title: '<?= $_SESSION['alert']['title'] ?>',
-    text: '<?= $_SESSION['alert']['text'] ?>'
+    text: '<?= $_SESSION['alert']['text'] ?>',
     confirmButtonColor: '#6f42c1'
 }).then(() => {
-    window.location.href = 'users-list.php'; // ya 'add-user.php' ya 'users-list.php'
+    <?php if ($_SESSION['alert']['type'] === 'success'): ?>
+        window.location.href = 'products-list.php';
+    <?php else: ?>
+        window.location.href = 'add-product.php';
+    <?php endif; ?>
 });
 </script>
-<?php
-unset($_SESSION['alert']);
-endif;
-?>
+<?php unset($_SESSION['alert']); endif; ?>
+
+
 
 
 <div class="app-body">

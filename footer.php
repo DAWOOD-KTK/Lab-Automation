@@ -51,6 +51,21 @@
     <!-- Custom JS files -->
     <script src="assets/js/custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- //REMARKS WORK -->
+
+
+<script>
+$(document).ready(function(){
+
+    $('#remarks_template').on('change', function(){ 
+        let text = $(this).val();
+        if(text){
+            $('#remarks').val(text);
+        }
+    });
+
+});
+</script>
 
   </body>
 
