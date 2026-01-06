@@ -85,8 +85,8 @@ $res = mysqli_query($conn,$query);
                 <th id="th" class="font">T By</th>
                 <th id="th" class="font">Remarks</th>
                 <th id="th" class="font">Send To</th>
-                <th id="th" class="font" >locked
-                <br>unlocked</th>
+                <th id="th" class="font" >locked=1
+                <br>unlocked=0</th>
             </tr>
         </thead>
         <tbody>

@@ -10,7 +10,7 @@ if(!$product_id || !$testing_code){
 
 // product snapshot
 $q = mysqli_query($conn,
-    "SELECT product_code, revision 
+    "SELECT product_code, rivision 
      FROM products 
      WHERE id='$product_id'"
 );
@@ -29,4 +29,4 @@ $next = ($rr['last_roll'] ?? 0) + 1;
 $roll = str_pad($next, 6, '0', STR_PAD_LEFT);
 
 // FINAL ID
-echo $p['product_code'].$p['revision'].$testing_code.$roll;
+echo $p['product_code'].$p['rivision'].$testing_code.$roll;

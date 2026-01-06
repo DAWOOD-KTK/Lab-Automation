@@ -150,5 +150,23 @@ $('#testin_form').submit(function(e){
         }
     }, 'json');
 });
+// display testing id
+$(document).ready(function(){
+    function updateTestingID(){
+        let product_id = $('#product_select').val();
+        let testing_code = $('#testing_code').val();
+
+        if(product_id && testing_code){
+            $.post('backend/generate_testing_id.php', { product_id, testing_code }, function(response){
+                $('#generated_testing_id').val(response);
+            });
+        } else {
+            $('#generated_testing_id').val('');
+        }
+    }
+
+    $('#product_select, #testing_code').on('change', updateTestingID);
+});
+
 
 </script>
