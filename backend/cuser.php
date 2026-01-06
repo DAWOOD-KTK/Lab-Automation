@@ -7,13 +7,13 @@ $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
 $roll = mysqli_real_escape_string($conn, $_POST["user"]);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
 
-//email validation
+ //email validation
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
          $_SESSION['alert'] = [
         'type' => 'error',
         'title' => 'Invalid Email',
         'text' => 'Please enter a valid email address'
-     ];
+     ]; 
     header( "Location: http://localhost/Lab-Automation/add-user.php");
     exit;
 }
@@ -72,7 +72,7 @@ $max = 1024*1024*5 ;
            'title' => 'Image Too Large',
            'text' => 'Image size is greater than 5MB'
             ];
-            header("Location: http://localhost/Lab-Automation/add-user.php");
+            header("Location: ../add-user.php");
             exit;
            }  
            }else{

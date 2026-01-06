@@ -17,6 +17,7 @@ Swal.fire({
 </script>
 <?php
 unset($_SESSION['alert']);
+
 endif;
 ?>
 

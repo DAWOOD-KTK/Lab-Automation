@@ -117,7 +117,7 @@ $res = mysqli_query($conn,$query);
                 <td ><?= $data["product_type"] ?></td>
                 <td id="id2"><?= $data["product_name"] ?></td>
                 <td><img src="assets/images/<?= $data["image"] ?>" id="image"></td>
-                <td id="td" class="text-center" id="w5"><?= $data["is_active"] ?></td>
+                <td id="td" class="text-center" id="w5"><?= $data["is_active"]; ?></td>
                 <?php if($_SESSION['user']['roll'] == 'admin'){?>
                 <td id="td1"colspan="6" class="text-center" >
 <?php
