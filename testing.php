@@ -50,7 +50,7 @@ include 'header.php';
               <option value="VT">VT</option>
               <option value="CT">CT</option>
               <option value="IR">IR</option>
-              <option value="CNT">CNT</option>
+              <option value="CN">CN</option>
             </select>
           </div>
 
@@ -72,7 +72,6 @@ include 'header.php';
         <option value="">Result Type</option>
         <option value="Pass">Pass</option>
         <option value="Fail">Fail</option>
-        <option value="Pending">Pending</option>
     </select>
 </div>
 
@@ -126,39 +125,15 @@ include 'header.php';
 <!-- jQuery for AJAX -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$('#testin_form').submit(function(e){
-    e.preventDefault(); // prevent normal submit
-
-    $.post('backend/a-testing.php', $(this).serialize(), function(response){
-        if(response.status === 'success'){
-            Swal.fire({
-                icon: 'success',
-                title: 'Testing Saved',
-                text: response.message,
-                timer: 2000,
-                showConfirmButton: false
-            }).then(() => {
-                $('#testin_form')[0].reset();
-                $('#generated_testing_id').val('');
-            });
-        } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: response.message
-            });
-        }
-    }, 'json');
-});
-// display testing id
 $(document).ready(function(){
+
     function updateTestingID(){
         let product_id = $('#product_select').val();
         let testing_code = $('#testing_code').val();
 
         if(product_id && testing_code){
             $.post('backend/generate_testing_id.php', { product_id, testing_code }, function(response){
-                $('#generated_testing_id').val(response);
+                $('#generated_testing_id').val(response); // <== Yahan lagana hai
             });
         } else {
             $('#generated_testing_id').val('');
@@ -166,7 +141,47 @@ $(document).ready(function(){
     }
 
     $('#product_select, #testing_code').on('change', updateTestingID);
+
+    // Disable completed tests per product
+    $('#product_select').change(function(){
+        $('#testing_code option').prop('disabled', false); // reset all
+        let product_id = $(this).val();
+        $.post('backend/get_completed_tests.php', {product_id}, function(res){
+            res.completed.forEach(function(code){
+                $('#testing_code option[value="'+code+'"]').prop('disabled', true);
+            });
+        }, 'json');
+    });
+
+    // Submit testing form
+    $('#testin_form').submit(function(e){
+        e.preventDefault();
+
+        $.post('backend/a-testing.php', $(this).serialize(), function(response){
+            if(response.status === 'success'){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Testing Saved',
+                    text: response.message + "\nFinal Status: " + response.final_status,
+                    timer: 2000,
+                    showConfirmButton: false
+                }).then(() => {
+                    $('#testin_form')[0].reset();
+                    $('#generated_testing_id').val('');
+                    $('#testing_code option').prop('disabled', false); // reset options
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: response.message
+                });
+            }
+        }, 'json');
+    });
+
 });
+
 
 
 </script>

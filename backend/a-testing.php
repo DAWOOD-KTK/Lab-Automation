@@ -1,12 +1,6 @@
 <?php
 include "db.php";
-
 header('Content-Type: application/json');
-
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    echo json_encode(['status'=>'error','message'=>'Invalid request']);
-    exit;
-}
 
 $p_id         = $_POST['id'] ?? '';
 $t_type       = $_POST['testing_type'] ?? '';
@@ -34,21 +28,15 @@ if(!$product_query || mysqli_num_rows($product_query)==0){
 
 $p = mysqli_fetch_assoc($product_query);
 
-/* Status logic */
-if($result=='Pass'){
-    $send_to='CPRI'; $is_locked=1;
-}elseif($result=='Fail'){
-    $send_to='Remanufacture'; $is_locked=0;
-}else{
-    $send_to='Pending'; $is_locked=0;
-}
 
-/* Roll generation */
-$rq = mysqli_query($conn,
-    "SELECT MAX(testing_roll) AS last_roll
-     FROM testing_data
-     WHERE testing_code='$testing_code'"
-);
+
+
+/* Roll generation: per product */
+$rq = mysqli_query($conn,"
+    SELECT MAX(testing_roll) AS last_roll
+    FROM testing_data
+    WHERE product_id='$p_id'
+");
 $rr = mysqli_fetch_assoc($rq);
 $next = ($rr['last_roll'] ?? 0) + 1;
 $roll = str_pad($next,6,'0',STR_PAD_LEFT);
@@ -56,7 +44,7 @@ $roll = str_pad($next,6,'0',STR_PAD_LEFT);
 /* Final Testing ID */
 $testing_id = $p['product_code'].$p['rivision'].$testing_code.$roll;
 
-/* Insert */
+/* Insert test */
 $insert = mysqli_query($conn,"
 INSERT INTO testing_data
 (testing_id, product_id, product_code, revision, product_type,
@@ -65,20 +53,57 @@ INSERT INTO testing_data
 VALUES
 ('$testing_id','$p_id','{$p['product_code']}','{$p['rivision']}','{$p['product_type']}',
  '$testing_code','$roll','$t_type','$result',
- '$send_to','$is_locked','$test_by','$remarks')
+ 'Pending','0','$test_by','$remarks')
 ");
 
 if(!$insert){
+    if(mysqli_errno($conn) == 1062){
+        echo json_encode([
+            'status'=>'error',
+            'message'=>'This test is already completed for this product'
+        ]);
+        exit;
+    }
     echo json_encode(['status'=>'error','message'=>mysqli_error($conn)]);
     exit;
 }
 
-/* Update product */
-$active = ($result=='Pass') ? 1 : 0;
-mysqli_query($conn,"UPDATE products SET is_active='$active' WHERE id='$p_id'");
+
+/* Check all tests of this product */
+$check = mysqli_query($conn,"
+SELECT
+SUM(result_type='Fail') AS fail_count,
+SUM(result_type='Pending') AS pending_count,
+COUNT(DISTINCT testing_code) AS total_tests
+FROM testing_data
+WHERE product_id='$p_id'
+");
+
+$c = mysqli_fetch_assoc($check);
+
+if($c['fail_count'] > 0){
+    $final_send_to = 'Remanufacture';
+    $final_locked = 0;
+}
+elseif($c['pending_count'] > 0 OR $c['total_tests'] < 4){
+    $final_send_to = 'Pending';
+    $final_locked = 0;
+}
+else{
+    $final_send_to = 'CPRI';
+    $final_locked = 1;
+}
+
+/* Update all tests of this product */
+mysqli_query($conn,"
+UPDATE testing_data
+SET send_to='$final_send_to', is_locked='$final_locked'
+WHERE product_id='$p_id'
+");
 
 echo json_encode([
     'status'=>'success',
     'message'=>'Testing saved successfully',
-    'testing_id'=>$testing_id
+    'testing_id'=>$testing_id,
+    'final_status'=>$final_send_to
 ]);
