@@ -1,6 +1,6 @@
 
 <?php
-echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+session_start();
 
 include "db.php";
 // getting data from form
@@ -11,7 +11,7 @@ $id = $_POST['id'];
 
 $name =mysqli_real_escape_string($conn, $_POST['name'] ?? "");
 $email =mysqli_real_escape_string($conn, $_POST['email']?? "");
-$password =mysqli_real_escape_string($conn, $_POST['password']?? "");
+$password = password_hash($_POST["password"], PASSWORD_BCRYPT);
 $user =mysqli_real_escape_string($conn, $_POST['user'] ?? "");
 $image_name = $_FILES['image']['name'];
 
@@ -45,34 +45,46 @@ if (!empty($image_name)) {
             $res2 = mysqli_query($conn,$q2);
             if($res2){
                   move_uploaded_file($tmp_name,$folder);
-                echo "<script>
-                       alert('Data Successfully Update')
-                       window.location.href='../user-list.php'
-                   </script>";
+                $_SESSION['alert'] = [
+               'type' => 'success',
+               'title' => 'update user',
+               'text' => 'User updated successfully!'
+              ];
+           header("Location: http://localhost/Lab-Automation/user-list.php");
+            exit;
             }else{
-                echo "<script>
-                       alert('Failed')
-                       window.location.href='../updateuser.php'
-                   </script>";
+                $_SESSION['alert'] = [
+           'type' => 'erorr',
+           'title' => 'Update user',
+           'text' => 'Update uuser unsuccessful!'
+           ];
+            header("Location: http://localhost/Lab-Automation/updateuser.php");
+            exit;
             }
 
 
 
 
             }else{
-            echo "<script>
-        alert('image size dose not supported')
-        window.location.href='../updateuser.php'
-        </script>";
+            $_SESSION['alert'] = [
+           'type' => 'erorr',
+           'title' => 'image ',
+           'text' => 'image size should be less then 5mb'
+           ];
+            header("Location: http://localhost/Lab-Automation/updateuser.php");
+            exit;
         }
 
 
 
     }else{
-        echo "<script>
-        alert('image type dose not supported')
-        window.location.href='../updateuser.php'
-        </script>";
+        $_SESSION['alert'] = [
+           'type' => 'erorr',
+           'title' => 'image',
+           'text' => 'image type not supported'
+           ];
+            header("Location: http://localhost/Lab-Automation/updateuser.php");
+            exit;
     }
 
     
@@ -82,15 +94,21 @@ if (!empty($image_name)) {
    $res2 =mysqli_query($conn,$q2);
 
     if($res2){
-                echo "<script>
-                       alert('Data Successfully Update')
-                       window.location.href='../user-list.php'
-                   </script>";
+                $_SESSION['alert'] = [
+               'type' => 'success',
+               'title' => 'Delete user',
+               'text' => 'User deleted successfully!'
+              ];
+           header("Location: http://localhost/Lab-Automation/add-user.php");
+            exit;
             }else{
-                echo "<script>
-                       alert('Failed')
-                       window.location.href='../updateuser.php'
-                   </script>";
+               $_SESSION['alert'] = [
+           'type' => 'erorr',
+           'title' => 'Update user',
+           'text' => 'Update uuser unsuccessful!'
+           ];
+            header("Location: http://localhost/Lab-Automation/updateuser.php");
+            exit;
             }
 }
 

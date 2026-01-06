@@ -2,6 +2,25 @@
 include 'header.php';
 include "backend/getUsers.php";
 ?>
+<?php
+if (isset($_SESSION['alert']) ):
+?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+Swal.fire({
+    icon: '<?= $_SESSION['alert']['type'] ?>',
+    title: '<?= $_SESSION['alert']['title'] ?>',
+    text: '<?= $_SESSION['alert']['text'] ?>',
+    confirmButtonColor: '#6f42c1'
+}).then(() => {
+    window.location.href =  'user-list.php';  // alert ke baad reload ya redirect
+});
+</script>
+<?php
+unset($_SESSION['alert']);
+
+endif;
+?>
 
 <style>
     .title {

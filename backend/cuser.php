@@ -13,7 +13,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         'type' => 'error',
         'title' => 'Invalid Email',
         'text' => 'Please enter a valid email address'
-     ];
+     ]; 
     header( "Location: http://localhost/Lab-Automation/add-user.php");
     exit;
 }

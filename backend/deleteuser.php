@@ -1,7 +1,7 @@
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
 <?php
+
+session_start();
+
 include "db.php";
 
 $id = $_GET['id'];
@@ -19,27 +19,23 @@ if(file_exists($imgpath)){
 $q="DELETE FROM userstaafe WHERE id = '$id'";
 $res1 = mysqli_query($conn,$q);
 if($res1){
-    echo "<script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Deleted',
-            text: 'User successfully deleted'
-        }).then(() => {
-            window.location.href='../user-list.php';
-        });
-        </script>";
+    $_SESSION['alert'] = [
+       'type' => 'success',
+           'title' => 'Delete user',
+           'text' => 'User deleted successfully!'
+    ];
+header("Location: http://localhost/Lab-Automation/user-list.php");
+            exit;
 }
 else {
         $error = mysqli_error($conn);
-        echo "<script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Deletion Failed',
-            text: '".addslashes($error)."'
-        }).then(() => {
-            window.location.href='../user-list.php';
-        });
-        </script>";
+        $_SESSION['alert'] = [
+       'type' => 'erorr',
+           'title' => 'delete user ',
+           'text' => 'User deleted unsuccessful!'
+    ];
+    header("Location: http://localhost/Lab-Automation/add-user.php");
+            exit;
 
 }
 
