@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2026 at 03:47 AM
+-- Generation Time: Jan 07, 2026 at 02:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -96,10 +96,10 @@ CREATE TABLE `testing_data` (
 --
 
 INSERT INTO `testing_data` (`id`, `testing_id`, `product_id`, `product_code`, `testing_code`, `testing_roll`, `revision`, `product_type`, `testing_type`, `result_type`, `tested_by`, `remarks`, `created_at`, `send_to`, `is_locked`) VALUES
-(1, 'SGR2CT000001', 47, 'SG', 'CT', '000001', 'R2', 'Switchgear', 'Current Test', 'Fail', 'amir', 'Current Test failed, abnormal readings', '2026-01-06 17:12:21', 'Remanufacture', 0),
-(2, 'SGR2VT000002', 47, 'SG', 'VT', '000002', 'R2', 'Switchgear', 'Voltage Test', 'Pass', 'dawood', 'Voltage Test completed, parameters within limits', '2026-01-06 17:13:12', 'Remanufacture', 0),
-(3, 'SGR2IR000003', 47, 'SG', 'IR', '000003', 'R2', 'Switchgear', 'Insulation Resistance', 'Pass', 'amir', 'Insulation Resistance measured, values acceptable', '2026-01-06 17:14:13', 'Remanufacture', 0),
-(4, 'SGR2CN000004', 47, 'SG', 'CN', '000004', 'R2', 'Switchgear', 'Continuity Test', 'Pass', 'amir', 'Continuity Test passed, circuit intact', '2026-01-06 17:14:39', 'Remanufacture', 0);
+(1, 'SGR2CT000001', 47, 'SG', 'CT', '000001', 'R2', 'Switchgear', 'Current Test', 'Pass', 'amir', 'Current Test completed, readings normal', '2026-01-06 17:12:21', 'CPRI', 1),
+(2, 'SGR2VT000002', 47, 'SG', 'VT', '000002', 'R2', 'Switchgear', 'Voltage Test', 'Pass', 'dawood', 'Voltage Test completed, parameters within limits', '2026-01-06 17:13:12', 'CPRI', 1),
+(3, 'SGR2IR000003', 47, 'SG', 'IR', '000003', 'R2', 'Switchgear', 'Insulation Resistance', 'Pass', 'amir', 'Insulation Resistance measured, values acceptable', '2026-01-06 17:14:13', 'CPRI', 1),
+(4, 'SGR2CN000004', 47, 'SG', 'CN', '000004', 'R2', 'Switchgear', 'Continuity Test', 'Pass', 'amir', 'Continuity Test passed, circuit intact', '2026-01-06 17:14:39', 'CPRI', 1);
 
 -- --------------------------------------------------------
 
