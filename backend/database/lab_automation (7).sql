@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2026 at 07:10 AM
+-- Generation Time: Jan 07, 2026 at 03:47 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -63,7 +63,9 @@ INSERT INTO `products` (`id`, `product_id`, `product_code`, `rivision`, `manufac
 (72, 'RSR20015', 'RS', 'R2', '0015', 'Resistor', 'Cement Resistor 5W', '1767629973_fuse6.jpg', 1),
 (73, 'RSR30016', 'RS', 'R3', '0016', 'Resistor', 'Cement Resistor 5W', '1767630249_fuse3.jpg', 1),
 (74, 'FSR20018', 'FS', 'R2', '0018', 'Fuse', 'Thermal Fuse', '1767630838_fuse1.jpg', 1),
-(75, 'SGR10019', 'SG', 'R1', '0019', 'Switchgear', '33kV Outdoor Switchgear Panel', '1767632983_13.png', 1);
+(75, 'SGR10019', 'SG', 'R1', '0019', 'Switchgear', '33kV Outdoor Switchgear Panel', '1767632983_13.png', 1),
+(80, 'RSR10020', 'RS', 'R1', '0020', 'Fuse', 'Drop-Out Fuse', '1767683141_fuse2.jpg', 1),
+(81, 'CPR10021', 'CP', 'R1', '0021', 'Capacitor', 'Power Capacitor 440V 25 kVAR', '1767699792_fuse1.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -94,10 +96,10 @@ CREATE TABLE `testing_data` (
 --
 
 INSERT INTO `testing_data` (`id`, `testing_id`, `product_id`, `product_code`, `testing_code`, `testing_roll`, `revision`, `product_type`, `testing_type`, `result_type`, `tested_by`, `remarks`, `created_at`, `send_to`, `is_locked`) VALUES
-(7, 'SGR1VT000001', 58, 'SG', 'VT', '000001', 'R1', 'Switchgear', 'Voltage Test', 'Pass', 'afsheen', 'Voltage Test completed, parameters within limits', '2026-01-06 03:27:55', 'CPRI', 1),
-(8, 'FSR1CT000001', 54, 'FS', 'CT', '000001', 'R1', 'Fuse', 'Current Test', 'Fail', 'afsheen', 'Current Test failed, abnormal readings', '2026-01-06 03:52:41', 'Remanufacture', 0),
-(9, 'SGR1VT000002', 60, 'SG', 'VT', '000002', 'R1', 'Switchgear', 'Voltage Test', 'Fail', 'afsheen', 'Voltage Test failed, check insulation or connections', '2026-01-06 04:01:43', 'Remanufacture', 0),
-(10, 'SGR2VT000003', 53, 'SG', 'VT', '000003', 'R2', 'Switchgear', 'Voltage Test', 'Pass', 'Muhammad', 'Voltage Test completed, parameters within limits', '2026-01-06 04:16:01', 'CPRI', 1);
+(1, 'SGR2CT000001', 47, 'SG', 'CT', '000001', 'R2', 'Switchgear', 'Current Test', 'Fail', 'amir', 'Current Test failed, abnormal readings', '2026-01-06 17:12:21', 'Remanufacture', 0),
+(2, 'SGR2VT000002', 47, 'SG', 'VT', '000002', 'R2', 'Switchgear', 'Voltage Test', 'Pass', 'dawood', 'Voltage Test completed, parameters within limits', '2026-01-06 17:13:12', 'Remanufacture', 0),
+(3, 'SGR2IR000003', 47, 'SG', 'IR', '000003', 'R2', 'Switchgear', 'Insulation Resistance', 'Pass', 'amir', 'Insulation Resistance measured, values acceptable', '2026-01-06 17:14:13', 'Remanufacture', 0),
+(4, 'SGR2CN000004', 47, 'SG', 'CN', '000004', 'R2', 'Switchgear', 'Continuity Test', 'Pass', 'amir', 'Continuity Test passed, circuit intact', '2026-01-06 17:14:39', 'Remanufacture', 0);
 
 -- --------------------------------------------------------
 
@@ -135,7 +137,8 @@ INSERT INTO `userstaafe` (`id`, `name`, `email`, `passwd`, `roll`, `image`) VALU
 (17, 'maheren', 'maheren@gmail.com', '$2y$10$bk/ilDv8mrTB18zVrBB9TONFkObyFApN2uryRHbIjj7.Iw3VjhhFK', 'user', '1767628781_naz.png'),
 (18, 'shahmeer ', 'shahmeer@gmail.com', '$2y$10$Bh1bWpB1kZH3qHHSkmCeJ.J4bLH8n5WLn4hD4kXO/X2yzXUgkcAjO', 'user', '1767629017_naz.png'),
 (19, 'naheed', 'naheed@mail.com', '$2y$10$vrk22LqAUVnlPyNrv3.ttuMDjpD3PDGDAmq.YKRw33Yiw/ZD0nyvW', 'user', '1767629074_naz.png'),
-(20, 'hunera', 'hunera@mail.com', '$2y$10$txyBcTt93EV2E/C8UuC4Ke5ObBBeRUD4rJuhttKsQ4ZE8vm6qx7Sm', 'user', '1767632203_logo2.png');
+(20, 'hunera', 'hunera@mail.com', '$2y$10$txyBcTt93EV2E/C8UuC4Ke5ObBBeRUD4rJuhttKsQ4ZE8vm6qx7Sm', 'user', '1767632203_logo2.png'),
+(21, 'Rhaman', 'Rhaman@gmail.com', '$2y$10$B9w6kUXUQXlJUW2pRIr0t.GS3q570kCNyRtvPYt7V9ON3z7xZ00Ri', 'user', '1767699712_fuse6.png');
 
 --
 -- Indexes for dumped tables
@@ -153,9 +156,7 @@ ALTER TABLE `products`
 --
 ALTER TABLE `testing_data`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `testing_id` (`testing_id`),
-  ADD UNIQUE KEY `uq_test_roll` (`testing_code`,`testing_roll`),
-  ADD KEY `fk_product` (`product_id`);
+  ADD UNIQUE KEY `uq_product_test` (`product_id`,`testing_code`);
 
 --
 -- Indexes for table `userstaafe`
@@ -172,19 +173,19 @@ ALTER TABLE `userstaafe`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `testing_data`
 --
 ALTER TABLE `testing_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `userstaafe`
 --
 ALTER TABLE `userstaafe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
