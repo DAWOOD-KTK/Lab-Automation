@@ -91,10 +91,7 @@ include 'header.php';
         <option data-result="Fail" value="Insulation Resistance below limit, re-test required">IR – Insulation Resistance (Fail)</option>
         <option data-result="Fail" value="Continuity Test failed, circuit broken">CNT – Continuity Test (Fail)</option>
 
-        <option data-result="Pending" value="Voltage Test pending, yet to perform">VT – Voltage Test (Pending)</option>
-        <option data-result="Pending" value="Current Test pending, yet to perform">CT – Current Test (Pending)</option>
-        <option data-result="Pending" value="Insulation Resistance pending, yet to perform">IR – Insulation Resistance (Pending)</option>
-        <option data-result="Pending" value="Continuity Test pending, yet to perform">CNT – Continuity Test (Pending)</option>
+        
     </select>
 </div>
 

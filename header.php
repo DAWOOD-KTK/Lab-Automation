@@ -219,14 +219,7 @@ select{
               
            
               
-            
-              <li >
-                <a href="#!">
-                  <i class="bi bi-pie-chart"></i>
-                  <span class="menu-text">Graphs</span>
-                </a>
-                
-              </li>
+          
             
              
              

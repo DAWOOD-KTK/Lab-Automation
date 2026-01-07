@@ -107,14 +107,14 @@ $res = mysqli_query($conn,$query);
                 <td id="id2" class="text-center"><?= $data["remarks"] ?></td>
                             <td class="text-center">
                                 <?php 
-                                if($data['is_locked'] == 0){
+                                if($data['result_type'] == 'Fail'){
                                     ?>
                                     <span class="badge bg-warning text-dark">Unlocked</span>
                                     <a href="edit.manufacture.php?testing_id=<?= $data['testing_id']?>" class="btn my-1 btn-warning  btn-sm">Re-Test</a>
                                        <?php
                                 } else {
                                     ?>
-                                    <span class="badge bg-success">Locked</span>;
+                                    <span class="badge bg-success">Pass_Locked</span>;
                                     <?php
                                 }
                                 ?>
