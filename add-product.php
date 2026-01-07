@@ -76,7 +76,6 @@ Swal.fire({
                             <option value="Power Capacitor 440V 25 kVAR">Power Capacitor 440V 25 kVAR</option>
                             <option value="Three Phase Power Capacitor">Three Phase Power Capacitor</option>
                             <option value="Oil Filled Power Capacitor">Oil Filled Power Capacitor</option>
-                            <option value="APFC Panel">APFC Panel</option>
                             <option value="LT Capacitor Bank Panel">LT Capacitor Bank Panel</option>
                             <option value="HT Capacitor Bank">HT Capacitor Bank</option>
                         </optgroup>
