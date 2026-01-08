@@ -2243,3 +2243,19 @@ textarea.input {
     border-color: #b8001f !important;
 }
 
+.section-desc{
+    max-width: 850px;
+    margin: 10px auto 30px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.7;
+}
+/* Footer Social Icons Fix */
+#footer .newsletter-follow li a {
+    color: #ffffff;          /* icon color */
+    font-size: 18px;
+}
+
+#footer .newsletter-follow li a:hover {
+    color: #d32f2f;          /* red hover (theme match) */
+}
