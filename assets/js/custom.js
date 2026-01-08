@@ -90,13 +90,6 @@ jQuery(function ($) {
 
 });
 
-//remarks work
-$('#remarks_template').on('change', function(){
-    let text = $(this).val();
-    if(text){
-        $('#remarks').val(text);
-    }
-});
 
 
 

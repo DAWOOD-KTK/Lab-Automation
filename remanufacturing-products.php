@@ -82,7 +82,7 @@ $res = mysqli_query($conn,$query);
                 <th id="th"  class="font">Product Unique ID</th>
                 <th id="th"  class="font">Product Type</th>
                 <th id="th" class="font">Testing Type</th>
-                <th id="th" class="font">Testing Type</th>
+                <th id="th" class="font">Tested By</th>
                 <th id="th" class="font">Result</th>
                 <th id="th"  class="font">remarks</th>
                 <th id="th"  >is_locked</th>

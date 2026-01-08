@@ -36,7 +36,7 @@ $row = mysqli_fetch_assoc($query);
             <select class="form-select" name="id" id="product_select" required>
               <option value="">Select Product</option>
               <?php
-              $query = mysqli_query($conn,"SELECT id,product_id, product_type FROM products WHERE is_active = 1");
+              $query = mysqli_query($conn,"SELECT id,product_id, product_type FROM products WHERE is_active = 0");
               while($data = mysqli_fetch_assoc($query)){
                   echo "<option value='{$data['id']}'>{$data['id']} - {$data['product_id']} - {$data['product_type']}</option>";
               }

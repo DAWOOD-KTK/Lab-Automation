@@ -107,10 +107,9 @@ $res = mysqli_query($conn,$query);
                 <td id="id2" class="text-center"><?= $data["remarks"] ?></td>
                             <td class="text-center">
                                 <?php 
-                                if($data['is_locked'] == 0){
+                                if($data['result_type'] == 'Pass'){
                                     ?>
                                     <span class="badge bg-warning text-dark">Unlocked</span>
-                                    <a href="edit-pending.php?testing_id=<?= $data['testing_id']?>" class="btn btn-warning  btn-sm">Re-Test</a>
                                        <?php
                                 } else {
                                     ?>

@@ -60,6 +60,27 @@ body {
   font-weight: 400;
   color: #333;
 }
+:root{
+    --primary-color: #6240a1;
+}
+#header,
+#top-header,
+.primary-btn,
+.search-btn,
+.add-to-cart-btn,
+.newsletter-btn{
+    background-color: var(--primary-color) !important;
+}
+.product-label .sale,
+.product-label .new{
+    background-color: var(--primary-color) !important;
+}
+input:focus,
+select:focus{
+    border-color: var(--primary-color) !important;
+}
+
+
 
 h1, h2, h3, h4, h5, h6 {
   color: #2B2D42;
@@ -2188,3 +2209,37 @@ textarea.input {
     margin-top: 10px;
   }
 }
+/* Shop section red overlay to purple */
+.shop:before{
+    background: #6240a1 !important;
+}
+/* ===== Footer Background Purple ===== */
+#footer{
+    background-color: #6240a1 !important;
+}
+#footer,
+#footer h3,
+#footer p,
+#footer a,
+#footer li{
+    color: #ffffff !important;
+}
+#bottom-footer{
+    background-color: #4f3484 !important; /* thora dark purple */
+}
+#footer a:hover{
+    color: #e6ddff !important;
+}
+/* ===== Keep Search Button Red ===== */
+.header-search .search-btn{
+    background-color: #D10024 !important; /* original Electro red */
+    color: #ffffff !important;
+    border-color: #D10024 !important;
+}
+
+/* Hover state bhi red hi rahe */
+.header-search .search-btn:hover{
+    background-color: #b8001f !important;
+    border-color: #b8001f !important;
+}
+
