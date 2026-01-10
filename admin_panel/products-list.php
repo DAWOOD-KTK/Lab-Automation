@@ -100,7 +100,7 @@ $res = mysqli_query($conn,$query);
                 <?php }?>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="productsTableBody">
             <?php 
             if (mysqli_num_rows($res)>0) {
 
@@ -153,6 +153,21 @@ if($data['is_active'] == 1){
     </table>
 </div>
 </div>
+
+<!-- JS: AJAX search -->
+<script>
+document.getElementById('searchData').addEventListener('keyup', function() {
+    let query = this.value.trim();
+
+    fetch('backend/search-products.php?q=' + encodeURIComponent(query))
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('productsTableBody').innerHTML = data;
+        });
+});
+</script>
+
+
 
 
 <?php

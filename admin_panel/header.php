@@ -272,7 +272,7 @@ select{
               <?php if (basename($_SERVER['PHP_SELF']) == 'products-list.php') {?>
               <!-- Search container start -->
               <div class="search-container d-xl-block d-none me-3">
-                <input type="text" class="form-control" id="searchData" placeholder="Search" />
+                <input type="text" class="form-control" id="searchData" placeholder="Search by Product ID or Testing ID" />
                 <i class="bi bi-search"></i>
               </div>
               <?php }?>
