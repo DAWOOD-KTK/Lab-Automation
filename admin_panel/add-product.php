@@ -26,7 +26,7 @@ Swal.fire({
     <div class="container-fluid">
         <div class="card col-md-8 mx-auto">
             <div class="card-head">
-                <h1 class="title bg-primary rounded text-center text-white p-1 m-1 testinheading">CREATE PRODUCT</h1>
+                <h1 class="title bg-primary rounded text-center text-white p-1 m-1 testinheading">ADD PRODUCT</h1>
                 <hr>
             </div>
             <div class="card-body">
