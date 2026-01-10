@@ -867,6 +867,9 @@
 
 
 		<!-- CONTACT US SECTION -->
+	
+        
+
 		<div class="section contact-section" id="contact">
 			<div class="container">
 				<div class="row">
@@ -901,31 +904,27 @@
 					</div>
 
 					<!-- CONTACT FORM -->
-					<div class="col-md-7 col-12 d-flex align-items-center">
-						<div class="contact-form w-100" style="padding:30px; background:#f9f9f9; border-radius:8px;">
-							<form action="backend/contact.php" method="POST">
-								<div class="row">
-									<div class="col-md-6">
-										<input class="input" type="text" name="name" placeholder="Your Name" required>
-									</div>
-									<div class="col-md-6">
-										<input class="input" type="email" name="email" placeholder="Your Email"
-											required>
-									</div>
-								</div>
+<div class="col-md-7 col-12 d-flex align-items-center" id="contact-form-wrapper">
+    <div class="contact-form w-100" style="padding:30px; background:#f9f9f9; border-radius:8px;">
+        <form id="contactForm">
+            <div class="row">
+                <div class="col-md-6">
+                    <input class="input" type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6">
+                    <input class="input" type="email" name="email" placeholder="Your Email" required>
+                </div>
+            </div>
 
-								<input class="input mt-3" type="text" name="subject" placeholder="Subject">
+            <input class="input mt-3" type="text" name="subject" placeholder="Subject">
+            <textarea class="input mt-3" name="message" placeholder="Your Message" rows="5" required></textarea>
 
-								<textarea class="input mt-3" name="message" placeholder="Your Message" rows="5"
-									required></textarea>
-
-								<button class="btn mt-3" style="background-color:#d32f2f; color:white; border:none;">
-									Send Message <i class="fa fa-paper-plane"></i>
-								</button>
-							</form>
-						</div>
-					</div>
-
+            <button type="submit" class="btn mt-3" style="background-color:#d32f2f; color:white; border:none;">
+                Send Message <i class="fa fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+</div>
 				</div>
 			</div>
 		</div>
@@ -938,16 +937,16 @@
 
 						<ul class="newsletter-follow">
 							<li>
-								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="index.php"><i class="fa fa-facebook"></i></a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="index.php"><i class="fa fa-twitter"></i></a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-instagram"></i></a>
+								<a href="index.php"><i class="fa fa-instagram"></i></a>
 							</li>
 							<li>
-								<a href="#"><i class="fa fa-pinterest"></i></a>
+								<a href="index.php"><i class="fa fa-pinterest"></i></a>
 							</li>
 						</ul>
 					</div>
@@ -966,6 +965,42 @@
 		<script src="js/nouislider.min.js"></script>
 		<script src="js/jquery.zoom.min.js"></script>
 		<script src="js/main.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- SweetAlert CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('#contactForm').submit(function(e){
+        e.preventDefault(); // prevent default form submit (no reload)
+
+        $.ajax({
+            url: 'admin_panel/backend/contact.php', // aapka backend path
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function(response){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sent!',
+                    text: 'Your message has been sent successfully! Our team will contact you soon.',
+                    timer: 2500,
+                    showConfirmButton: false
+                });
+                $('#contactForm')[0].reset(); // clear form
+            },
+            error: function(){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops!',
+                    text: 'Something went wrong. Please try again.'
+                });
+            }
+        });
+    });
+});
+</script>
 
 </body>
 
