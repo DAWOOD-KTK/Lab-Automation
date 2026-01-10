@@ -66,6 +66,7 @@ $res = mysqli_query($conn,$query);
 <div class="table-responsive rounded">
       <?php if($_SESSION['user']['roll'] == 'admin'){?>
     <a href="testing.php" class="btn btn-primary d-block mb-3  "> Add Testing</a>
+    
     <?php }?>
 
     <table class="table  table-hover table-border shadow-lg p-3" >
@@ -89,7 +90,7 @@ $res = mysqli_query($conn,$query);
                 <br>unlocked=0</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody  id="testingTableBody">
             <?php 
             if (mysqli_num_rows($res)>0) {
 
@@ -124,6 +125,20 @@ $res = mysqli_query($conn,$query);
     </table>
 </div>
 </div>
+<script>
+let searchInput = document.getElementsByClassName('searchData')[0];
+
+searchInput.addEventListener('keyup', function () {
+    let query = this.value.trim();
+
+    fetch('backend/search-testing.php?q=' + encodeURIComponent(query))
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('testingTableBody').innerHTML = data;
+        });
+});
+</script>
+
 
 
 <?php

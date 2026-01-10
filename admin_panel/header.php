@@ -269,10 +269,17 @@ select{
 
             <!-- App header actions starts -->
             <div class="header-actions">
-              <?php if (basename($_SERVER['PHP_SELF']) == 'products-list.php') {?>
+              <?php if (basename($_SERVER['PHP_SELF']) == 'products-list.php' ) {?>
               <!-- Search container start -->
               <div class="search-container d-xl-block d-none me-3">
-                <input type="text" class="form-control" id="searchData" placeholder="Search by Product ID or Testing ID" />
+                <input type="text" class="form-control " id="searchData" placeholder="by Product ID or Product Code" />
+                <i class="bi bi-search"></i>
+              </div>
+              <?php }?>
+              <?php if (basename($_SERVER['PHP_SELF'])  == 'testing-list.php') {?>
+              <!-- Search container start -->
+              <div class="search-container d-xl-block d-none me-3">
+                <input type="text" class="form-control  searchData" id="searchData" placeholder="By Testing ID or Testing Code" />
                 <i class="bi bi-search"></i>
               </div>
               <?php }?>
