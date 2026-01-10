@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2026 at 07:01 PM
+-- Generation Time: Jan 10, 2026 at 02:51 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -20,6 +20,34 @@ SET time_zone = "+00:00";
 --
 -- Database: `lab_automation`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_messages`
+--
+
+CREATE TABLE `contact_messages` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `email` varchar(150) DEFAULT NULL,
+  `subject` varchar(200) DEFAULT NULL,
+  `message` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contact_messages`
+--
+
+INSERT INTO `contact_messages` (`id`, `name`, `email`, `subject`, `message`, `created_at`) VALUES
+(1, 'nazia', 'nazia@gmail.com', 'appriciation', 'your products are very good', '2026-01-10 12:18:39'),
+(2, 'nazia', 'nazia@gmail.com', 'Geting info', 'I want to ask about delivery service', '2026-01-10 12:24:15'),
+(3, 'Ramz', 'Ramz@gmail.com', 'review', 'product is working perfectly and quality is great', '2026-01-10 12:30:47'),
+(4, 'maheen', 'maheen@gmail.com', 'review', 'perfect product', '2026-01-10 13:06:39'),
+(5, 'Zulfiqar Ali', 'zulfiqar@gmail.com', 'checking', 'acha he bht', '2026-01-10 13:13:49'),
+(6, 'Muhammad Aamir', 'Aamir@gmail.com', 'review', 'incradible', '2026-01-10 13:14:44'),
+(7, 'Muhammad Aamir', 'Aamir@gmail.com', 'review', 'zbardast', '2026-01-10 13:17:05');
 
 -- --------------------------------------------------------
 
@@ -135,6 +163,14 @@ CREATE TABLE `testing_data` (
   `is_locked` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `testing_data`
+--
+
+INSERT INTO `testing_data` (`id`, `testing_id`, `product_id`, `product_code`, `testing_code`, `testing_roll`, `revision`, `product_type`, `testing_type`, `result_type`, `tested_by`, `remarks`, `created_at`, `send_to`, `is_locked`) VALUES
+(5, 'SGR1VT000001', 82, 'SG', 'VT', '000001', 'R1', 'Switchgear', 'Voltage Test', 'Pass', 'afsheen', 'Voltage Test completed, parameters within limits', '2026-01-08 03:17:39', 'Remanufacture', 0),
+(6, 'SGR1CT000002', 82, 'SG', 'CT', '000002', 'R1', 'Switchgear', 'Current Test', 'Fail', 'afsheen', 'Current Test failed, abnormal readings', '2026-01-08 03:24:29', 'Remanufacture', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -159,7 +195,6 @@ INSERT INTO `userstaafe` (`id`, `name`, `email`, `passwd`, `roll`, `image`) VALU
 (5, 'Bint e Nasir', 'Nasir@gmail.com', '$2y$10$7xPIFtB8LOhQ9BduNSE48e05q4mJ3Yut7J2jbffCez.hGbLvY7CsO', 'admin', 'admin.jpg'),
 (6, 'Bint e Nasir', 'sheen@gmail.com', '$2y$10$jWb59jK.C64AGuzly1XDv.jFACYg16umamwfmIEntRHiiJ1cZ5CF2', 'admin', 'admin.jpg'),
 (7, 'nazia', 'naz@gmail.com', '$2y$10$gRpZrXMsS.tn/VN.91TXq.D2rHKYVB5lMlBV0PHJfovPcRyF.Qk4u', 'admin', 'naz2.png'),
-(8, 'Ramz', 'Ramz1@gmail.com', '$2y$10$GeObwvWcqMBr2capYX4MH.IIdKadjkz3aRPWTXHODmXgoH1KZumJS', 'subAdmin', ''),
 (9, 'Ramz', 'ramz3@gmail.com', '$2y$10$O2Hwe2HRDkNXhBydSNccGepcFx03f2yDm7WP2ujSvwScjvl5elgQa', 'manigar', 'mm.jpg'),
 (10, 'samreen', 's@gmail.com', '$2y$10$Y0IYE2sdaxZP/7wCQhKr3usZv41f/AKLJ/4b5AOix81XEt4Z3Epgm', 'user', '1767617950_mm.jpg'),
 (11, 'nimra', 'nimra@gmail.com', '$2y$10$4NI9OMVrQjvXx5x3LnVxEuehbEm0RnLrM5NnRVFthup8B2OO8DJeG', 'user', '1767618120_lp2.PNG'),
@@ -177,6 +212,12 @@ INSERT INTO `userstaafe` (`id`, `name`, `email`, `passwd`, `roll`, `image`) VALU
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `contact_messages`
+--
+ALTER TABLE `contact_messages`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `products`
@@ -204,6 +245,12 @@ ALTER TABLE `userstaafe`
 --
 
 --
+-- AUTO_INCREMENT for table `contact_messages`
+--
+ALTER TABLE `contact_messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
@@ -213,7 +260,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `testing_data`
 --
 ALTER TABLE `testing_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `userstaafe`
