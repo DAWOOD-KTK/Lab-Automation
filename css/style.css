@@ -2259,3 +2259,6 @@ textarea.input {
 #footer .newsletter-follow li a:hover {
     color: #d32f2f;          /* red hover (theme match) */
 }
+html {
+    scroll-behavior: smooth;
+}
