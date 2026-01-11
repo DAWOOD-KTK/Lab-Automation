@@ -3,7 +3,11 @@ session_start();
  if (!isset($_SESSION['user'])) {
    header("Location: login.php");
 
- }
+ } 
+ if (($_SESSION['user']['roll'] ?? '') == 'user') {
+    header("Location: ../index.php");
+    exit; 
+}
 
 ?> 
 
