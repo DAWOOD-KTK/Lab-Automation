@@ -51,8 +51,15 @@ if($data['is_active'] == 1){
 }
 ?>
 </td>
-<?php }?>
+<?php 
+}?> 
 
             </tr>
+<?php 
+else {
+    <tr><td colspan='10' class='text-center'>No products found</td></tr>
+
+?>
+            <?php }}?>
             <?php }}?>
 
