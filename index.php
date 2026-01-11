@@ -43,7 +43,11 @@ session_start();
 
 
 </head>
-
+<style>
+	#cardImg{
+		height: 100px;
+	}
+</style>
 <body>
 	<!-- HEADER -->
 	<header >
@@ -137,12 +141,11 @@ session_start();
 			<!-- container -->
 			<div class="container ">
 				<!-- row -->
-				<div class="row" id="productsR">
-					
-					
-
-				</div>
-				<!-- /row -->
+				<div class="container my-5">
+    <div id="product-container" class="row g-4">
+        <!-- Bootstrap cards will be injected here -->
+    </div>
+</div>
 			</div>
 			<!-- /container -->
 		</div>
@@ -916,31 +919,47 @@ session_start();
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-	fetch('http://localhost/lab-automation/api/getactivepro.php')
-  .then(response => { // Renamed 'data' to 'response' for clarity
+	const productContainer = document.getElementById('product-container');
+
+fetch('http://localhost/lab-automation/api/getactivepro.php')
+  .then(response => {
     if (!response.ok) {
-      // Throwing error for non-200 HTTP statuses (like 404 or 500)
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    return response.json(); // Correctly call .json() on the instance
+    return response.json();
   })
   .then(data => {
-	
-	data.foreach(data => {
-      const markup = `
-	            <div class="card">
-						<img class="card-img-top" src="admin_panel/assets/images${data.image}" alt="Title" />
-						<div class="card-body">
-							<h4 class="card-title">Title</h4>
-							<p class="card-text">Text</p>
-						</div>
-					</div> 
-	  `;
-	});
+    let productHTML = '';
+
+    // Corrected: use forEach (capital E) and unique variable name 'product'
+    data.forEach(product => {
+      productHTML += `
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="card h-100 shadow-lg rounded">
+            <!-- Use product.image from your API keys -->
+            <img src="admin_panel/assets/images/${product.image}" class="card-img-top" id='cardImg' alt="${product.product_name}" >
+            <div class="card-body">
+              <h5 class="card-title text-primary">${product.product_name}</h5>
+              <p class="card-text">
+              
+                <strong>Type:</strong> ${product.product_type}<br>
+             
+              </p>
+            </div>
+            
+          </div>
+        </div>
+      `;
+    });
+
+    // Inject the generated HTML into the container
+    productContainer.innerHTML = productHTML;
   })
   .catch(err => {
     console.error('Fetch error:', err);
+    productContainer.innerHTML = `<div class="alert alert-danger">Error loading products.</div>`;
   });
+
 
   
 
