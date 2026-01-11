@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,17 +77,7 @@
 					</div>
 					<!-- /LOGO -->
 
-					<!-- SEARCH BAR -->
-					<div class="col-md-6">
-						<div class="header-search">
-							<form>
-								
-								<input class="input" placeholder="Search here">
-								<button class="search-btn ">Search</button>
-							</form>
-						</div>
-					</div>
-					<!-- /SEARCH BAR -->
+					
 
 					<!-- ACCOUNT -->
 					<div class="col-md-3 clearfix">
@@ -125,6 +119,9 @@
 						<li><a href="#testimonials">Testimonials</a></li>
 						<li><a href="#our_team">Our Team</a></li>
 						<li><a href="#contact">Contact</a></li>
+						  <?php //if( $_SESSION['user'] ){?>
+						<li><a href="admin_panel/index.php">Admin Panel</a></li>
+						<!-- <?php // }?> -->
 
 					</ul>
 					<!-- /NAV -->
@@ -140,63 +137,10 @@
 			<!-- container -->
 			<div class="container ">
 				<!-- row -->
-				<div class="row">
-					<!-- shop -->
-					<div class="col-md-3 col-xs-6">
-						<div class="shop">
-							<div class="shop-img">
-								<img src="./img/1767804990_33kV Indoor Switchgear Panel8same.jpg" alt="">
-							</div>
-							<div class="shop-body">
-								<h3>Switchgear<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- /shop -->
+				<div class="row" id="productsR">
+					
+					
 
-					<!-- shop -->
-					<div class="col-md-3 col-xs-6">
-						<div class="shop">
-							<div class="shop-img">
-								<img src="./img/1767806248_Drop-Out Fuse20.jpg" alt="">
-							</div>
-							<div class="shop-body">
-								<h3>Fuse<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- /shop -->
-
-					<!-- shop -->
-					<div class="col-md-3 col-xs-6">
-						<div class="shop">
-							<div class="shop-img">
-								<img src="./img/1767808724_HT Capacitor Bank1.jpg" alt="">
-							</div>
-							<div class="shop-body">
-								<h3>Capacitor<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- /shop -->
-
-					<!-- shop -->
-					<div class="col-md-3 col-xs-6">
-						<div class="shop">
-							<div class="shop-img">
-								<img src="./img/1767808108_High Power Resistor 100W2.jpg" alt="" class="img-fluid">
-
-							</div>
-							<div class="shop-body">
-								<h3>Rasistor<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- /shop -->
 				</div>
 				<!-- /row -->
 			</div>
@@ -972,6 +916,35 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+	fetch('http://localhost/lab-automation/api/getactivepro.php')
+  .then(response => { // Renamed 'data' to 'response' for clarity
+    if (!response.ok) {
+      // Throwing error for non-200 HTTP statuses (like 404 or 500)
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json(); // Correctly call .json() on the instance
+  })
+  .then(data => {
+	
+	data.foreach(data => {
+      const markup = `
+	            <div class="card">
+						<img class="card-img-top" src="admin_panel/assets/images${data.image}" alt="Title" />
+						<div class="card-body">
+							<h4 class="card-title">Title</h4>
+							<p class="card-text">Text</p>
+						</div>
+					</div> 
+	  `;
+	});
+  })
+  .catch(err => {
+    console.error('Fetch error:', err);
+  });
+
+  
+
+
 $(document).ready(function(){
     $('#contactForm').submit(function(e){
         e.preventDefault(); // prevent default form submit (no reload)
