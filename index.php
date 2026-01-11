@@ -1,10 +1,10 @@
 <?php
 session_start();
 
- if (!isset($_SESSION['user'])) {
-   header("Location: login.php");
-
- }
+if (!isset($_SESSION['webuser'])) {
+    header("Location: login.php");
+    exit; 
+}
 ?>
 
 <!DOCTYPE html>
@@ -62,6 +62,7 @@ session_start();
 			
 				<ul class="header-links pull-right">
 					
+					<li><a href="login.php" class="btn ">Login</a></li>
 					<li><a href="logout.php" class="btn ">Logout</a></li>
 				</ul>
 			</div>
@@ -128,7 +129,7 @@ session_start();
 						<li><a href="#testimonials">Testimonials</a></li>
 						<li><a href="#our_team">Our Team</a></li>
 						<li><a href="#contact">Contact</a></li>
-						  <?php if( $_SESSION['user'] && $_SESSION['user']['roll'] == 'admin'  ){?>
+						  <?php if( $_SESSION['webuser'] && $_SESSION['webuser']['roll'] == 'admin'  ){?>
 						<li><a href="admin_panel/index.php">Admin Panel</a></li>
 						<?php  }?> 
 

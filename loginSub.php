@@ -15,7 +15,7 @@ if ($res && mysqli_num_rows($res) > 0) {
     
     //  Verify the hashed password 
     if (password_verify($password, $data['passwd'])) {
-        $_SESSION['user'] = $data;
+        $_SESSION['webuser'] = $data;
         header("Location: index.php");
         exit();
     } else {

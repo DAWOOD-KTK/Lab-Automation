@@ -1,7 +1,7 @@
 <?php
 include "admin_panel/backend/db.php";
 
-if (isset($_GET['logout'])) {
+
  
   session_start();
   session_unset();
@@ -14,6 +14,6 @@ if (isset($_GET['logout'])) {
  
     
  
-}
+
 
 ?>
