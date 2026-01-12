@@ -137,8 +137,7 @@ if (!isset($_SESSION['webuser'])) {
 <script>
 $(document).ready(function(){
 
-    // 🔹 LOAD PRODUCTS
-    fetch('api/getactivepro.php')
+    fetch('localhost:8080/lab-automation/api/getactivepro.php')
     .then(res => res.json())
     .then(data => {
 
@@ -164,7 +163,6 @@ $(document).ready(function(){
         const container = $('#product-container');
         container.html(html);
 
-        // 🔥 INIT SLICK AFTER HTML
         container.slick({
             slidesToShow: 4,
             slidesToScroll: 1,
@@ -182,7 +180,7 @@ $(document).ready(function(){
         $('#product-container').html('<p class="text-danger">Product loading error</p>');
     });
 
-    // 🔹 CONTACT FORM
+   
     $('#contactForm').submit(function(e){
         e.preventDefault();
         $.ajax({

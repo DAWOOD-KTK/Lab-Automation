@@ -34,6 +34,6 @@ if (isset($_GET['logout'])) {
     </body>
     </html>
     <?php
-    exit(); // Stop further PHP execution
+    exit(); 
 }
 ?>

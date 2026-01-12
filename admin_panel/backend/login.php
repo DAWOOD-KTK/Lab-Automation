@@ -1,12 +1,12 @@
 <?php 
-// hello
+
 session_start();
 include "db.php";
 
 $email = mysqli_real_escape_string($conn, $_POST['email']);
 $password = $_POST['password'];
 
-//Select the user by email ONLY (Fixed column quotes)
+
 $q = "SELECT * FROM `userstaafe` WHERE `email` = '$email'";
 $res = mysqli_query($conn, $q);
 

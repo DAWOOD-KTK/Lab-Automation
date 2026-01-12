@@ -595,7 +595,7 @@ if (!isset($_SESSION['webuser'])) {
 	
 	
 	
-	<!-- 1️⃣ jQuery FIRST -->
+	
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	
 	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -604,14 +604,14 @@ if (!isset($_SESSION['webuser'])) {
 // 	fetch('api/getactivepro.php')
 // .then(res => res.json())
 // .then(data => {
-//     console.log('API response:', data); // <-- Debug
+//     console.log('API response:', data); // 
 // });
 
 <script>
 
 $(document).ready(function() {
 
-   fetch('api/getactivepro.php')
+   fetch('http://localhost:8080/lab-automation/api/getactivepro.php')
     .then(res => res.json())
     .then(data => {
         console.log('API products:', data);
@@ -621,7 +621,7 @@ $(document).ready(function() {
             return;
         }
 
-        // Build HTML for products
+      
         let html = '';
         data.forEach(p => {
             html += `
@@ -643,14 +643,14 @@ $(document).ready(function() {
         });
 
         const container = $('#product-container');
-        container.html(html); // ✅ Inject products into DOM
+        container.html(html); 
 
-        // Destroy previous Slick instance if it exists
+       
         if (container.hasClass('slick-initialized')) {
             container.slick('unslick');
         }
 
-        // Initialize Slick slider AFTER content is added
+   
         container.slick({
             slidesToShow: 4,
             slidesToScroll: 1,
@@ -700,7 +700,7 @@ $(document).ready(function() {
 
 
 
-// ✅ CONTACT FORM (unchanged – correct)
+
 $(document).ready(function(){
   $('#contactForm').submit(function(e){
     e.preventDefault();
@@ -731,23 +731,23 @@ $(document).ready(function(){
 });
 
 </script>
-<!-- 1️⃣ jQuery FIRST -->
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- 2️⃣ Bootstrap JS -->
+
 <script src="js/bootstrap.min.js"></script>
 
-<!-- 3️⃣ Slick JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-<!-- 4️⃣ SweetAlert -->
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!-- 5️⃣ Other plugins -->
+
 <script src="js/nouislider.min.js"></script>
 <script src="js/jquery.zoom.min.js"></script>
 
-<!-- 6️⃣ Custom scripts LAST -->
+
 <script src="js/main.js"></script>
 
 
