@@ -52,7 +52,7 @@ if (!isset($_SESSION['webuser'])) {
 	<header >
 		<!-- TOP HEADER -->
 		<div id="top-header">
-			<div class="container">
+			<div class="container"style="height:-160px">
 			
 				<ul class="header-links pull-right">
 					
@@ -66,18 +66,17 @@ if (!isset($_SESSION['webuser'])) {
 		<!-- MAIN HEADER -->
 		<div id="header" >
 			<!-- container -->
-			<div class="container d-flex">
+			<div class="container d-flex" style="height:60px">
 				<!-- row -->
 				<div class="row">
 					<!-- LOGO -->
 					<div class="col-md-3">
-						<div class="header-logo ">
-							<a href="#" class="logo">
-								<img src="./img/srs3-removebg-preview.png" alt="" class="img-fluid" width="50px"
-									height="50px">
-								<h3 style="color:white; font-size: 10px; margin-top: 5px;">Manufacture</h3>
-							</a>
-						</div>
+						
+							<a class="logo" href="#">
+                        <img src="img/srs3-removebg-preview.png" width="50">
+                        <small style="color:white">Manufacture</small>
+                    </a>
+						
 					</div>
 					<!-- /LOGO -->
 
@@ -599,20 +598,17 @@ if (!isset($_SESSION['webuser'])) {
 			</div>
 			<!-- /row -->
 		</div>
+		<div class="container text-center">
+	   <p>© SRS Manufacture</p>
+	</div>
 		<!-- /container -->
-<<<<<<< HEAD
-		</div>
+
+	</div>
 
 <!-- jQuery first (only once) -->
 <script src="js/jquery.min.js"></script>
 
-<!-- Bootstrap (depends on jQuery) -->
-<script src="js/bootstrap.min.js"></script>
 
-<!-- Other jQuery plugins -->
-<script src="js/slick.min.js"></script>
-<script src="js/nouislider.min.js"></script>
-<script src="js/jquery.zoom.min.js"></script>
 
 <!-- Your custom JS (depends on all above) -->
 
@@ -648,7 +644,8 @@ $(document).ready(function(){
                     html += `
                         <div class="product">
                             <div class="product-img">
-                                <img src="${product.image}" alt="${product.product_name}" >
+                               <img src="/Lab-Automation/admin_panel/assets/images/${product.image
+|| 'no-image.png'}" alt="${product.product_name}" height="300px"; >
                             </div>
                             <div class="product-body text-center">
                                 <h3 class="product-name">${product.product_name}</h3>
@@ -728,24 +725,29 @@ $(document).ready(function(){
 });
 
 </script>
-
+<!-- jQuery (ONLY ONE) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
+<!-- Bootstrap -->
 <script src="js/bootstrap.min.js"></script>
 
-
+<!-- Slick -->
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-
+<!-- SweetAlert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
+<!-- Other plugins -->
 <script src="js/nouislider.min.js"></script>
 <script src="js/jquery.zoom.min.js"></script>
 
-
+<!-- Main JS -->
 <script src="js/main.js"></script>
+
+
+==============
+
+
 
 
 </body>
