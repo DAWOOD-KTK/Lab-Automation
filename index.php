@@ -56,7 +56,7 @@ if (!isset($_SESSION['webuser'])) {
 			
 				<ul class="header-links pull-right">
 					
-					<li><a href="login.php" class="btn ">Login</a></li>
+				
 					<li><a href="logout.php" class="btn ">Logout</a></li>
 				</ul>
 			</div>
@@ -117,8 +117,8 @@ if (!isset($_SESSION['webuser'])) {
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="#">Home</a></li>
 						<li><a href="#about">About</a></li>
-						<li><a href="#Products_Tyep">Products Tyep</a></li>
-						<li><a href="#Testing_Policy">Testing Policy</a></li>
+						
+					
 						<li><a href="#testimonials">Testimonials</a></li>
 						<li><a href="#our_team">Our Team</a></li>
 						<li><a href="#contact">Contact</a></li>
@@ -189,14 +189,7 @@ if (!isset($_SESSION['webuser'])) {
             <div class="col-md-12">
                 <div class="section-title ">
                     <h3 class="title">Our Products</h3>
-					<div class="section-nav">
-								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab1">Switchgears</a></li>
-									<li><a data-toggle="tab" href="#tab1">fuses</a></li>
-									<li><a data-toggle="tab" href="#tab1">capacitors</a></li>
-									<li><a data-toggle="tab" href="#tab1">Resistors</a></li>
-								</ul>
-							</div>
+					
                     
                 </div>
             </div>
@@ -619,7 +612,7 @@ $(document).ready(function(){
                     html += `
                         <div class="product">
                             <div class="product-img">
-                               <img src="/Lab-Automation/admin_panel/assets/images/${product.image
+                               <img src="admin_panel/assets/images/${product.image
 || 'no-image.png'}" alt="${product.product_name}" height="300px"; >
                             </div>
                             <div class="product-body text-center">

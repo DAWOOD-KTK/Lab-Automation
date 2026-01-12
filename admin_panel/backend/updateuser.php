@@ -50,7 +50,7 @@ if (!empty($image_name)) {
                'title' => 'update user',
                'text' => 'User updated successfully!'
               ];
-           header("Location: http://localhost/Lab-Automation/admin_panel/user-list.php");
+           header("Location: ../user-list.php");
             exit;
             }else{
                 $_SESSION['alert'] = [
@@ -58,7 +58,7 @@ if (!empty($image_name)) {
            'title' => 'Update user',
            'text' => 'Update uuser unsuccessful!'
            ];
-            header("Location: http://localhost/Lab-Automation/admin_panel/updateuser.php");
+            header("Location: ../updateuser.php");
             exit;
             }
 
@@ -71,7 +71,7 @@ if (!empty($image_name)) {
            'title' => 'image ',
            'text' => 'image size should be less then 5mb'
            ];
-            header("Location: http://localhost/Lab-Automation/admin_panel/updateuser.php");
+            header("Location: ../updateuser.php");
             exit;
         }
 
@@ -83,7 +83,7 @@ if (!empty($image_name)) {
            'title' => 'image',
            'text' => 'image type not supported'
            ];
-            header("Location: http://localhost/Lab-Automation/admin_panel/updateuser.php");
+            header("Location: ../updateuser.php");
             exit;
     }
 
@@ -99,7 +99,7 @@ if (!empty($image_name)) {
                'title' => 'Delete user',
                'text' => 'User deleted successfully!'
               ];
-           header("Location: http://localhost/Lab-Automation/admin_panel/add-user.php");
+           header("Location: ../add-user.php");
             exit;
             }else{
                $_SESSION['alert'] = [
@@ -107,7 +107,7 @@ if (!empty($image_name)) {
            'title' => 'Update user',
            'text' => 'Update uuser unsuccessful!'
            ];
-            header("Location: http://localhost/Lab-Automation/admin_panel/updateuser.php");
+            header("Location: ../updateuser.php");
             exit;
             }
 }

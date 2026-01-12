@@ -14,7 +14,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         'title' => 'Invalid Email',
         'text' => 'Please enter a valid email address'
      ]; 
-    header( "Location: http://localhost/Lab-Automation/admin_panel/add-user.php");
+    header( "Location: ../add-user.php");
     exit;
 }
 
@@ -26,7 +26,7 @@ if(mysqli_num_rows($check) > 0){
         'title' => 'Duplicate Email',
         'text' => 'This email already exists!'
     ];
-    header("Location: http://localhost/Lab-Automation/admin_panel/add-user.php");
+    header("Location: ../add-user.php");
     exit;
 }
 
@@ -54,7 +54,7 @@ $max = 1024*1024*5 ;
            'title' => 'User Added',
            'text' => 'User added successfully!'
             ];
-            header("Location: http://localhost/Lab-Automation/admin_panel/add-user.php");
+            header("Location: ../add-user.php");
             exit;
             }else{
             $error = mysqli_error($conn);
@@ -63,7 +63,7 @@ $max = 1024*1024*5 ;
            'title' => 'Database Error',
            'text' => addslashes($error)
             ];
-            header("Location: http://localhost/Lab-Automation/admin_panel/add-user.php");
+            header("Location: ../add-user.php");
             exit;
             }
             }else{
@@ -81,7 +81,7 @@ $max = 1024*1024*5 ;
            'title' =>  'Invalid Image Type',
            'text' => 'Only PNG, JPG, and JPEG files are supported'
             ];
-            header("Location: http://localhost/Lab-Automation/admin_panel/add-user.php");
+            header("Location: ../add-user.php");
             exit;
            }
 // }
