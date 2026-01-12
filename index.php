@@ -56,7 +56,7 @@ if (!isset($_SESSION['webuser'])) {
 			
 				<ul class="header-links pull-right">
 					
-				
+			
 					<li><a href="logout.php" class="btn ">Logout</a></li>
 				</ul>
 			</div>
@@ -120,7 +120,7 @@ if (!isset($_SESSION['webuser'])) {
 						
 					
 						<li><a href="#testimonials">Testimonials</a></li>
-						<li><a href="#our_team">Our Team</a></li>
+						<li><a href="#team-container">Our Team</a></li>
 						<li><a href="#contact">Contact</a></li>
 						  <?php if( $_SESSION['webuser'] && $_SESSION['webuser']['roll'] == 'admin'  ){?>
 						<li><a href="admin_panel/index.php">Admin Panel</a></li>
