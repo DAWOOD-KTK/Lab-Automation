@@ -1,53 +1,47 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['webuser'])) {
     header("Location: login.php");
-    exit; 
+    exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>SRS Lab automations</title>
 
 
-	<!-- Google font -->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
-	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
-	<!-- Slick -->
-	<link type="text/css" rel="stylesheet" href="css/slick.css" />
-	<link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+    <!-- Slick CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
 
-	<!-- nouislider -->
-	<!-- <link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/> -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
 
-	<!-- Font Awesome Icon -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
-	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="css/style.css" />
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
-
-
+    <style>
+        .product-item img {
+            height: 180px;
+            object-fit: cover;
+        }
+    </style>
 </head>
+
+
+
 <style>
 	#cardImg{
 		height: 100px;
@@ -142,19 +136,7 @@ if (!isset($_SESSION['webuser'])) {
 		</nav>
 		<!-- /NAVIGATION -->
 
-		<!-- SECTION -->
-		<div class="section">
-			<!-- container -->
-			<div class="container ">
-				<!-- row -->
-				<div class="container my-5">
-    <div id="product-container" class="row g-4">
-        <!-- Bootstrap cards will be injected here -->
-    </div>
-</div>
-			</div>
-			<!-- /container -->
-		</div>
+	
 
 		<!-- ABOUT US SECTION -->
 		<div class="section about-us" id="about">
@@ -201,6 +183,7 @@ if (!isset($_SESSION['webuser'])) {
 
 
 		<!-- /ABOUT US SECTION -->
+<<<<<<< HEAD
         <div class="section" id="product-container">
     <div class="container">
         <div class="row">
@@ -236,6 +219,31 @@ if (!isset($_SESSION['webuser'])) {
 
 
 	
+=======
+
+
+<!-- PRODUCTS SECTION -->
+
+<div class="section" id="our_products">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3 class="title">Our Products</h3>
+            <p class="section-desc">
+                Browse our high-quality electrical products, including switchgear, fuses, resistors, and capacitors.
+            </p>
+        </div>
+
+        <!-- Slick Container -->
+       <div class="products-slick" id="product-container" data-nav="#slick-nav-products"></div>
+<div id="slick-nav-products" class="products-slick-nav"></div>
+    </div>
+</div>
+
+		
+		<!-- /SECTION -->
+		<!-- TESTING SECTION -->
+		<!-- TESTING SECTION -->
+>>>>>>> 57499fedb306758fe52572a4fdd156fe830a40da
 		<div class="section testing-section" id="Testing_Policy">
 			<div class="container">
 				<div class="row align-items-center">
@@ -309,7 +317,7 @@ if (!isset($_SESSION['webuser'])) {
 					<div class="col-md-12">
 						<div class="products-tabs">
 							<div class="tab-pane fade in active">
-								<div class="products-slick" data-nav="#slick-nav-team">
+								<div class="products-slick" id="team-slider" data-nav="#slick-nav-team">
 
 									<!-- TEAM MEMBER -->
 									<div class="product">
@@ -617,6 +625,7 @@ if (!isset($_SESSION['webuser'])) {
 			<!-- /row -->
 		</div>
 		<!-- /container -->
+<<<<<<< HEAD
 		</div>
 
 <!-- jQuery first (only once) -->
@@ -715,34 +724,54 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-    $('#contactForm').submit(function(e){
-        e.preventDefault(); // prevent default form submit (no reload)
+  $('#contactForm').submit(function(e){
+    e.preventDefault();
 
-        $.ajax({
-            url: 'admin_panel/backend/contact.php', // aapka backend path
-            type: 'POST',
-            data: $(this).serialize(),
-            success: function(response){
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Sent!',
-                    text: 'Your message has been sent successfully! Our team will contact you soon.',
-                    timer: 2500,
-                    showConfirmButton: false
-                });
-                $('#contactForm')[0].reset(); // clear form
-            },
-            error: function(){
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops!',
-                    text: 'Something went wrong. Please try again.'
-                });
-            }
+    $.ajax({
+      url: 'admin_panel/backend/contact.php',
+      type: 'POST',
+      data: $(this).serialize(),
+      success: function(){
+        Swal.fire({
+          icon: 'success',
+          title: 'Sent!',
+          text: 'Your message has been sent successfully!',
+          timer: 2500,
+          showConfirmButton: false
         });
+        $('#contactForm')[0].reset();
+      },
+      error: function(){
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops!',
+          text: 'Something went wrong.'
+        });
+      }
     });
+  });
 });
+
 </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script src="js/bootstrap.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<script src="js/nouislider.min.js"></script>
+<script src="js/jquery.zoom.min.js"></script>
+
+
+<script src="js/main.js"></script>
+
 
 </body>
 

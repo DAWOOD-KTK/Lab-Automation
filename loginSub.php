@@ -2,7 +2,7 @@
 session_start();
 include "admin_panel/backend/db.php";
 
-/* Only allow POST requests */
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: login.php");
     exit;
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $email = mysqli_real_escape_string($conn, $_POST['email']);
 $password = $_POST['password'];
 
-/* Fetch user by email */
+
 $q = "SELECT id, name, email, passwd, roll, image 
       FROM userstaafe 
       WHERE email = '$email' 
@@ -26,7 +26,7 @@ if ($res && mysqli_num_rows($res) === 1) {
     /* Verify password */
     if (password_verify($password, $user['passwd'])) {
 
-        /* Store minimal safe data in session */
+       
         $_SESSION['webuser'] = [
             'id'    => $user['id'],
             'name'  => $user['name'],
