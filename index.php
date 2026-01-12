@@ -177,11 +177,11 @@ if (!isset($_SESSION['webuser'])) {
 				</div>
 			</div>
 		</div>
-		<!-- /ABOUT US SECTION -->
+		
 
 
 
-		<!-- /ABOUT US SECTION -->
+		<!-- //about us section is clossed -->
 
         <div class="section" id="product-container">
     <div class="container">
@@ -205,7 +205,6 @@ if (!isset($_SESSION['webuser'])) {
                 <div class="products-tabs">
                     <div class="tab-pane fade in active">
                         <div class="products-slick" data-nav="#slick-nav-products">
-                            <!-- Products will be loaded here dynamically -->
                         </div>
                         <div id="slick-nav-products" class="products-slick-nav"></div>
                     </div>
@@ -221,14 +220,13 @@ if (!isset($_SESSION['webuser'])) {
 
 			<div class="container">
 				<div class="row align-items-center">
-					<!-- IMAGE -->
+					
 					<div class="col-md-6 col-12 mb-4 mb-md-0">
 						<img src="./img/srsfactory.jpg" alt="Product Testing" class="img-fluid rounded shadow"
 							style="width:100%; height:auto; display:block;">
 
 					</div>
 
-					<!-- TEXT -->
 					<div class="col-md-6 col-12 d-flex align-items-center">
 						<div class="testing-content" style="padding-top:30px; padding-bottom:30px;">
 							<h2>Our <span>Testing Process</span></h2>
@@ -262,16 +260,13 @@ if (!isset($_SESSION['webuser'])) {
 		</div>
 
 
-
+<!-- //teaam container -->
 
 	
 		<div class="section" id="team-container">
-			<!-- container -->
 			<div class="container">
-				<!-- row -->
 				<div class="row">
 
-					<!-- section title -->
 					<div class="col-md-12">
 						<div class="section-title text-center">
 							<h3 class="title">Our Team</h3>
@@ -312,7 +307,7 @@ if (!isset($_SESSION['webuser'])) {
 										</div>
 									</div>
 
-									<!-- TEAM MEMBER -->
+									<!-- MEMBER -->
 									<div class="product">
 										<div class="product-img">
 											<img src="./img/dawood.PNG" alt="">
@@ -331,7 +326,6 @@ if (!isset($_SESSION['webuser'])) {
 										</div>
 									</div>
 
-									<!-- TEAM MEMBER -->
 									<div class="product">
 										<div class="product-img">
 											<img src="./img/afsh.PNG" alt="">
@@ -350,7 +344,6 @@ if (!isset($_SESSION['webuser'])) {
 										</div>
 									</div>
 
-									<!-- TEAM MEMBER -->
 									<div class="product">
 										<div class="product-img">
 											<img src="./img/dwd.PNG" alt="">
@@ -398,14 +391,11 @@ if (!isset($_SESSION['webuser'])) {
 				</div>
 			</div>
 		</div>
-	
+	<!-- testimonial -->
 <div class="section" id="testimonials">
-    <!-- container -->
     <div class="container">
-        <!-- row -->
         <div class="row">
 
-            <!-- Section Title -->
             <div class="col-md-12">
                 <div class="section-title text-center">
                     <h3 class="title">What Our Clients Say</h3>
@@ -416,7 +406,6 @@ if (!isset($_SESSION['webuser'])) {
                 </div>
             </div>
 
-            <!-- Testimonials Slider -->
             <div class="col-md-12">
                 <div class="products-widget-slick" data-nav="#slick-nav-testimonial">
 
@@ -496,21 +485,16 @@ if (!isset($_SESSION['webuser'])) {
 
                 </div>
 
-                <!-- Slider Navigation -->
                 <div id="slick-nav-testimonial" class="products-slick-nav"></div>
             </div>
 
         </div>
-        <!-- /row -->
     </div>
-    <!-- /container -->
 </div>
-<!-- /TESTIMONIAL SECTION -->
-
-		<!-- /SECTION -->
 
 
-		<!-- CONTACT US SECTION -->
+
+		<!-- CONTACT -->
 	
         
 
@@ -518,7 +502,6 @@ if (!isset($_SESSION['webuser'])) {
 			<div class="container">
 				<div class="row">
 
-					<!-- CONTACT INFO -->
 					<div class="col-md-5 col-12 mb-4 mb-md-0 d-flex align-items-center">
 						<div class="contact-info" style="padding:30px;">
 							<h2>Contact <span>Us</span></h2>
@@ -572,9 +555,7 @@ if (!isset($_SESSION['webuser'])) {
 				</div>
 			</div>
 		</div>
-		<!-- /CONTACT US SECTION -->
 		<div class="container-fluid section" id="bottom-footer">
-			<!-- row -->
 			<div class="row">
 				<div class="col-md-12">
 					<div class="newsletter">
@@ -596,29 +577,25 @@ if (!isset($_SESSION['webuser'])) {
 					</div>
 				</div>
 			</div>
-			<!-- /row -->
 		</div>
 		<div class="container text-center">
 	   <p>© SRS Manufacture</p>
 	</div>
-		<!-- /container -->
 
 	</div>
 
-<!-- jQuery first (only once) -->
+<!-- jQuery  -->
 <script src="js/jquery.min.js"></script>
 
 
 
-<!-- Your custom JS (depends on all above) -->
+<!-- custom JS -->
 
 <script src="js/main.js"></script>
-<!-- SweetAlert2 (only once, after main.js if you use it there) -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
-    // Example: button with ID 'loadProductsBtn'
     const btn = document.getElementById('loadProductsBtn');
     if(btn) {
         btn.addEventListener('click', () => {
@@ -626,15 +603,13 @@ if (!isset($_SESSION['webuser'])) {
         });
     }
 
-	// fetch('http://localhost/lab-automation/api/getactivepro.php')
-    // You can also put your dynamic fetch here if needed
 });
 
 $(document).ready(function(){
 
     function loadProducts() {
         $.ajax({
-            url: 'http://localhost/lab-automation/api/getactivepro.php',  // your API endpoint
+            url: 'http://localhost/lab-automation/api/getactivepro.php',  //API
             type: 'GET',
             dataType: 'json',
             success: function(products){
@@ -658,14 +633,12 @@ $(document).ready(function(){
 
                 const container = $('#product-container .products-slick');
 
-                // Destroy slick if already initialized
                 if(container.hasClass('slick-initialized')){
                     container.slick('unslick');
                 }
 
                 container.html(html);
 
-                // Initialize slick after HTML is added
                 container.slick({
                     slidesToShow: 4,
                     slidesToScroll: 1,
@@ -688,7 +661,7 @@ $(document).ready(function(){
         });
     }
 
-    loadProducts(); // load on page ready
+    loadProducts(); // load 
 
 });
 
