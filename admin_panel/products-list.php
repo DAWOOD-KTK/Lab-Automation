@@ -116,7 +116,7 @@ $res = mysqli_query($conn,$query);
                 <td id="wid" class="text-center" ><?= $data["manufacturing_no"] ?></td>
                 <td ><?= $data["product_type"] ?></td>
                 <td id="id2"><?= $data["product_name"] ?></td>
-                <td><img src="assets/images/<?= $data["image"] ?>" id="image"></td>
+                <td><img src="assets/images/<?= $data["image"] ?>" style='width:50px;height:50px;border-radius:5px;'></td>
                 <td id="td" class="text-center" id="w5"><?= $data["is_active"]; ?></td>
                 <?php if($_SESSION['user']['roll'] == 'admin'){?>
                 <td id="td1"colspan="6" class="text-center" >
@@ -125,7 +125,7 @@ if($data['is_active'] == 1){
     // ACTIVE PRODUCT
     ?>
    
-    <a href="view-product.php?id=<?= $data['id']?>" class="btn btn-info btn-sm">View</a>
+    <a href="view-product.php?id=<?= $data['id']?>" class="btn btn-primary btn-sm">View</a>
     <a href="edit-products.php?id=<?= $data['id']?>" class="btn btn-warning btn-sm">Update</a>
     <a href="backend/deactivate-product.php?id=<?= $data['id']?>"
        class="btn btn-danger btn-sm"

@@ -24,7 +24,7 @@ if($res1){
            'title' => 'Delete user',
            'text' => 'User deleted successfully!'
     ];
-header("Location: http://localhost/Lab-Automation/user-list.php");
+header("Location: http://localhost/Lab-Automation/admin_panel/user-list.php");
             exit;
 }
 else {
@@ -34,7 +34,7 @@ else {
            'title' => 'delete user ',
            'text' => 'User deleted unsuccessful!'
     ];
-    header("Location: http://localhost/Lab-Automation/add-user.php");
+    header("Location: http://localhost/Lab-Automation/admin_panel/add-user.php");
             exit;
 
 }

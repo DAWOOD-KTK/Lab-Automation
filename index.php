@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['webuser'])) {
+    header("Location: login.php");
+    exit; 
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +16,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>Electro - HTML Ecommerce Template</title>
+	<title>SRS Lab automations</title>
 
 
 	<!-- Google font -->
@@ -39,7 +48,11 @@
 
 
 </head>
-
+<style>
+	#cardImg{
+		height: 100px;
+	}
+</style>
 <body>
 	<!-- HEADER -->
 	<header >
@@ -48,8 +61,9 @@
 			<div class="container">
 			
 				<ul class="header-links pull-right">
-					<li><a href="#" class="btn ">Login</a></li>
-					<li><a href="#" class="btn ">Logout</a></li>
+					
+					<li><a href="login.php" class="btn ">Login</a></li>
+					<li><a href="logout.php" class="btn ">Logout</a></li>
 				</ul>
 			</div>
 		</div>
@@ -73,17 +87,7 @@
 					</div>
 					<!-- /LOGO -->
 
-					<!-- SEARCH BAR -->
-					<div class="col-md-6">
-						<div class="header-search">
-							<form>
-								
-								<input class="input" placeholder="Search here">
-								<button class="search-btn ">Search</button>
-							</form>
-						</div>
-					</div>
-					<!-- /SEARCH BAR -->
+					
 
 					<!-- ACCOUNT -->
 					<div class="col-md-3 clearfix">
@@ -125,6 +129,9 @@
 						<li><a href="#testimonials">Testimonials</a></li>
 						<li><a href="#our_team">Our Team</a></li>
 						<li><a href="#contact">Contact</a></li>
+						  <?php if( $_SESSION['webuser'] && $_SESSION['webuser']['roll'] == 'admin'  ){?>
+						<li><a href="admin_panel/index.php">Admin Panel</a></li>
+						<?php  }?> 
 
 					</ul>
 					<!-- /NAV -->
@@ -140,65 +147,11 @@
 			<!-- container -->
 			<div class="container ">
 				<!-- row -->
-				<div class="row">
-					<!-- shop -->
-					<div class="col-md-3 col-xs-6">
-						<div class="shop">
-							<div class="shop-img">
-								<img src="./img/1767804990_33kV Indoor Switchgear Panel8same.jpg" alt="">
-							</div>
-							<div class="shop-body">
-								<h3>Switchgear<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- /shop -->
-
-					<!-- shop -->
-					<div class="col-md-3 col-xs-6">
-						<div class="shop">
-							<div class="shop-img">
-								<img src="./img/1767806248_Drop-Out Fuse20.jpg" alt="">
-							</div>
-							<div class="shop-body">
-								<h3>Fuse<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- /shop -->
-
-					<!-- shop -->
-					<div class="col-md-3 col-xs-6">
-						<div class="shop">
-							<div class="shop-img">
-								<img src="./img/1767808724_HT Capacitor Bank1.jpg" alt="">
-							</div>
-							<div class="shop-body">
-								<h3>Capacitor<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- /shop -->
-
-					<!-- shop -->
-					<div class="col-md-3 col-xs-6">
-						<div class="shop">
-							<div class="shop-img">
-								<img src="./img/1767808108_High Power Resistor 100W2.jpg" alt="" class="img-fluid">
-
-							</div>
-							<div class="shop-body">
-								<h3>Rasistor<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- /shop -->
-				</div>
-				<!-- /row -->
+				<div class="container my-5">
+    <div id="product-container" class="row g-4">
+        <!-- Bootstrap cards will be injected here -->
+    </div>
+</div>
 			</div>
 			<!-- /container -->
 		</div>
@@ -248,20 +201,13 @@
 
 
 		<!-- /ABOUT US SECTION -->
-
-
-		<!-- SECTION -->
-		<div class="section" id="Products_Tyep">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-
-					<!-- section title -->
-					<div class="col-md-12">
-						<div class="section-title">
-							<h3 class="title">Products Type</h3>
-							<div class="section-nav">
+        <div class="section" id="product-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title ">
+                    <h3 class="title">Our Products</h3>
+					<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
 									<li class="active"><a data-toggle="tab" href="#tab1">Switchgears</a></li>
 									<li><a data-toggle="tab" href="#tab1">fuses</a></li>
@@ -269,307 +215,27 @@
 									<li><a data-toggle="tab" href="#tab1">Resistors</a></li>
 								</ul>
 							</div>
-						</div>
-					</div>
-					<!-- /section title -->
+                    
+                </div>
+            </div>
 
-					<!-- Products tab & slick -->
-					<div class="col-md-12">
-						<div class="row">
-							<div class="products-tabs">
-								<!-- tab -->
-								<div id="tab1" class="tab-pane active">
-									<div class="products-slick" data-nav="#slick-nav-1">
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
+            <div class="col-md-12">
+                <div class="products-tabs">
+                    <div class="tab-pane fade in active">
+                        <div class="products-slick" data-nav="#slick-nav-products">
+                            <!-- Products will be loaded here dynamically -->
+                        </div>
+                        <div id="slick-nav-products" class="products-slick-nav"></div>
+                    </div>
+                </div>
+            </div>
 
-											</div>
+        </div>
+    </div>
+</div>
 
-										</div>
-										<!-- /product -->
 
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-									</div>
-									<div id="slick-nav-1" class="products-slick-nav"></div>
-								</div>
-								<!-- /tab -->
-							</div>
-						</div>
-					</div>
-					<!-- Products tab & slick -->
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /SECTION -->
-		<!-- TESTING SECTION -->
-		<!-- TESTING SECTION -->
+	
 		<div class="section testing-section" id="Testing_Policy">
 			<div class="container">
 				<div class="row align-items-center">
@@ -612,12 +278,12 @@
 				</div>
 			</div>
 		</div>
-		<!-- /TESTING SECTION -->
 
 
 
-		<!-- SECTION -->
-		<div class="section" id="our_team">
+
+	
+		<div class="section" id="team-container">
 			<!-- container -->
 			<div class="container">
 				<!-- row -->
@@ -637,10 +303,9 @@
 						</div>
 
 					</div>
-					<!-- /section title -->
-					<!-- TEAM SECTION -->
+				
 
-					<!-- Team Slick -->
+			
 					<div class="col-md-12">
 						<div class="products-tabs">
 							<div class="tab-pane fade in active">
@@ -751,10 +416,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- /TEAM SECTION -->
-
-		<!-- SECTION -->
-		<!-- TESTIMONIAL SECTION -->
+	
 <div class="section" id="testimonials">
     <!-- container -->
     <div class="container">
@@ -957,21 +619,101 @@
 		<!-- /container -->
 		</div>
 
+<!-- jQuery first (only once) -->
+<script src="js/jquery.min.js"></script>
 
-		<!-- jQuery Plugins -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/slick.min.js"></script>
-		<script src="js/nouislider.min.js"></script>
-		<script src="js/jquery.zoom.min.js"></script>
-		<script src="js/main.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Bootstrap (depends on jQuery) -->
+<script src="js/bootstrap.min.js"></script>
 
-<!-- SweetAlert CDN -->
+<!-- Other jQuery plugins -->
+<script src="js/slick.min.js"></script>
+<script src="js/nouislider.min.js"></script>
+<script src="js/jquery.zoom.min.js"></script>
+
+<!-- Your custom JS (depends on all above) -->
+
+<script src="js/main.js"></script>
+<!-- SweetAlert2 (only once, after main.js if you use it there) -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+	document.addEventListener('DOMContentLoaded', () => {
+    // Example: button with ID 'loadProductsBtn'
+    const btn = document.getElementById('loadProductsBtn');
+    if(btn) {
+        btn.addEventListener('click', () => {
+            console.log('Button clicked!');
+        });
+    }
+
+	// fetch('http://localhost/lab-automation/api/getactivepro.php')
+    // You can also put your dynamic fetch here if needed
+});
+
+$(document).ready(function(){
+
+    function loadProducts() {
+        $.ajax({
+            url: 'http://localhost/lab-automation/api/getactivepro.php',  // your API endpoint
+            type: 'GET',
+            dataType: 'json',
+            success: function(products){
+                let html = '';
+
+                products.forEach(function(product){
+                    html += `
+                        <div class="product">
+                            <div class="product-img">
+                                <img src="${product.image}" alt="${product.product_name}" >
+                            </div>
+                            <div class="product-body text-center">
+                                <h3 class="product-name">${product.product_name}</h3>
+                                <h4 class="product-price">${product.product_type}</h4>
+                                <p style="font-size:13px; color:#555;">${product.product_description ?? ''}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                const container = $('#product-container .products-slick');
+
+                // Destroy slick if already initialized
+                if(container.hasClass('slick-initialized')){
+                    container.slick('unslick');
+                }
+
+                container.html(html);
+
+                // Initialize slick after HTML is added
+                container.slick({
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    dots: false,
+                    arrows: true,
+                    appendArrows: $('#slick-nav-products'),
+                    infinite: true,
+                    responsive: [
+                        { breakpoint: 1200, settings: { slidesToShow: 3 } },
+                        { breakpoint: 992,  settings: { slidesToShow: 2 } },
+                        { breakpoint: 768,  settings: { slidesToShow: 1 } }
+                    ]
+                });
+            },
+            error: function(err){
+                console.error('Failed to load products', err);
+            }
+        });
+    }
+
+    loadProducts(); // load on page ready
+
+});
+
+
+
+
 $(document).ready(function(){
     $('#contactForm').submit(function(e){
         e.preventDefault(); // prevent default form submit (no reload)

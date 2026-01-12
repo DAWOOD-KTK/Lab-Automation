@@ -3,7 +3,11 @@ session_start();
  if (!isset($_SESSION['user'])) {
    header("Location: login.php");
 
- }
+ } 
+ if (($_SESSION['user']['roll'] ?? '') == 'user') {
+    header("Location: ../index.php");
+    exit; 
+}
 
 ?> 
 
@@ -71,14 +75,14 @@ session_start();
 }
 .clr{
   color: #5a32a3 !important;
-  margin-left:-4px;
+ 
   
 }
 /*  */
       
 .size{
-  font-size:17px;
-  margin-top:5px;
+  font-size:15px;
+  margin-top:20px !important;
   color: Skyblue;
 }
 .shadow{
@@ -105,7 +109,7 @@ select{
 
 }
 .font{
-  font-size: 10px;/
+  font-size: 10px;
 }
 </style>
 <body>
@@ -122,7 +126,8 @@ select{
           <!-- App brand starts -->
           <div class="app-brand  p-3 my-2 m-auto">
             <a href="index.php" class="d-flex">
-              <img src="assets/images/log9.png" class="logo" alt="Auto_logo" class="img-fluid " ><p class="mx-3 size "><h1 class="clr"><b>L</b></h1></P><p class=" size"> ab</p> <p> <h1 class="clr"> <b>A</b></h1></P><p class=" size"> utomation</p>
+              <img src="assets/images/log9.png" class="logo" alt="Auto_logo" class="img-fluid " ><p class="mx-3 size "><h1 class="clr"><b>SRS</b></h1></P>
+             
             </a>
           </div>
 
@@ -263,16 +268,24 @@ select{
             <!-- App brand sm ends -->
 
             <!-- Page title starts -->
-             <p class="mx-3 size "><h1 class="clr ms-2"><b>L</b></h1></P><p class=" size"> ab</p> <p> <h1 class="clr ms-2"> <b>A</b></h1></P><p class=" size"> utomation</p>
-            <!-- <h5 class="m-0 ms-2 fw-semibold">Dashboard</h5> -->
+             <p class="mx-3 size "><p class="mx-3 size "><h1 class="clr"><b>SRS</b></h1></P>
+              <br>
+              <p class=" size">Manufacture</p>
             <!-- Page title ends -->
 
             <!-- App header actions starts -->
             <div class="header-actions">
-              <?php if (basename($_SERVER['PHP_SELF']) == 'products-list.php') {?>
+              <?php if (basename($_SERVER['PHP_SELF']) == 'products-list.php' ) {?>
               <!-- Search container start -->
               <div class="search-container d-xl-block d-none me-3">
-                <input type="text" class="form-control" id="searchData" placeholder="Search by Product ID or Testing ID" />
+                <input type="text" class="form-control " id="searchData" placeholder="by Product ID or Product Code" />
+                <i class="bi bi-search"></i>
+              </div>
+              <?php }?>
+              <?php if (basename($_SERVER['PHP_SELF'])  == 'testing-list.php') {?>
+              <!-- Search container start -->
+              <div class="search-container d-xl-block d-none me-3">
+                <input type="text" class="form-control  searchData" id="searchData" placeholder="By Testing ID or Testing Code" />
                 <i class="bi bi-search"></i>
               </div>
               <?php }?>
