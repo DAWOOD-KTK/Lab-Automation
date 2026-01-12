@@ -285,7 +285,7 @@ select{
               <?php if (basename($_SERVER['PHP_SELF'])  == 'testing-list.php') {?>
               <!-- Search container start -->
               <div class="search-container d-xl-block d-none me-3">
-                <input type="text" class="form-control  searchData" id="searchData" placeholder="By Testing ID or Testing Code" />
+                <input type="text" class="form-control  searchData"  placeholder="By Testing ID or Testing Code" />
                 <i class="bi bi-search"></i>
               </div>
               <?php }?>

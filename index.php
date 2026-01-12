@@ -1,53 +1,46 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['webuser'])) {
     header("Location: login.php");
-    exit; 
+    exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Electro - HTML Ecommerce Template</title>
+    <title>SRS Manufacture</title>
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
-	<!-- Google font -->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
-	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Slick CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
 
-	<!-- Slick -->
-	<link type="text/css" rel="stylesheet" href="css/slick.css" />
-	<link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
 
-	<!-- nouislider -->
-	<!-- <link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/> -->
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
-	<!-- Font Awesome Icon -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-
-	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="css/style.css" />
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
-
-
+    <style>
+        .product-item img {
+            height: 180px;
+            object-fit: cover;
+        }
+    </style>
 </head>
+
+
+
 <style>
 	#cardImg{
 		height: 100px;
@@ -142,19 +135,7 @@ if (!isset($_SESSION['webuser'])) {
 		</nav>
 		<!-- /NAVIGATION -->
 
-		<!-- SECTION -->
-		<div class="section">
-			<!-- container -->
-			<div class="container ">
-				<!-- row -->
-				<div class="container my-5">
-    <div id="product-container" class="row g-4">
-        <!-- Bootstrap cards will be injected here -->
-    </div>
-</div>
-			</div>
-			<!-- /container -->
-		</div>
+	
 
 		<!-- ABOUT US SECTION -->
 		<div class="section about-us" id="about">
@@ -203,323 +184,24 @@ if (!isset($_SESSION['webuser'])) {
 		<!-- /ABOUT US SECTION -->
 
 
-		<!-- SECTION -->
-		<div class="section" id="Products_Tyep">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
+<!-- PRODUCTS SECTION -->
 
-					<!-- section title -->
-					<div class="col-md-12">
-						<div class="section-title">
-							<h3 class="title">Products Type</h3>
-							<div class="section-nav">
-								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab1">Switchgears</a></li>
-									<li><a data-toggle="tab" href="#tab1">fuses</a></li>
-									<li><a data-toggle="tab" href="#tab1">capacitors</a></li>
-									<li><a data-toggle="tab" href="#tab1">Resistors</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- /section title -->
+<div class="section" id="our_products">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3 class="title">Our Products</h3>
+            <p class="section-desc">
+                Browse our high-quality electrical products, including switchgear, fuses, resistors, and capacitors.
+            </p>
+        </div>
 
-					<!-- Products tab & slick -->
-					<div class="col-md-12">
-						<div class="row">
-							<div class="products-tabs">
-								<!-- tab -->
-								<div id="tab1" class="tab-pane active">
-									<div class="products-slick" data-nav="#slick-nav-1">
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
+        <!-- Slick Container -->
+       <div class="products-slick" id="product-container" data-nav="#slick-nav-products"></div>
+<div id="slick-nav-products" class="products-slick-nav"></div>
+    </div>
+</div>
 
-											</div>
-
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product01.png" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Switchgear</p>
-												<h3 class="product-name"><a href="#">11kV Indoor Switchgear Panel</a>
-												</h3>
-												<h4 class="product-price">$980.00 <del
-														class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-
-											</div>
-
-										</div>
-										<!-- /product -->
-									</div>
-									<div id="slick-nav-1" class="products-slick-nav"></div>
-								</div>
-								<!-- /tab -->
-							</div>
-						</div>
-					</div>
-					<!-- Products tab & slick -->
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
+		
 		<!-- /SECTION -->
 		<!-- TESTING SECTION -->
 		<!-- TESTING SECTION -->
@@ -597,7 +279,7 @@ if (!isset($_SESSION['webuser'])) {
 					<div class="col-md-12">
 						<div class="products-tabs">
 							<div class="tab-pane fade in active">
-								<div class="products-slick" data-nav="#slick-nav-team">
+								<div class="products-slick" id="team-slider" data-nav="#slick-nav-team">
 
 									<!-- TEAM MEMBER -->
 									<div class="product">
@@ -908,97 +590,165 @@ if (!isset($_SESSION['webuser'])) {
 			<!-- /row -->
 		</div>
 		<!-- /container -->
-		</div>
+	</div>
+	
+	
+	
+	<!-- 1️⃣ jQuery FIRST -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	
+<script>
+// 	fetch('api/getactivepro.php')
+// .then(res => res.json())
+// .then(data => {
+//     console.log('API response:', data); // <-- Debug
+// });
+
+<script>
+
+$(document).ready(function() {
+
+   fetch('api/getactivepro.php')
+    .then(res => res.json())
+    .then(data => {
+        console.log('API products:', data);
+
+        if (!Array.isArray(data) || data.length === 0) {
+            $('#product-container').html('<div class="alert alert-warning text-center">No products found</div>');
+            return;
+        }
+
+        // Build HTML for products
+        let html = '';
+        data.forEach(p => {
+            html += `
+            <div class="product p-2">
+                <div class="product-img">
+                    <img src="admin_panel/assets/images/${p.image}" alt="${p.product_name}" class="img-fluid" style="height:180px; object-fit:cover;">
+                    <div class="product-label">
+                        <span class="new">${p.product_type}</span>
+                    </div>
+                </div>
+                <div class="product-body text-center">
+                    <h3 class="product-name">${p.product_name}</h3>
+                    <h4 class="product-price">${p.price ? 'Rs ' + p.price : ''}</h4>
+                    <p style="font-size:13px; color:#555;">
+                        ${p.description ? p.description : 'High-quality electrical product.'}
+                    </p>
+                </div>
+            </div>`;
+        });
+
+        const container = $('#product-container');
+        container.html(html); // ✅ Inject products into DOM
+
+        // Destroy previous Slick instance if it exists
+        if (container.hasClass('slick-initialized')) {
+            container.slick('unslick');
+        }
+
+        // Initialize Slick slider AFTER content is added
+        container.slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: true,
+            dots: false,
+            prevArrow: '<button class="slick-prev"><i class="fa fa-chevron-left"></i></button>',
+            nextArrow: '<button class="slick-next"><i class="fa fa-chevron-right"></i></button>',
+            responsive: [
+                { breakpoint: 1200, settings: { slidesToShow: 4 }},
+                { breakpoint: 992, settings: { slidesToShow: 3 }},
+                { breakpoint: 768, settings: { slidesToShow: 2 }},
+                { breakpoint: 576, settings: { slidesToShow: 1 }}
+            ]
+        });
+
+    })
+    .catch(err => {
+        console.error(err);
+        $('#product-container').html('<div class="alert alert-danger text-center">Error loading products</div>');
+    });
+	$('#team-slider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3500,
+    arrows: true,
+    dots: false,
+    prevArrow: '<button class="slick-prev"><i class="fa fa-chevron-left"></i></button>',
+    nextArrow: '<button class="slick-next"><i class="fa fa-chevron-right"></i></button>',
+    responsive: [
+        { breakpoint: 1200, settings: { slidesToShow: 3 }},
+        { breakpoint: 992, settings: { slidesToShow: 2 }},
+        { breakpoint: 768, settings: { slidesToShow: 2 }},
+        { breakpoint: 576, settings: { slidesToShow: 1 }}
+    ]
+});
+
+    });
 
 
-		<!-- jQuery Plugins -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/slick.min.js"></script>
-		<script src="js/nouislider.min.js"></script>
-		<script src="js/jquery.zoom.min.js"></script>
-		<script src="js/main.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!-- SweetAlert CDN -->
+
+
+
+
+
+
+// ✅ CONTACT FORM (unchanged – correct)
+$(document).ready(function(){
+  $('#contactForm').submit(function(e){
+    e.preventDefault();
+
+    $.ajax({
+      url: 'admin_panel/backend/contact.php',
+      type: 'POST',
+      data: $(this).serialize(),
+      success: function(){
+        Swal.fire({
+          icon: 'success',
+          title: 'Sent!',
+          text: 'Your message has been sent successfully!',
+          timer: 2500,
+          showConfirmButton: false
+        });
+        $('#contactForm')[0].reset();
+      },
+      error: function(){
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops!',
+          text: 'Something went wrong.'
+        });
+      }
+    });
+  });
+});
+
+</script>
+<!-- 1️⃣ jQuery FIRST -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- 2️⃣ Bootstrap JS -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- 3️⃣ Slick JS -->
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<!-- 4️⃣ SweetAlert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-	const productContainer = document.getElementById('product-container');
+<!-- 5️⃣ Other plugins -->
+<script src="js/nouislider.min.js"></script>
+<script src="js/jquery.zoom.min.js"></script>
 
-fetch('http://localhost/lab-automation/api/getactivepro.php')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then(data => {
-    let productHTML = '';
+<!-- 6️⃣ Custom scripts LAST -->
+<script src="js/main.js"></script>
 
-    // Corrected: use forEach (capital E) and unique variable name 'product'
-    data.forEach(product => {
-      productHTML += `
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="card h-100 shadow-lg rounded">
-            <!-- Use product.image from your API keys -->
-            <img src="admin_panel/assets/images/${product.image}" class="card-img-top" id='cardImg' alt="${product.product_name}" >
-            <div class="card-body">
-              <h5 class="card-title text-primary">${product.product_name}</h5>
-              <p class="card-text">
-              
-                <strong>Type:</strong> ${product.product_type}<br>
-             
-              </p>
-            </div>
-            
-          </div>
-        </div>
-      `;
-    });
-
-    // Inject the generated HTML into the container
-    productContainer.innerHTML = productHTML;
-  })
-  .catch(err => {
-    console.error('Fetch error:', err);
-    productContainer.innerHTML = `<div class="alert alert-danger">Error loading products.</div>`;
-  });
-
-
-  
-
-
-$(document).ready(function(){
-    $('#contactForm').submit(function(e){
-        e.preventDefault(); // prevent default form submit (no reload)
-
-        $.ajax({
-            url: 'admin_panel/backend/contact.php', // aapka backend path
-            type: 'POST',
-            data: $(this).serialize(),
-            success: function(response){
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Sent!',
-                    text: 'Your message has been sent successfully! Our team will contact you soon.',
-                    timer: 2500,
-                    showConfirmButton: false
-                });
-                $('#contactForm')[0].reset(); // clear form
-            },
-            error: function(){
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops!',
-                    text: 'Something went wrong. Please try again.'
-                });
-            }
-        });
-    });
-});
-</script>
 
 </body>
 

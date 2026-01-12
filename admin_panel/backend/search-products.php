@@ -4,34 +4,56 @@ include "db.php";
 
 $q = isset($_GET['q']) ? mysqli_real_escape_string($conn, $_GET['q']) : "";
 
-$sql = "SELECT * FROM testing_data 
-        WHERE testing_id LIKE '%$q%' 
-        OR testing_code LIKE '%$q%'";
-
+$sql = "SELECT * FROM products 
+        WHERE product_id LIKE '%$q%' 
+        OR product_code LIKE '%$q%'";
 $result = mysqli_query($conn, $sql);
 
-if(mysqli_num_rows($result) > 0){
-    while($data = mysqli_fetch_assoc($result)){
-        ?>
-        <tr>
-            <td class="text-center"><?= $data['id'] ?></td>
-            <td class="text-center"><?= $data['testing_id'] ?></td>
-            <td class="text-center"><?= $data['product_id'] ?></td>
-            <td class="text-center"><?= $data['product_code'] ?></td>
-            <td class="text-center"><?= $data['testing_code'] ?></td>
-            <td class="text-center"><?= $data['testing_roll'] ?></td>
-            <td class="text-center"><?= $data['revision'] ?></td>
-            <td class="text-center"><?= $data['product_type'] ?></td>
-            <td class="text-center"><?= $data['testing_type'] ?></td>
-            <td class="text-center"><?= $data['result_type'] ?></td>
-            <td class="text-center"><?= $data['tested_by'] ?></td>
-            <td class="text-center"><?= $data['remarks'] ?></td>
-            <td class="text-center"><?= $data['send_to'] ?></td>
-            <td class="text-center"><?= $data['is_locked'] ?></td>
-        </tr>
-        <?php
+if (mysqli_num_rows($result) > 0) {
+
+    while ($data = mysqli_fetch_assoc($result)) {
+?>
+<tr>
+    <td class="text-center"><?= $data["id"] ?></td>
+    <td><?= $data["product_id"] ?></td>
+    <td class="text-center"><?= $data["product_code"] ?></td>
+    <td class="text-center"><?= $data["rivision"] ?></td>
+    <td class="text-center"><?= $data["manufacturing_no"] ?></td>
+    <td><?= $data["product_type"] ?></td>
+    <td><?= $data["product_name"] ?></td>
+    <td>
+        <img src="assets/images/<?= $data["image"] ?>" width="50">
+    </td>
+    <td class="text-center"><?= $data["is_active"]; ?></td>
+
+    <?php if ($_SESSION['user']['roll'] == 'admin') { ?>
+    <td class="text-center">
+        <?php if ($data['is_active'] == 1) { ?>
+            <a href="view-product.php?id=<?= $data['id']?>" class="btn btn-info btn-sm">View</a>
+            <a href="edit-products.php?id=<?= $data['id']?>" class="btn btn-warning btn-sm">Update</a>
+            <a href="backend/deactivate-product.php?id=<?= $data['id']?>"
+               class="btn btn-danger btn-sm"
+               onclick="return confirm('Deactivate this product?')">
+               Deactivate
+            </a>
+        <?php } else { ?>
+            <a href="view-product.php?id=<?= $data['id']?>" class="btn btn-info btn-sm">View</a>
+            <a href="backend/reactivate-product.php?id=<?= $data['id']?>" 
+               class="btn btn-success btn-sm">
+               Reactivate
+            </a>
+        <?php } ?>
+    </td>
+    <?php } ?>
+</tr>
+<?php
     }
+
 } else {
-    echo "<tr><td colspan='14' class='text-center'>No testing record found</td></tr>";
+    echo "<tr>
+            <td colspan='10' class='text-center text-danger fw-bold'>
+                No products found
+            </td>
+          </tr>";
 }
 ?>
