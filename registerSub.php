@@ -1,90 +1,99 @@
 <?php
-session_start(); 
-include "admin_panel/backend/db.php";;
-// if(isset($_POST["submit"])){
-$name = mysqli_real_escape_string($conn, $_POST["name"]);
-$password = password_hash($_POST["password"], PASSWORD_BCRYPT);
-$roll = mysqli_real_escape_string($conn, $_POST["user"]);
-$email = mysqli_real_escape_string($conn, $_POST['email']);
+session_start();
+include "admin_panel/backend/db.php";
 
- //email validation
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-         $_SESSION['alert'] = [
-        'type' => 'error',
-        'title' => 'Invalid Email',
-        'text' => 'Please enter a valid email address'
-     ]; 
-    header( "Location: register.php");
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header("Location: register.php");
     exit;
 }
 
-//unique email validation
-$check = mysqli_query($conn, "SELECT * FROM userstaafe WHERE email='$email'");
-if(mysqli_num_rows($check) > 0){
-         $_SESSION['alert'] = [
+$name  = mysqli_real_escape_string($conn, $_POST['name']);
+$email = mysqli_real_escape_string($conn, $_POST['email']);
+$roll  = 'user';
+$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+
+/* Email validation */
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $_SESSION['alert'] = [
         'type' => 'error',
-        'title' => 'Duplicate Email',
-        'text' => 'This email already exists!'
+        'title' => 'Invalid Email',
+        'text' => 'Please enter a valid email address'
     ];
     header("Location: register.php");
     exit;
 }
 
+/* Unique email */
+$check = mysqli_query($conn, "SELECT id FROM userstaafe WHERE email='$email' LIMIT 1");
+if (mysqli_num_rows($check) > 0) {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'title' => 'Duplicate Email',
+        'text' => 'This email already exists'
+    ];
+    header("Location: register.php");
+    exit;
+}
 
+/* Image validation */
+if (!isset($_FILES['image']) || $_FILES['image']['error'] != 0) {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'title' => 'Image Required',
+        'text' => 'Please upload an image'
+    ];
+    header("Location: register.php");
+    exit;
+}
 
+$imagename = $_FILES['image']['name'];
+$tmp_image = $_FILES['image']['tmp_name'];
+$size = $_FILES['image']['size'];
+$ext = strtolower(pathinfo($imagename, PATHINFO_EXTENSION));
+$allowed = ['jpg','jpeg','png'];
+$max = 5 * 1024 * 1024;
 
-$imagename =$_FILES["image"]["name"] ;
-$tmp_image =$_FILES["image"]["tmp_name"] ;
-$type_image =$_FILES["image"]["type"] ;
-$image_size =$_FILES["image"]["size"] ;
-// $folder ="../assets/images/" . $imagename;
-$max = 1024*1024*5 ;
+if (!in_array($ext, $allowed)) {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'title' => 'Invalid Image Type',
+        'text' => 'Only JPG, JPEG, PNG allowed'
+    ];
+    header("Location: register.php");
+    exit;
+}
 
-    if ($type_image == "image/png" || $type_image == "image/jpg" || $type_image == "image/jpeg" ) {
+if ($size > $max) {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'title' => 'Image Too Large',
+        'text' => 'Max size is 5MB'
+    ];
+    header("Location: register.php");
+    exit;
+}
 
-        if ($image_size < $max) {
-            $imagename = time() . '_' . $imagename;
-            $folder = "admin_panel/assets/images/" . $imagename;
-            move_uploaded_file($tmp_image,$folder);
-            $q = "INSERT INTO `userstaafe`(`id`, `name`, `email`, `passwd`, `roll`, `image`) VALUES (Null,'$name','$email','$password','$imagename')";
-            $res = mysqli_query($conn,$q);
-            if ($res) {
-            $_SESSION['alert'] = [
-           'type' => 'success',
-           'title' => 'User Added',
-           'text' => 'LOgin successfully!'
-            ];
-            header("Location: index.php");
-            exit;
-            }else{
-            $error = mysqli_error($conn);
-            $_SESSION['alert'] = [
-           'type' =>'error',
-           'title' => 'Database Error',
-           'text' => addslashes($error)
-            ];
-            header("Location: register.php");
-            exit;
-            }
-            }else{
-            $_SESSION['alert'] = [
-           'type' => 'error',
-           'title' => 'Image Too Large',
-           'text' => 'Image size is greater than 5MB'
-            ];
-            header("Location: register.php ");
-            exit;
-           }  
-           }else{
-           $_SESSION['alert'] = [
-           'type' => 'error',
-           'title' =>  'Invalid Image Type',
-           'text' => 'Only PNG, JPG, and JPEG files are supported'
-            ];
-            header("Location: register.php");
-            exit;
-           }
-// }
-    
+$imagename = time() . '_' . $imagename;
+$folder = "admin_panel/assets/images/" . $imagename;
+move_uploaded_file($tmp_image, $folder);
 
-?>
+/* Insert user */
+$q = "INSERT INTO userstaafe (name, email, passwd, roll, image)
+      VALUES ('$name', '$email', '$password', '$roll', '$imagename')";
+
+if (mysqli_query($conn, $q)) {
+    $_SESSION['alert'] = [
+        'type' => 'success',
+        'title' => 'Success',
+        'text' => 'Registered successfully!'
+    ];
+    header("Location: index.php");
+} else {
+    $_SESSION['alert'] = [
+        'type' => 'error',
+        'title' => 'Database Error',
+        'text' => mysqli_error($conn)
+    ];
+    header("Location: register.php");
+}
+exit;
