@@ -183,7 +183,7 @@ if (!isset($_SESSION['webuser'])) {
 
 
 		<!-- /ABOUT US SECTION -->
-<<<<<<< HEAD
+
         <div class="section" id="product-container">
     <div class="container">
         <div class="row">
@@ -218,33 +218,8 @@ if (!isset($_SESSION['webuser'])) {
 </div>
 
 
-	
-=======
 
 
-<!-- PRODUCTS SECTION -->
-
-<div class="section" id="our_products">
-    <div class="container">
-        <div class="section-title text-center">
-            <h3 class="title">Our Products</h3>
-            <p class="section-desc">
-                Browse our high-quality electrical products, including switchgear, fuses, resistors, and capacitors.
-            </p>
-        </div>
-
-        <!-- Slick Container -->
-       <div class="products-slick" id="product-container" data-nav="#slick-nav-products"></div>
-<div id="slick-nav-products" class="products-slick-nav"></div>
-    </div>
-</div>
-
-		
-		<!-- /SECTION -->
-		<!-- TESTING SECTION -->
-		<!-- TESTING SECTION -->
->>>>>>> 57499fedb306758fe52572a4fdd156fe830a40da
-		<div class="section testing-section" id="Testing_Policy">
 			<div class="container">
 				<div class="row align-items-center">
 					<!-- IMAGE -->
