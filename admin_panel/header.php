@@ -270,7 +270,7 @@ select{
             <!-- Page title starts -->
              <p class="mx-3 size "><p class="mx-3 size "><h1 class="clr"><b>SRS</b></h1></P>
               <br>
-              <p class=" size">Manufacture</p>
+              <p class=" size">Management</p>
             <!-- Page title ends -->
 
             <!-- App header actions starts -->
