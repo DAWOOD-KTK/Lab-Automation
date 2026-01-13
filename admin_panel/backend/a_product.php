@@ -33,7 +33,7 @@ if (!in_array($type_image, ['image/png','image/jpg','image/jpeg'])) {
         'title' => 'Invalid Image',
         'text' => 'Only PNG, JPG, and JPEG files are allowed'
     ];
-    header("Location: http://localhost/Lab-Automation/add-product.php");
+    header("Location: ../add-product.php");
     exit;
 }
 if ($image_size > $max) {
@@ -42,7 +42,7 @@ if ($image_size > $max) {
         'title' => 'Large Image',
         'text' => 'Image must be less than 5MB'
     ];
-    header("Location: http://localhost/Lab-Automation/add-product.php");
+    header("Location: ../add-product.php");
     exit;
 }
 
@@ -62,7 +62,7 @@ if ($res) {
         'title' => 'Success',
         'text' => 'Product added successfully'
     ];
-    header("Location: http://localhost/Lab-Automation/add-product.php");
+    header("Location: ../add-product.php");
     exit;
 }
 $_SESSION['alert'] = [
@@ -70,7 +70,7 @@ $_SESSION['alert'] = [
     'title' => 'Insert Failed',
     'text' => 'Manufacturing No Is Already Existed...!'
 ];
- header("Location: http://localhost/Lab-Automation/add-product.php");
+ header("Location: ../add-product.php");
 exit;
 $_SESSION['alert'] = [
     'type' => 'success',
