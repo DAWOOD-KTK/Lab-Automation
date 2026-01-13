@@ -57,7 +57,7 @@ Swal.fire({
                 <!-- Logo -->
                 <a href="index.php" class="auth-logo mt-5 mb-3  text-center d-flex">
                    <img src="img/srs3-removebg-preview.png" width="50" style="margin-left:90px">
-                   <p class="mx-3 size "><h1 class="clr"><b>SRS</b></h1></P><p class="mt-2 ms-2" style="color:#5a32a3; font-weight:900;font-size:20px">Manufacture</p>
+                   <p class="mt-2 ms-2" style="color:#5a32a3; font-weight:900;font-size:20px">Manufacture</p>
                 </a>
 
                 <!-- Box -->
