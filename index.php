@@ -617,7 +617,7 @@ $(document).ready(function(){
 
                 products.forEach(function(product){
                     html += `
-                        <div class="product">
+                        <div class="product" >
                             <div class="product-img">
                                <img src="/Lab-Automation/admin_panel/assets/images/${product.image
 || 'no-image.png'}" alt="${product.product_name}" height="300px"; >
@@ -625,7 +625,7 @@ $(document).ready(function(){
                             <div class="product-body text-center">
                                 <h3 class="product-name">${product.product_name}</h3>
                                 <h4 class="product-price">${product.product_type}</h4>
-                                <p style="font-size:13px; color:#555;">${product.product_description ?? ''}</p>
+                                <p style="font-size:13px; color:#555;">${product.product_id}</p>
                             </div>
                         </div>
                     `;
