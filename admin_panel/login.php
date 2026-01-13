@@ -33,6 +33,21 @@ if (isset($_SESSION['user'])) {
     <link rel="stylesheet" href="assets/css/main.min.css" />
 
   </head>
+  <style>
+         
+.size{
+  font-size:15px;
+  margin-top:20px !important;
+  color: Skyblue;
+}
+.clr{
+  color: #5a32a3 !important;
+  margin-top:12px !important;
+
+ 
+  
+}
+  </style>
 
   <body>
  
@@ -50,14 +65,16 @@ if (isset($_SESSION['user'])) {
 
             <!-- Logo starts -->
             <a href="index.html" class="auth-logo mt-5 mb-3">
-              <img src="assets/images/logo.svg" alt="Bootstrap Gallery" />
+               <p class="mx-3 size "><p class="mx-3 size "><h1 class="clr"><b>SRS</b></h1></P>
+              <br>
+              <p class=" size" style="font-weight:900;font-size:20px">Management</p>
             </a>
             <!-- Logo ends -->
              
 
             <!-- Authbox starts -->
             <div class="auth-box">
-              <h3 class="title bg-primary rounded text-light text-center p-2 mb-4 mx-auto">LOGIN</h3>
+              <h3 class="title bg-primary rounded text-light text-center p-2 mb-4 mx-auto">LOGIN TO DASHBOARD</h3>
 
               <div class="mb-3">
                 <label class="form-label" for="email">Email <span class="text-danger">*</span></label>

@@ -74,7 +74,7 @@ if (!isset($_SESSION['webuser'])) {
 						
 							<a class="logo" href="#">
                         <img src="img/srs3-removebg-preview.png" width="50">
-                        <small style="color:white">Manufacture</small>
+                        <small style="color:white ;font-weight:900;font-size:17px">Manufacture</small>
                     </a>
 						
 					</div>
@@ -711,7 +711,7 @@ $(document).ready(function(){
 <script src="js/main.js"></script>
 
 
-==============
+
 
 
 
